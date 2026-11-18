@@ -266,7 +266,7 @@ footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: fl
         </a>
       </div>
       <div class="meta">
-        <span>Versión <b id="ver">—</b></span>
+        <span>Última APK <b id="ver">—</b></span>
         <span>Android 10 o superior</span>
         <span><b id="tone-count">140</b> tonos en la tienda</span>
       </div>
@@ -446,7 +446,7 @@ footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: fl
         <div class="sec-head" style="margin-bottom:14px">
           <span class="eyebrow">Novedades</span>
         </div>
-        <div class="releases" id="releases"><p class="empty">Las versiones aparecerán aquí cuando publiques la primera en GitHub.</p></div>
+        <div class="releases" id="releases"><p class="empty">Cargando novedades…</p></div>
       </div>
     </div>
   </section>
@@ -469,7 +469,7 @@ footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: fl
   const GH = `https://github.com/${REPO}`;
   document.querySelectorAll(".repo-link").forEach(a => a.href = GH);
   document.getElementById("all-rel").href = `${GH}/releases`;
-  const APK = `${GH}/releases/latest/download/Zentones.apk`;
+  const APK = `${GH}/releases/download/android-latest/Zentones.apk`;
   document.getElementById("apk").href = APK;
   try { document.getElementById("qr").innerHTML = QR.svg(APK, { ecl: "M", border: 2 }); } catch (e) { document.querySelector(".qr-row").remove(); }
   document.querySelectorAll(".nav .apk-link, .hero .apk-link").forEach(a => a.href = "#descargar");
@@ -485,17 +485,19 @@ footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: fl
 
   // Versiones desde la API de GitHub
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const notesP = fetch("changelog.json", { cache: "no-store" }).then(r => r.json()).catch(() => ({}));
-  fetch(`https://api.github.com/repos/${REPO}/releases?per_page=5`).then(r => r.ok ? r.json() : []).then(async list => {
-    if (!Array.isArray(list) || !list.length) return;
-    const notes = await notesP;
-    list.forEach(r => { if (!r.body) r.body = (notes[r.tag_name.replace(/^v/, "")] || {}).es || ""; });
-    const v = list[0].tag_name;
-    document.getElementById("ver").textContent = v.replace(/^v/, "");
-    document.getElementById("ver2").textContent = v;
-    document.getElementById("releases").innerHTML = list.map(r => `
-      <article class="rel"><header><h4>${esc(r.tag_name)}</h4><time>${new Date(r.published_at).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}</time></header>
-      ${r.body ? `<pre>${esc(r.body.slice(0, 600))}</pre>` : ""}</article>`).join("");
+  // Última APK (release "android-latest") + novedades de changelog.json
+  const fecha = d => new Date(d).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+  fetch(`https://api.github.com/repos/${REPO}/releases/tags/android-latest`).then(r => r.ok ? r.json() : null).then(rel => {
+    const apk = rel && (rel.assets || []).find(a => a.name.endsWith(".apk"));
+    if (!apk) return;
+    document.getElementById("ver").textContent = fecha(apk.updated_at);
+    document.getElementById("ver2").textContent = `· ${fecha(apk.updated_at)}`;
+  }).catch(() => {});
+  fetch("changelog.json", { cache: "no-store" }).then(r => r.json()).then(notes => {
+    const list = Object.keys(notes).filter(k => k !== "_");
+    if (!list.length) return;
+    document.getElementById("releases").innerHTML = list.map(v => `
+      <article class="rel"><header><h4>${esc(v)}</h4></header><pre>${esc((notes[v].es || "").replace(/^##.*\n+/, ""))}</pre></article>`).join("");
   }).catch(() => {});
 
   // Tienda

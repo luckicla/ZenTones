@@ -7,10 +7,8 @@ plugins {
 // En GitHub Actions GITHUB_REPOSITORY = "usuario/repo"; en local se usa gradle.properties
 val ghRepo: String = System.getenv("GITHUB_REPOSITORY")
     ?: (project.findProperty("zentones.repo") as String? ?: "luckicla/Zentones")
-// La versión se cambia en gradle.properties (zentones.version). Al subir a main, si es nueva, se publica sola.
-val vName: String = (project.findProperty("appVersion") as String? ?: project.findProperty("zentones.version") as String? ?: "1.0.0").removePrefix("v")
-val vNums = vName.split('.').map { it.takeWhile(Char::isDigit).toIntOrNull() ?: 0 } + listOf(0, 0, 0)
-val vCode: Int = vNums[0] * 10000 + vNums[1] * 100 + vNums[2]
+// Versión: sale del contador de ejecuciones de GitHub Actions, así cada compilación es mayor que la anterior
+val runNumber: String = System.getenv("GITHUB_RUN_NUMBER") ?: "1"
 val freesoundKey: String = System.getenv("FREESOUND_KEY") ?: (project.findProperty("zentones.freesound") as String? ?: "")
 
 android {
@@ -21,19 +19,21 @@ android {
         applicationId = "com.zentones.app"
         minSdk = 29
         targetSdk = 35
-        versionCode = vCode
-        versionName = vName
+        versionCode = Integer.parseInt(runNumber)
+        versionName = "1.0.$runNumber"
         buildConfigField("String", "GITHUB_REPO", "\"$ghRepo\"")
         buildConfigField("String", "FREESOUND_KEY", "\"$freesoundKey\"")
+        // Momento de la compilación: el actualizador lo compara con la fecha del APK publicado
+        buildConfigField("long", "BUILD_TIME", "${System.currentTimeMillis()}L")
     }
 
     signingConfigs {
         create("release") {
-            // Misma firma siempre: así cada APK nuevo se instala encima del anterior sin desinstalar
-            storeFile = file(System.getenv("KS_FILE") ?: rootProject.file("zentones.jks").path)
-            storePassword = System.getenv("KS_PASS") ?: "zentones"
-            keyAlias = "zentones"
-            keyPassword = System.getenv("KS_PASS") ?: "zentones"
+            // Siempre el MISMO keystore: si cambia, el móvil no deja instalar encima
+            storeFile = file("release.keystore")
+            storePassword = "zentones"
+            keyAlias = "app"
+            keyPassword = "zentones"
         }
     }
 

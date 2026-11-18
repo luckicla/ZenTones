@@ -151,7 +151,7 @@ fun SettingsScreen(ls: LazyListState, pad: PaddingValues) {
                         .onSuccess { r ->
                             if (r.isNewer) {
                                 st.update = r
-                                status = "Nueva versión ${r.version}"
+                                status = "Nueva versión del ${r.version}"
                                 sheets.show("Actualización disponible") { UpdateSheet() }
                             } else status = "Estás al día (${BuildConfig.VERSION_NAME})"
                         }
@@ -203,7 +203,7 @@ fun UpdateSheet() {
     var apk by remember { mutableStateOf<java.io.File?>(null) }
 
     Text(
-        "Zentones ${rel.version}", fontSize = 22.sp, fontWeight = FontWeight.SemiBold, color = pal.text,
+        "Versión del ${rel.version}", fontSize = 22.sp, fontWeight = FontWeight.SemiBold, color = pal.text,
         modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp),
     )
     Text("Tienes la ${BuildConfig.VERSION_NAME}", fontSize = 14.sp, color = pal.sub, modifier = Modifier.padding(horizontal = 24.dp))

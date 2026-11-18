@@ -1,5 +1,5 @@
 {
-  "_": "Notas de cada versión. Se usan al crear la release y en la web si la release no trae notas.",
+  "_": "Novedades que muestra la web.",
   "1.0.0": {
     "es": "## Zentones 1.0.0\n\n- Tonos de llamada, notificaciones y alarma del sistema.\n- 18 tonos de serie: Bambú, Ding, Tri-tono, Reflejo, Apertura…\n- Tienda con 140 tonos originales y búsqueda en Freesound.\n- Editor para recortar cualquier audio y guardarlo como tono.\n- Guía paso a paso para poner un tono a cada app.\n- Cuatro interfaces (Pixel, HyperOS, One UI y Sony), elegida sola según tu móvil.\n- Se actualiza sola desde GitHub."
   }

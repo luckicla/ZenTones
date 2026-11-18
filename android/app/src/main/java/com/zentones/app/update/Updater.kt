@@ -12,6 +12,10 @@ import org.json.JSONObject
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 /** Actualizaciones desde las Releases de GitHub del repo con el que se compiló la app. */
 object Updater {
@@ -20,8 +24,12 @@ object Updater {
     val repo: String get() = BuildConfig.GITHUB_REPO
     val repoUrl: String get() = "https://github.com/$repo"
 
+    /**
+     * Cada push a main publica Zentones.apk en la release "android-latest".
+     * Hay actualización si ese APK se subió bastante después de compilar el que tienes instalado.
+     */
     suspend fun check(): Release = withContext(Dispatchers.IO) {
-        val c = (URL("https://api.github.com/repos/$repo/releases/latest").openConnection() as HttpURLConnection).apply {
+        val c = (URL("https://api.github.com/repos/$repo/releases/tags/android-latest").openConnection() as HttpURLConnection).apply {
             setRequestProperty("Accept", "application/vnd.github+json")
             setRequestProperty("User-Agent", "Zentones-Android")
             connectTimeout = 10_000
@@ -30,17 +38,22 @@ object Updater {
         try {
             when (c.responseCode) {
                 200 -> Unit
-                404 -> error("Todavía no hay versiones publicadas en $repo")
+                404 -> error("Todavía no hay ninguna APK publicada en $repo")
                 else -> error("GitHub respondió ${c.responseCode}")
             }
             val j = JSONObject(c.inputStream.bufferedReader().readText())
-            val tag = j.getString("tag_name").removePrefix("v")
             val assets = j.optJSONArray("assets")
-            val apk: String? = if (assets == null) null else (0 until assets.length())
+            val apk = if (assets == null) null else (0 until assets.length())
                 .map { assets.getJSONObject(it) }
                 .firstOrNull { it.getString("name").endsWith(".apk") }
-                ?.getString("browser_download_url")
-            Release(tag, j.optString("body"), apk, j.optString("html_url", repoUrl), compare(tag, BuildConfig.VERSION_NAME) > 0)
+            val uploaded = apk?.optString("updated_at")?.let { runCatching { Instant.parse(it).toEpochMilli() }.getOrNull() } ?: 0L
+            val label = if (uploaded > 0) DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm", Locale("es", "ES"))
+                .withZone(ZoneId.systemDefault()).format(Instant.ofEpochMilli(uploaded)) else "?"
+            Release(
+                label, j.optString("body"), apk?.getString("browser_download_url"),
+                j.optString("html_url", repoUrl),
+                uploaded > BuildConfig.BUILD_TIME + 15 * 60 * 1000,
+            )
         } finally {
             c.disconnect()
         }
