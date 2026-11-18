@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zentones</title>
+<meta name="description" content="Tonos de llamada y de mensaje para cada app, con tienda, editor y cuatro interfaces: Pixel, HyperOS, One UI y Sony.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 108'%3E%3Cdefs%3E%3ClinearGradient id='g' x2='1' y2='1'%3E%3Cstop stop-color='%236C5CFF'/%3E%3Cstop offset='1' stop-color='%231FB6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='108' height='108' rx='30' fill='url(%23g)'/%3E%3Cg fill='white'%3E%3Crect x='30' y='45' width='8' height='18' rx='4'/%3E%3Crect x='42' y='35' width='8' height='38' rx='4'/%3E%3Crect x='54' y='27' width='8' height='54' rx='4'/%3E%3Crect x='66' y='38' width='8' height='32' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* Una sola atmósfera: noche azul tinta con cristal esmerilado, como la app.
+   Layout: barra de cristal fija → hero en dos columnas → estilos (4 móviles) → funciones → tienda → versiones. */
+:root {
+  --ink: #0B0D17;
+  --ink-2: #12152A;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-line: rgba(255, 255, 255, 0.12);
+  --text: #EEF0FA;
+  --muted: #9BA1BF;
+  --violet: #7B6CFF;
+  --cyan: #2CC0FF;
+  --accent: #8FA2FF;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r: 22px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--ink); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::before {
+  content: ""; position: fixed; inset: -20vmax; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40vmax 30vmax at 15% 10%, rgba(123, 108, 255, .28), transparent 70%),
+    radial-gradient(35vmax 28vmax at 90% 25%, rgba(44, 192, 255, .20), transparent 70%),
+    radial-gradient(40vmax 30vmax at 50% 95%, rgba(123, 108, 255, .14), transparent 70%);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.02em; }
+.wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+
+/* Barra de cristal */
+.nav {
+  position: sticky; top: 12px; z-index: 20; margin: 12px auto 0; width: min(1160px, 100% - 24px);
+  display: flex; align-items: center; gap: 18px; padding: 10px 12px 10px 16px; border-radius: 999px;
+  background: rgba(18, 21, 42, .55); border: 1px solid var(--glass-line);
+  backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 19px; text-decoration: none; }
+.logo { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--violet), var(--cyan)); display: grid; place-items: center; }
+.logo svg { width: 22px; height: 22px; }
+.nav .links { display: flex; gap: 4px; margin-left: auto; }
+.nav .links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
+.nav .links a:hover { color: var(--text); background: var(--glass); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 600 15px var(--body); padding: 11px 18px; border-radius: 999px; color: #0B0D17;
+  background: linear-gradient(135deg, #A99EFF, #6FD6FF); box-shadow: 0 8px 30px rgba(108, 140, 255, .35);
+}
+.btn.ghost { background: var(--glass); color: var(--text); border: 1px solid var(--glass-line); box-shadow: none; }
+.btn svg { width: 18px; height: 18px; }
+@media (max-width: 760px) { .nav .links { display: none; } .nav .btn { margin-left: auto; } }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding: 72px 0 40px; }
+.hero h1 { font-size: clamp(44px, 7vw, 84px); line-height: .98; font-weight: 800; }
+.hero h1 span { background: linear-gradient(100deg, #B3A9FF, #6FD6FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p.lead { color: var(--muted); font-size: 19px; max-width: 34ch; margin: 20px 0 28px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.meta { margin-top: 18px; color: var(--muted); font-size: 14px; display: flex; gap: 16px; flex-wrap: wrap; }
+.meta b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 48px; } }
+
+/* Teléfono del hero: tarjeta "sonando ahora" */
+.stage { position: relative; display: grid; place-items: center; }
+.ringing {
+  width: min(340px, 100%); padding: 22px; border-radius: 32px; background: rgba(255, 255, 255, .07);
+  border: 1px solid var(--glass-line); backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+.ringing .row { display: flex; align-items: center; gap: 12px; }
+.ringing .app { width: 44px; height: 44px; border-radius: 14px; background: #25D366; display: grid; place-items: center; font-weight: 700; color: #fff; }
+.ringing small { color: var(--muted); display: block; font-size: 13px; }
+.wave { display: flex; align-items: center; gap: 4px; height: 70px; margin: 22px 0 18px; }
+.wave i { flex: 1; border-radius: 4px; background: linear-gradient(180deg, #B3A9FF, #6FD6FF); animation: bounce 1.2s ease-in-out infinite; transform-origin: center; }
+@keyframes bounce { 50% { transform: scaleY(.35); } }
+.pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line); color: var(--muted); }
+.pill.on { color: #0B0D17; background: #B3C0FF; border-color: transparent; font-weight: 600; }
+
+section { padding: 64px 0; }
+.eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 62ch; }
+.sec-head h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.05; font-weight: 700; }
+.sec-head p { margin: 0; color: var(--muted); }
+
+/* Estilos: cuatro móviles de verdad distintos */
+.phones { display: grid; grid-template-columns: repeat(4, minmax(220px, 1fr)); gap: 20px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.phone-wrap { scroll-snap-align: center; display: grid; gap: 12px; }
+.phone-wrap h3 { font-size: 20px; }
+.phone-wrap p { margin: 0; color: var(--muted); font-size: 14px; }
+.phone {
+  position: relative; aspect-ratio: 9 / 18.5; border-radius: 34px; overflow: hidden; border: 6px solid #1C1F33;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .5); font-family: var(--body);
+}
+.phone .sb { height: 22px; }
+.phone .navbar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-around; align-items: center; }
+.ic { width: 18px; height: 18px; border-radius: 6px; display: inline-block; flex: none; }
+.line { height: 7px; border-radius: 4px; display: block; }
+
+/* Pixel */
+.px { background: #EEF0FB; color: #1A1B2E; }
+.px .t { font-size: 27px; padding: 22px 16px 10px; font-weight: 500; }
+.px .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 10px; }
+.px .tile { border-radius: 20px; padding: 12px; background: #DDE1FF; }
+.px .tile.alt { background: #F6DCF0; }
+.px .cookie { width: 30px; height: 30px; background: #4A5AC7; clip-path: polygon(50% 0, 62% 8%, 77% 5%, 83% 19%, 97% 25%, 93% 40%, 100% 50%, 93% 60%, 97% 75%, 83% 81%, 77% 95%, 62% 92%, 50% 100%, 38% 92%, 23% 95%, 17% 81%, 3% 75%, 7% 60%, 0 50%, 7% 40%, 3% 25%, 17% 19%, 23% 5%, 38% 8%); }
+.px .tile.alt .cookie { background: #9A4A8A; }
+.px .lbl { color: #4A5AC7; font-size: 11px; font-weight: 600; padding: 12px 18px 6px; }
+.px .seg { margin: 0 10px; display: grid; gap: 2px; }
+.px .seg div { background: #fff; padding: 10px; display: flex; gap: 10px; align-items: center; border-radius: 4px; }
+.px .seg div:first-child { border-radius: 18px 18px 4px 4px; }
+.px .seg div:last-child { border-radius: 4px 4px 18px 18px; }
+.px .seg .ic { border-radius: 50%; background: #DDE1FF; }
+.px .navbar { height: 56px; background: rgba(238, 240, 251, .8); backdrop-filter: blur(10px); }
+.px .navbar span { width: 22px; height: 16px; border-radius: 999px; background: #C6CBEA; }
+.px .navbar span.on { width: 44px; background: #DDE1FF; box-shadow: inset 0 0 0 7px #DDE1FF, inset 0 0 0 20px #4A5AC7; }
+
+/* HyperOS */
+.hy { background: #F7F7F7; color: #000; }
+.hy .t { font-size: 26px; font-weight: 600; padding: 34px 18px 12px; letter-spacing: -.02em; }
+.hy .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 10px; }
+.hy .tile { background: #fff; border-radius: 18px; padding: 12px; }
+.hy .tile .dot { width: 26px; height: 26px; border-radius: 50%; background: #0D84FF; margin-bottom: 14px; }
+.hy .tile.alt .dot { background: #FF8A2A; }
+.hy .card { margin: 10px; background: #fff; border-radius: 16px; overflow: hidden; }
+.hy .card div { padding: 10px 12px; display: flex; gap: 10px; align-items: center; }
+.hy .card .ic { border-radius: 6px; }
+.hy .chev { margin-left: auto; width: 6px; height: 6px; border-right: 2px solid #C4C4C4; border-top: 2px solid #C4C4C4; transform: rotate(45deg); }
+.hy .navbar { height: 50px; background: rgba(247, 247, 247, .85); border-top: .5px solid #E2E2E2; backdrop-filter: blur(10px); }
+.hy .navbar span { width: 18px; height: 18px; border-radius: 5px; border: 2px solid #A8A8A8; }
+.hy .navbar span.on { border-color: #0D84FF; background: #0D84FF; }
+
+/* One UI */
+.ou { background: #F2F2F2; color: #010101; }
+.ou .head { height: 33%; display: grid; place-items: center; text-align: center; }
+.ou .head b { font-weight: 400; font-size: 27px; display: block; }
+.ou .head small { color: #7D7D7D; font-size: 11px; }
+.ou .lbl { font-size: 11px; font-weight: 700; color: #7D7D7D; padding: 0 20px 6px; }
+.ou .card { margin: 0 8px 8px; background: #fff; border-radius: 22px; }
+.ou .card div { padding: 11px 14px; display: flex; gap: 10px; align-items: center; }
+.ou .card div + div { border-top: 1px solid #ECECEC; margin-left: 42px; padding-left: 0; }
+.ou .card .ic { border-radius: 50%; }
+.ou .sub { color: #387AFF; }
+.ou .navbar { left: 14px; right: 14px; bottom: 12px; height: 46px; border-radius: 999px; background: rgba(255, 255, 255, .75); box-shadow: 0 8px 24px rgba(0, 0, 0, .15); backdrop-filter: blur(12px); padding: 4px; }
+.ou .navbar span { flex: 1; height: 100%; border-radius: 999px; display: grid; place-items: center; }
+.ou .navbar span::after { content: ""; width: 14px; height: 14px; border-radius: 4px; background: #9A9A9A; }
+.ou .navbar span.on { background: rgba(0, 0, 0, .07); }
+.ou .navbar span.on::after { background: #010101; }
+
+/* Sony */
+.so { background: #101112; color: #E8E8E8; }
+.so .top { padding: 10px 14px 0; font-size: 15px; letter-spacing: .02em; }
+.so .tabs { display: flex; margin-top: 10px; border-bottom: 1px solid #2A2B2E; }
+.so .tabs span { flex: 1; text-align: center; font-size: 8.5px; letter-spacing: .12em; color: #9AA0A6; padding: 9px 0; }
+.so .tabs span.on { color: #7FB2CF; box-shadow: inset 0 -2px 0 #7FB2CF; }
+.so .lbl { font-size: 9px; letter-spacing: .14em; color: #7FB2CF; padding: 16px 14px 4px; font-weight: 600; }
+.so .rows div { padding: 11px 14px; display: flex; gap: 12px; align-items: center; border-bottom: 1px solid #222326; }
+.so .rows .ic { border: 1.5px solid #9AA0A6; border-radius: 3px; background: none; width: 15px; height: 15px; }
+.so .tile { margin: 12px 14px 0; border: 1px solid #2A2B2E; border-radius: 4px; padding: 10px; display: flex; gap: 10px; }
+.so .tile i { width: 3px; background: #7FB2CF; }
+.so .switch { margin-left: auto; width: 26px; height: 10px; border-radius: 5px; background: rgba(127, 178, 207, .45); position: relative; }
+.so .switch::after { content: ""; position: absolute; right: -2px; top: -4px; width: 17px; height: 17px; border-radius: 50%; background: #7FB2CF; }
+
+/* Funciones */
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feat { padding: 22px; border-radius: var(--r); background: var(--glass); border: 1px solid var(--glass-line); display: grid; gap: 8px; align-content: start; }
+.feat h3 { font-size: 20px; font-weight: 700; }
+.feat p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.feat .badge { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: rgba(143, 162, 255, .16); color: var(--accent); }
+.feat .badge svg { width: 22px; height: 22px; }
+@media (max-width: 900px) { .features { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+
+/* Tienda */
+.store { border-radius: 28px; background: rgba(18, 21, 42, .6); border: 1px solid var(--glass-line); padding: 18px; backdrop-filter: blur(18px); }
+.toolbar { display: grid; gap: 12px; margin-bottom: 14px; }
+.search { display: flex; align-items: center; gap: 10px; padding: 0 16px; height: 48px; border-radius: 999px; background: rgba(255, 255, 255, .07); border: 1px solid var(--glass-line); }
+.search input { flex: 1; background: none; border: 0; outline: 0; color: var(--text); font: 500 16px var(--body); }
+.search input::placeholder { color: var(--muted); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
+.chip { flex: none; border: 1px solid var(--glass-line); background: transparent; color: var(--muted); font: 500 14px var(--body); padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: #B3C0FF; color: #0B0D17; border-color: transparent; font-weight: 600; }
+.count { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; max-height: 620px; overflow-y: auto; padding-right: 4px; }
+.tone { display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 16px; background: rgba(255, 255, 255, .04); border: 1px solid transparent; }
+.tone:hover { border-color: var(--glass-line); }
+.tone .play { flex: none; width: 42px; height: 42px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center; background: rgba(143, 162, 255, .18); color: var(--accent); }
+.tone .play.on { background: linear-gradient(135deg, #A99EFF, #6FD6FF); color: #0B0D17; }
+.tone .play svg { width: 18px; height: 18px; }
+.tone b { display: block; font-weight: 600; }
+.tone small { color: var(--muted); font-size: 13px; }
+.tone .kind { margin-left: auto; font-size: 12px; padding: 3px 9px; border-radius: 999px; background: rgba(44, 192, 255, .14); color: #8FDcff; }
+.tone .kind.msg { background: rgba(123, 108, 255, .16); color: #C2B9FF; }
+.empty { color: var(--muted); padding: 20px; }
+
+/* Versiones */
+.dl { display: grid; grid-template-columns: .9fr 1.1fr; gap: 20px; align-items: start; }
+.dl-card { padding: 26px; border-radius: 28px; background: linear-gradient(160deg, rgba(123, 108, 255, .22), rgba(44, 192, 255, .1)); border: 1px solid var(--glass-line); display: grid; gap: 14px; }
+.dl-card h3 { font-size: 28px; }
+.dl-card ol { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.releases { display: grid; gap: 10px; }
+.rel { padding: 16px 18px; border-radius: 18px; background: var(--glass); border: 1px solid var(--glass-line); }
+.rel header { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.rel h4 { margin: 0; font: 700 18px var(--display); }
+.rel time { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.rel pre { white-space: pre-wrap; font: 14px/1.5 var(--body); color: var(--muted); margin: 8px 0 0; max-height: 120px; overflow: auto; }
+@media (max-width: 860px) { .dl { grid-template-columns: 1fr; } }
+
+.qr-row { display: flex; gap: 16px; align-items: center; }
+.qr-row p { margin: 0; color: var(--muted); font-size: 14px; max-width: 22ch; }
+.qr { width: 112px; height: 112px; flex: none; border-radius: 14px; overflow: hidden; background: #fff; padding: 6px; }
+.qr svg { width: 100%; height: 100%; display: block; }
+footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--glass-line); }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <a class="brand" href="#inicio">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><rect x="3" y="9" width="3" height="6" rx="1.5"/><rect x="8" y="6" width="3" height="12" rx="1.5"/><rect x="13" y="3" width="3" height="18" rx="1.5"/><rect x="18" y="7.5" width="3" height="9" rx="1.5"/></svg></span>
+    Zentones
+  </a>
+  <div class="links">
+    <a href="#estilos">Estilos</a>
+    <a href="#funciones">Funciones</a>
+    <a href="#tienda">Tienda</a>
+    <a href="#descargar">Versiones</a>
+  </div>
+  <a class="btn apk-link" href="#descargar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+    Descargar
+  </a>
+</nav>
+
+<main class="wrap">
+  <header class="hero" id="inicio">
+    <div>
+      <h1>Cada app, <span>su propio tono.</span></h1>
+      <p class="lead">Pon un tono a WhatsApp, otro a Telegram y otro a tu banco. Bájalos de la tienda o recórtalos tú, y elige si tu móvil se ve como un Pixel, un Xiaomi, un Samsung o un Xperia.</p>
+      <div class="cta">
+        <a class="btn apk-link" href="#descargar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          Descargar APK
+        </a>
+        <a class="btn ghost repo-link" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+          Código en GitHub
+        </a>
+      </div>
+      <div class="meta">
+        <span>Versión <b id="ver">—</b></span>
+        <span>Android 10 o superior</span>
+        <span><b id="tone-count">140</b> tonos en la tienda</span>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="ringing">
+        <div class="row">
+          <div class="app">W</div>
+          <div><b>WhatsApp</b><small>Tono de llamada · Bambú</small></div>
+        </div>
+        <div class="wave" id="wave"></div>
+        <div class="pills">
+          <span class="pill on">Pixel</span><span class="pill">HyperOS</span><span class="pill">One UI</span><span class="pill">Sony</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="estilos">
+    <div class="sec-head">
+      <span class="eyebrow">4 interfaces</span>
+      <h2>Cambia la interfaz entera, no solo el color.</h2>
+      <p>Zentones detecta tu móvil y se pone su estilo solo: HyperOS en Xiaomi, One UI en Samsung, Sony en Xperia y Pixel en el resto. Puedes cambiarlo cuando quieras en Ajustes. Cada estilo trae sus propias barras, listas, interruptores, botones y menús de cristal.</p>
+    </div>
+    <div class="phones">
+      <div class="phone-wrap">
+        <div class="phone px">
+          <div class="sb"></div>
+          <div class="t">Tonos</div>
+          <div class="tiles">
+            <div class="tile"><div class="cookie"></div><span class="line" style="width:70%;background:#4A5AC7;opacity:.5;margin-top:12px"></span></div>
+            <div class="tile alt"><div class="cookie"></div><span class="line" style="width:60%;background:#9A4A8A;opacity:.5;margin-top:12px"></span></div>
+          </div>
+          <div class="lbl">Sistema</div>
+          <div class="seg">
+            <div><span class="ic"></span><span class="line" style="width:55%;background:#C9CCE0"></span></div>
+            <div><span class="ic"></span><span class="line" style="width:42%;background:#C9CCE0"></span></div>
+            <div><span class="ic"></span><span class="line" style="width:50%;background:#C9CCE0"></span></div>
+          </div>
+          <div class="navbar"><span class="on"></span><span></span><span></span><span></span></div>
+        </div>
+        <h3>Pixel</h3><p>Material You con los colores de tu fondo, listas por bloques y formas onduladas.</p>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone hy">
+          <div class="sb"></div>
+          <div class="t">Tonos</div>
+          <div class="tiles">
+            <div class="tile"><div class="dot"></div><span class="line" style="width:70%;background:#222"></span></div>
+            <div class="tile alt"><div class="dot"></div><span class="line" style="width:55%;background:#222"></span></div>
+          </div>
+          <div class="card">
+            <div><span class="ic" style="background:#2FB863"></span><span class="line" style="width:50%;background:#DADADA"></span><span class="chev"></span></div>
+            <div><span class="ic" style="background:#3D7BFF"></span><span class="line" style="width:40%;background:#DADADA"></span><span class="chev"></span></div>
+            <div><span class="ic" style="background:#FF8A2A"></span><span class="line" style="width:46%;background:#DADADA"></span><span class="chev"></span></div>
+          </div>
+          <div class="navbar"><span class="on"></span><span></span><span></span><span></span></div>
+        </div>
+        <h3>HyperOS</h3><p>Títulos grandes, tarjetas blancas, iconos de color y un rebote al pulsar.</p>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone ou">
+          <div class="head"><div><b>Tonos</b><small>Llamadas, mensajes y alarmas</small></div></div>
+          <div class="lbl">Sistema</div>
+          <div class="card">
+            <div><span class="ic" style="background:#2FB863"></span><span><span class="line" style="width:70px;background:#D8D8D8"></span><span class="line sub" style="width:40px;background:#387AFF;opacity:.6;margin-top:4px;height:5px"></span></span></div>
+            <div><span><span class="line" style="width:80px;background:#D8D8D8"></span><span class="line" style="width:34px;background:#387AFF;opacity:.6;margin-top:4px;height:5px"></span></span></div>
+            <div><span><span class="line" style="width:60px;background:#D8D8D8"></span><span class="line" style="width:44px;background:#387AFF;opacity:.6;margin-top:4px;height:5px"></span></span></div>
+          </div>
+          <div class="navbar"><span class="on"></span><span></span><span></span><span></span></div>
+        </div>
+        <h3>One UI</h3><p>Cabecera alta para leer arriba y todo lo que tocas abajo, al alcance del pulgar.</p>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone so">
+          <div class="sb"></div>
+          <div class="top">Zentones</div>
+          <div class="tabs"><span class="on">TONOS</span><span>TIENDA</span><span>APPS</span><span>AJUSTES</span></div>
+          <div class="tile"><i></i><span><span class="line" style="width:40px;background:#555;height:5px"></span><span class="line" style="width:80px;background:#BBB;margin-top:5px"></span></span></div>
+          <div class="lbl">SISTEMA</div>
+          <div class="rows">
+            <div><span class="ic"></span><span class="line" style="width:50%;background:#3A3B3F"></span></div>
+            <div><span class="ic"></span><span class="line" style="width:44%;background:#3A3B3F"></span></div>
+            <div><span class="ic"></span><span class="line" style="width:38%;background:#3A3B3F"></span><span class="switch"></span></div>
+          </div>
+        </div>
+        <h3>Sony</h3><p>Sobria y plana: pestañas arriba, líneas finas y un azul acero apagado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="funciones">
+    <div class="sec-head">
+      <span class="eyebrow">Qué hace</span>
+      <h2>Todo lo de los tonos, en una app.</h2>
+    </div>
+    <div class="features">
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></span>
+        <h3>Un tono por app</h3>
+        <p>Elige un tono para cada app y Zentones te lleva paso a paso hasta donde se selecciona, ya sea en los ajustes de Android o dentro de WhatsApp y Telegram.</p>
+      </article>
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></span>
+        <h3>Editor de recortes</h3>
+        <p>Abre cualquier audio, marca el trozo sobre la onda, añade fundidos y volumen, y guárdalo como tono.</p>
+      </article>
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9 5.5 4h13L20 9M4 9h16M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M9 13h6"/></svg></span>
+        <h3>Tienda</h3>
+        <p>140 tonos originales en 10 categorías, y búsqueda en Freesound para miles de sonidos más con licencia libre.</p>
+      </article>
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V6l11-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>
+        <h3>Tonos de serie</h3>
+        <p>Bambú, Ding, Tri-tono, Reflejo, Apertura… 18 tonos de marimba, campana y cristal, en el estilo de los clásicos.</p>
+      </article>
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Llamada, mensaje y alarma</h3>
+        <p>Cambia los tres tonos generales del sistema desde la app, con vista previa antes de aplicar.</p>
+      </article>
+      <article class="feat">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span>
+        <h3>Se actualiza sola</h3>
+        <p>Cada versión nueva sale en GitHub. La app la detecta al abrirse y se instala en un toque.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="tienda">
+    <div class="sec-head">
+      <span class="eyebrow">Tienda</span>
+      <h2>Escucha el catálogo.</h2>
+      <p>Estos son los tonos que encontrarás en la app. Todos están hechos desde cero para Zentones y tienen licencia CC0.</p>
+    </div>
+    <div class="store">
+      <div class="toolbar">
+        <label class="search" for="q">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9BA1BF" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Busca: terror, retro, radio, láser…" autocomplete="off">
+        </label>
+        <div class="chips" id="kinds" role="group" aria-label="Tipo"></div>
+        <div class="chips" id="cats" role="group" aria-label="Categoría"></div>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="grid" id="grid"><p class="empty">Cargando catálogo…</p></div>
+    </div>
+  </section>
+
+  <section id="descargar">
+    <div class="dl">
+      <div class="dl-card">
+        <span class="eyebrow">Descargar</span>
+        <h3>Zentones <span id="ver2">para Android</span></h3>
+        <ol>
+          <li>Descarga el APK.</li>
+          <li>Ábrelo y permite instalar desde esta fuente.</li>
+          <li>Las siguientes versiones te llegan dentro de la app.</li>
+        </ol>
+        <div class="qr-row">
+          <div class="qr" id="qr" aria-label="Código QR para descargar el APK en el móvil"></div>
+          <p>Escanéalo con el móvil para bajar el APK directamente.</p>
+        </div>
+        <div class="cta">
+          <a class="btn apk-link" id="apk" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+            Descargar APK
+          </a>
+          <a class="btn ghost" id="all-rel" href="#">Todas las versiones</a>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head" style="margin-bottom:14px">
+          <span class="eyebrow">Novedades</span>
+        </div>
+        <div class="releases" id="releases"><p class="empty">Las versiones aparecerán aquí cuando publiques la primera en GitHub.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Zentones · Tonos originales con licencia CC0. Los sonidos de Freesound conservan la licencia de su autor.</span>
+    <a class="repo-link" href="#">GitHub</a>
+  </footer>
+</main>
+
+<script src="qr.js"></script>
+<script>
+(() => {
+  // Repo: lo rellena GitHub Actions; en github.io también se deduce de la URL.
+  let REPO = "__REPO__";
+  if (REPO.startsWith("__")) {
+    const h = location.hostname, seg = location.pathname.split("/").filter(Boolean)[0];
+    REPO = h.endsWith(".github.io") && seg ? `${h.split(".")[0]}/${seg}` : "luckicla/Zentones";
+  }
+  const GH = `https://github.com/${REPO}`;
+  document.querySelectorAll(".repo-link").forEach(a => a.href = GH);
+  document.getElementById("all-rel").href = `${GH}/releases`;
+  const APK = `${GH}/releases/latest/download/Zentones.apk`;
+  document.getElementById("apk").href = APK;
+  try { document.getElementById("qr").innerHTML = QR.svg(APK, { ecl: "M", border: 2 }); } catch (e) { document.querySelector(".qr-row").remove(); }
+  document.querySelectorAll(".nav .apk-link, .hero .apk-link").forEach(a => a.href = "#descargar");
+
+  // Onda animada del hero
+  const wave = document.getElementById("wave");
+  for (let i = 0; i < 28; i++) {
+    const b = document.createElement("i");
+    b.style.height = `${18 + Math.abs(Math.sin(i * 0.7)) * 52 + (i % 3) * 6}px`;
+    b.style.animationDelay = `${(i % 7) * -0.17}s`;
+    wave.appendChild(b);
+  }
+
+  // Versiones desde la API de GitHub
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const notesP = fetch("changelog.json", { cache: "no-store" }).then(r => r.json()).catch(() => ({}));
+  fetch(`https://api.github.com/repos/${REPO}/releases?per_page=5`).then(r => r.ok ? r.json() : []).then(async list => {
+    if (!Array.isArray(list) || !list.length) return;
+    const notes = await notesP;
+    list.forEach(r => { if (!r.body) r.body = (notes[r.tag_name.replace(/^v/, "")] || {}).es || ""; });
+    const v = list[0].tag_name;
+    document.getElementById("ver").textContent = v.replace(/^v/, "");
+    document.getElementById("ver2").textContent = v;
+    document.getElementById("releases").innerHTML = list.map(r => `
+      <article class="rel"><header><h4>${esc(r.tag_name)}</h4><time>${new Date(r.published_at).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}</time></header>
+      ${r.body ? `<pre>${esc(r.body.slice(0, 600))}</pre>` : ""}</article>`).join("");
+  }).catch(() => {});
+
+  // Tienda
+  const grid = document.getElementById("grid"), q = document.getElementById("q");
+  const kindsEl = document.getElementById("kinds"), catsEl = document.getElementById("cats"), countEl = document.getElementById("count");
+  let cats = [], tones = [], cat = "all", kind = "all", playing = null;
+  const audio = new Audio();
+  const icPlay = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>';
+  const icStop = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="7" width="10" height="10" rx="2"/></svg>';
+  audio.addEventListener("ended", () => { playing = null; render(); });
+
+  function chip(el, label, active, on) {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = label;
+    b.setAttribute("aria-pressed", active); b.onclick = on; el.appendChild(b);
+  }
+  function chips() {
+    kindsEl.innerHTML = ""; catsEl.innerHTML = "";
+    [["all", "Todo"], ["call", "Llamadas"], ["message", "Mensajes"]].forEach(([k, l]) => chip(kindsEl, l, kind === k, () => { kind = k; chips(); render(); }));
+    chip(catsEl, "Todas", cat === "all", () => { cat = "all"; chips(); render(); });
+    cats.forEach(c => chip(catsEl, c.name, cat === c.id, () => { cat = c.id; chips(); render(); }));
+  }
+  function render() {
+    const term = q.value.trim().toLowerCase();
+    const catName = id => (cats.find(c => c.id === id) || {}).name || id;
+    const list = tones.filter(t => (cat === "all" || t.category === cat) && (kind === "all" || t.kind === kind) &&
+      (!term || t.name.toLowerCase().includes(term) || catName(t.category).toLowerCase().includes(term)));
+    countEl.textContent = `${list.length} de ${tones.length} tonos`;
+    if (!list.length) { grid.innerHTML = '<p class="empty">Nada con esos filtros.</p>'; return; }
+    grid.innerHTML = list.map(t => `
+      <div class="tone">
+        <button class="play ${playing === t.id ? "on" : ""}" data-id="${esc(t.id)}" aria-label="${playing === t.id ? "Parar" : "Escuchar"} ${esc(t.name)}">${playing === t.id ? icStop : icPlay}</button>
+        <div><b>${esc(t.name)}</b><small>${esc(catName(t.category))} · ${Number(t.duration).toFixed(1)} s</small></div>
+        <span class="kind ${t.kind === "call" ? "" : "msg"}">${t.kind === "call" ? "Llamada" : "Mensaje"}</span>
+      </div>`).join("");
+  }
+  grid.addEventListener("click", e => {
+    const b = e.target.closest(".play"); if (!b) return;
+    const t = tones.find(x => x.id === b.dataset.id);
+    if (playing === t.id) { audio.pause(); playing = null; }
+    else { audio.src = new URL(t.file, base).href; audio.play().catch(() => {}); playing = t.id; }
+    render();
+  });
+  q.addEventListener("input", render);
+
+  const base = new URL("catalog/", location.href);
+  fetch(new URL("catalog.json", base)).then(r => r.json()).then(j => {
+    cats = j.categories; tones = j.tones;
+    document.getElementById("tone-count").textContent = tones.length;
+    chips(); render();
+  }).catch(() => { grid.innerHTML = '<p class="empty">No se pudo cargar el catálogo.</p>'; });
+})();
+</script>
+</body>
+</html>

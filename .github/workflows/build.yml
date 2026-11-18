@@ -1,0 +1,92 @@
+# Cada vez que se sube código a main:
+#  - Se crea la app de Android (Zentones.apk), firmada siempre con zentones.jks.
+#  - Si la versión de gradle.properties (zentones.version) es nueva (no hay release con ese número),
+#    se publica en «Releases» con las notas de docs/changelog.json: las apps instaladas la reciben solas.
+#  - Se actualiza la web (GitHub Pages) con el catálogo de la tienda.
+name: build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.ver.outputs.version }}
+      nueva: ${{ steps.ver.outputs.nueva }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: ver
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          V=$(grep -E '^zentones.version=' gradle.properties | cut -d= -f2 | tr -d '[:space:]')
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          if gh release view "v$V" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then echo "nueva=no" >> "$GITHUB_OUTPUT"; else echo "nueva=si" >> "$GITHUB_OUTPUT"; fi
+
+  android:
+    needs: info
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Crear la app de Android
+        env:
+          FREESOUND_KEY: ${{ secrets.FREESOUND_KEY }}
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease -PappVersion=${{ needs.info.outputs.version }} --no-daemon --stacktrace
+          cp app/build/outputs/apk/release/app-release.apk Zentones.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Zentones-${{ needs.info.outputs.version }}
+          path: Zentones.apk
+      - name: Publicar la versión
+        if: needs.info.outputs.nueva == 'si'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          V: ${{ needs.info.outputs.version }}
+        run: |
+          python3 - <<'PY' > notas.md
+          import json, os
+          v = os.environ["V"]
+          try:
+              print(json.load(open("docs/changelog.json", encoding="utf-8")).get(v, {}).get("es", f"Zentones {v}"))
+          except Exception:
+              print(f"Zentones {v}")
+          PY
+          gh release create "v$V" Zentones.apk --title "Zentones $V" --notes-file notas.md --repo "$GITHUB_REPOSITORY"
+
+  web:
+    needs: [info, android]
+    runs-on: ubuntu-latest
+    # la web se publica en GitHub Pages (si falla, activarlo una vez: Settings > Pages > Source: GitHub Actions)
+    continue-on-error: true
+    environment:
+      name: github-pages
+      url: ${{ steps.dep.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Catálogo de la tienda dentro de la web
+        run: |
+          cp -r catalog docs/catalog
+          sed -i "s#__REPO__#${GITHUB_REPOSITORY}#g" docs/index.html
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: dep
+        uses: actions/deploy-pages@v4

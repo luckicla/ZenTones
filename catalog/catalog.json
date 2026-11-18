@@ -1,0 +1,1447 @@
+{
+ "version": 1,
+ "categories": [
+  {
+   "id": "retro",
+   "name": "Retro 8-bit"
+  },
+  {
+   "id": "terror",
+   "name": "Terror nocturno"
+  },
+  {
+   "id": "radio",
+   "name": "Radio antigua"
+  },
+  {
+   "id": "scifi",
+   "name": "Ciencia ficción"
+  },
+  {
+   "id": "lofi",
+   "name": "Lo-fi"
+  },
+  {
+   "id": "marimba",
+   "name": "Marimba y madera"
+  },
+  {
+   "id": "electro",
+   "name": "Electrónica"
+  },
+  {
+   "id": "zen",
+   "name": "Zen"
+  },
+  {
+   "id": "gaming",
+   "name": "Gaming"
+  },
+  {
+   "id": "alerta",
+   "name": "Alertas"
+  }
+ ],
+ "tones": [
+  {
+   "id": "retro-01",
+   "name": "Píxel",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-01.ogg",
+   "duration": 7.24,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-02",
+   "name": "Cartucho",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-02.ogg",
+   "duration": 2.18,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-03",
+   "name": "Nivel 1",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-03.ogg",
+   "duration": 7.34,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-04",
+   "name": "Arcade",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-04.ogg",
+   "duration": 1.82,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-05",
+   "name": "Joystick",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-05.ogg",
+   "duration": 7.71,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-06",
+   "name": "Insert Coin",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-06.ogg",
+   "duration": 1.36,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-07",
+   "name": "Bonus",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-07.ogg",
+   "duration": 6.98,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-08",
+   "name": "Sprite",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-08.ogg",
+   "duration": 1.26,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-09",
+   "name": "Turbo",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-09.ogg",
+   "duration": 8.05,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-10",
+   "name": "8 bits",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-10.ogg",
+   "duration": 1.75,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-11",
+   "name": "Chip",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-11.ogg",
+   "duration": 6.68,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-12",
+   "name": "Combo",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-12.ogg",
+   "duration": 2.32,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-13",
+   "name": "Highscore",
+   "category": "retro",
+   "kind": "call",
+   "file": "tones/retro-13.ogg",
+   "duration": 7.42,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "retro-14",
+   "name": "Jefe final",
+   "category": "retro",
+   "kind": "message",
+   "file": "tones/retro-14.ogg",
+   "duration": 1.92,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-01",
+   "name": "Medianoche",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-01.ogg",
+   "duration": 7.16,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-02",
+   "name": "Pasillo",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-02.ogg",
+   "duration": 1.76,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-03",
+   "name": "Cámara 3",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-03.ogg",
+   "duration": 7.13,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-04",
+   "name": "Sótano",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-04.ogg",
+   "duration": 1.63,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-05",
+   "name": "Caja de música",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-05.ogg",
+   "duration": 7.53,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-06",
+   "name": "Turno de noche",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-06.ogg",
+   "duration": 2.64,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-07",
+   "name": "Animatrónico",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-07.ogg",
+   "duration": 7.39,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-08",
+   "name": "Pizzería vacía",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-08.ogg",
+   "duration": 2.05,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-09",
+   "name": "Luz parpadeante",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-09.ogg",
+   "duration": 7.44,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-10",
+   "name": "Ventilación",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-10.ogg",
+   "duration": 1.42,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-11",
+   "name": "Las 6 AM",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-11.ogg",
+   "duration": 7.65,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-12",
+   "name": "Susurro",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-12.ogg",
+   "duration": 1.5,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-13",
+   "name": "Muñeco",
+   "category": "terror",
+   "kind": "call",
+   "file": "tones/terror-13.ogg",
+   "duration": 7.1,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "terror-14",
+   "name": "Telón",
+   "category": "terror",
+   "kind": "message",
+   "file": "tones/terror-14.ogg",
+   "duration": 1.81,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-01",
+   "name": "Onda media",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-01.ogg",
+   "duration": 7.88,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-02",
+   "name": "Dial",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-02.ogg",
+   "duration": 1.9,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-03",
+   "name": "Transistor",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-03.ogg",
+   "duration": 7.44,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-04",
+   "name": "Emisora fantasma",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-04.ogg",
+   "duration": 1.61,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-05",
+   "name": "Frecuencia",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-05.ogg",
+   "duration": 7.33,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-06",
+   "name": "Sintonía",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-06.ogg",
+   "duration": 1.17,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-07",
+   "name": "Radio de cocina",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-07.ogg",
+   "duration": 7.0,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-08",
+   "name": "Laboratorio",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-08.ogg",
+   "duration": 1.5,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-09",
+   "name": "Señal lejana",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-09.ogg",
+   "duration": 6.49,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-10",
+   "name": "Válvulas",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-10.ogg",
+   "duration": 2.25,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-11",
+   "name": "Estática",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-11.ogg",
+   "duration": 7.56,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-12",
+   "name": "Altavoz viejo",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-12.ogg",
+   "duration": 1.11,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-13",
+   "name": "Antena",
+   "category": "radio",
+   "kind": "call",
+   "file": "tones/radio-13.ogg",
+   "duration": 7.92,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "radio-14",
+   "name": "Interferencia",
+   "category": "radio",
+   "kind": "message",
+   "file": "tones/radio-14.ogg",
+   "duration": 2.24,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-01",
+   "name": "Órbita",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-01.ogg",
+   "duration": 6.75,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-02",
+   "name": "Holograma",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-02.ogg",
+   "duration": 2.57,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-03",
+   "name": "Nave",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-03.ogg",
+   "duration": 7.53,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-04",
+   "name": "Teletransporte",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-04.ogg",
+   "duration": 2.27,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-05",
+   "name": "Androide",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-05.ogg",
+   "duration": 6.48,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-06",
+   "name": "Nebulosa",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-06.ogg",
+   "duration": 1.24,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-07",
+   "name": "Hiperespacio",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-07.ogg",
+   "duration": 7.54,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-08",
+   "name": "Láser",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-08.ogg",
+   "duration": 2.43,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-09",
+   "name": "Satélite",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-09.ogg",
+   "duration": 7.28,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-10",
+   "name": "Cápsula",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-10.ogg",
+   "duration": 1.76,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-11",
+   "name": "Plasma",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-11.ogg",
+   "duration": 6.7,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-12",
+   "name": "Galaxia",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-12.ogg",
+   "duration": 1.9,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-13",
+   "name": "Escáner",
+   "category": "scifi",
+   "kind": "call",
+   "file": "tones/scifi-13.ogg",
+   "duration": 7.17,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "scifi-14",
+   "name": "Puente de mando",
+   "category": "scifi",
+   "kind": "message",
+   "file": "tones/scifi-14.ogg",
+   "duration": 1.56,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-01",
+   "name": "Café",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-01.ogg",
+   "duration": 6.58,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-02",
+   "name": "Lluvia",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-02.ogg",
+   "duration": 2.01,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-03",
+   "name": "Domingo",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-03.ogg",
+   "duration": 6.69,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-04",
+   "name": "Ventana",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-04.ogg",
+   "duration": 1.51,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-05",
+   "name": "Vinilo",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-05.ogg",
+   "duration": 7.25,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-06",
+   "name": "Atardecer",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-06.ogg",
+   "duration": 2.5,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-07",
+   "name": "Libreta",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-07.ogg",
+   "duration": 8.0,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-08",
+   "name": "Sofá",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-08.ogg",
+   "duration": 1.92,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-09",
+   "name": "Té verde",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-09.ogg",
+   "duration": 6.7,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-10",
+   "name": "Persiana",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-10.ogg",
+   "duration": 2.53,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-11",
+   "name": "Gato dormido",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-11.ogg",
+   "duration": 7.42,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-12",
+   "name": "Neblina",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-12.ogg",
+   "duration": 2.41,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-13",
+   "name": "Postal",
+   "category": "lofi",
+   "kind": "call",
+   "file": "tones/lofi-13.ogg",
+   "duration": 7.3,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "lofi-14",
+   "name": "Tranvía",
+   "category": "lofi",
+   "kind": "message",
+   "file": "tones/lofi-14.ogg",
+   "duration": 1.79,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-01",
+   "name": "Caña",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-01.ogg",
+   "duration": 7.02,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-02",
+   "name": "Isla",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-02.ogg",
+   "duration": 1.39,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-03",
+   "name": "Coco",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-03.ogg",
+   "duration": 6.66,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-04",
+   "name": "Brisa marina",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-04.ogg",
+   "duration": 1.89,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-05",
+   "name": "Laguna",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-05.ogg",
+   "duration": 7.65,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-06",
+   "name": "Palmera",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-06.ogg",
+   "duration": 1.39,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-07",
+   "name": "Arrecife",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-07.ogg",
+   "duration": 8.21,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-08",
+   "name": "Madera",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-08.ogg",
+   "duration": 1.4,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-09",
+   "name": "Bongó",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-09.ogg",
+   "duration": 7.96,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-10",
+   "name": "Manglar",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-10.ogg",
+   "duration": 1.71,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-11",
+   "name": "Tortuga",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-11.ogg",
+   "duration": 7.91,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-12",
+   "name": "Coral",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-12.ogg",
+   "duration": 2.06,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-13",
+   "name": "Marea",
+   "category": "marimba",
+   "kind": "call",
+   "file": "tones/marimba-13.ogg",
+   "duration": 6.93,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "marimba-14",
+   "name": "Hamaca",
+   "category": "marimba",
+   "kind": "message",
+   "file": "tones/marimba-14.ogg",
+   "duration": 1.76,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-01",
+   "name": "Neón",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-01.ogg",
+   "duration": 6.44,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-02",
+   "name": "Pulso",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-02.ogg",
+   "duration": 1.38,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-03",
+   "name": "Club",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-03.ogg",
+   "duration": 7.16,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-04",
+   "name": "Strobe",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-04.ogg",
+   "duration": 2.25,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-05",
+   "name": "Bassline",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-05.ogg",
+   "duration": 6.31,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-06",
+   "name": "Sintetizador",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-06.ogg",
+   "duration": 1.16,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-07",
+   "name": "Rave",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-07.ogg",
+   "duration": 8.08,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-08",
+   "name": "Voltaje",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-08.ogg",
+   "duration": 2.32,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-09",
+   "name": "Drop",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-09.ogg",
+   "duration": 7.42,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-10",
+   "name": "Circuito",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-10.ogg",
+   "duration": 2.07,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-11",
+   "name": "Láser verde",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-11.ogg",
+   "duration": 6.76,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-12",
+   "name": "Ácido",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-12.ogg",
+   "duration": 2.28,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-13",
+   "name": "Kick",
+   "category": "electro",
+   "kind": "call",
+   "file": "tones/electro-13.ogg",
+   "duration": 6.99,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "electro-14",
+   "name": "Glitch",
+   "category": "electro",
+   "kind": "message",
+   "file": "tones/electro-14.ogg",
+   "duration": 1.85,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-01",
+   "name": "Loto",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-01.ogg",
+   "duration": 8.72,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-02",
+   "name": "Bambú zen",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-02.ogg",
+   "duration": 1.92,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-03",
+   "name": "Templo",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-03.ogg",
+   "duration": 8.13,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-04",
+   "name": "Respira",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-04.ogg",
+   "duration": 2.77,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-05",
+   "name": "Cuenco",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-05.ogg",
+   "duration": 7.98,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-06",
+   "name": "Jardín",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-06.ogg",
+   "duration": 2.67,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-07",
+   "name": "Niebla",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-07.ogg",
+   "duration": 8.36,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-08",
+   "name": "Piedra",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-08.ogg",
+   "duration": 2.9,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-09",
+   "name": "Calma",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-09.ogg",
+   "duration": 7.67,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-10",
+   "name": "Incienso",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-10.ogg",
+   "duration": 2.85,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-11",
+   "name": "Montaña",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-11.ogg",
+   "duration": 7.34,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-12",
+   "name": "Río",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-12.ogg",
+   "duration": 2.24,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-13",
+   "name": "Musgo",
+   "category": "zen",
+   "kind": "call",
+   "file": "tones/zen-13.ogg",
+   "duration": 8.27,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "zen-14",
+   "name": "Amanecer",
+   "category": "zen",
+   "kind": "message",
+   "file": "tones/zen-14.ogg",
+   "duration": 2.23,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-01",
+   "name": "Logro",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-01.ogg",
+   "duration": 7.08,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-02",
+   "name": "Victoria",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-02.ogg",
+   "duration": 2.11,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-03",
+   "name": "Nivel arriba",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-03.ogg",
+   "duration": 7.86,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-04",
+   "name": "Cofre",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-04.ogg",
+   "duration": 1.94,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-05",
+   "name": "Misión",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-05.ogg",
+   "duration": 8.14,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-06",
+   "name": "Power-up",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-06.ogg",
+   "duration": 1.51,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-07",
+   "name": "Checkpoint",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-07.ogg",
+   "duration": 6.3,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-08",
+   "name": "Experiencia",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-08.ogg",
+   "duration": 1.71,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-09",
+   "name": "Gema",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-09.ogg",
+   "duration": 8.18,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-10",
+   "name": "Escudo",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-10.ogg",
+   "duration": 1.52,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-11",
+   "name": "Loot",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-11.ogg",
+   "duration": 7.51,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-12",
+   "name": "Respawn",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-12.ogg",
+   "duration": 1.72,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-13",
+   "name": "Mapa",
+   "category": "gaming",
+   "kind": "call",
+   "file": "tones/gaming-13.ogg",
+   "duration": 6.86,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "gaming-14",
+   "name": "Gremio",
+   "category": "gaming",
+   "kind": "message",
+   "file": "tones/gaming-14.ogg",
+   "duration": 1.71,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-01",
+   "name": "Urgente",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-01.ogg",
+   "duration": 7.0,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-02",
+   "name": "Atención",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-02.ogg",
+   "duration": 1.76,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-03",
+   "name": "Sirena suave",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-03.ogg",
+   "duration": 7.11,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-04",
+   "name": "Alarma",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-04.ogg",
+   "duration": 1.39,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-05",
+   "name": "Prioridad",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-05.ogg",
+   "duration": 6.47,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-06",
+   "name": "Faro",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-06.ogg",
+   "duration": 2.08,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-07",
+   "name": "Radar",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-07.ogg",
+   "duration": 8.11,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-08",
+   "name": "Aviso",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-08.ogg",
+   "duration": 1.78,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-09",
+   "name": "Señal",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-09.ogg",
+   "duration": 7.43,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-10",
+   "name": "Código rojo",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-10.ogg",
+   "duration": 1.13,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-11",
+   "name": "Despertar",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-11.ogg",
+   "duration": 6.77,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-12",
+   "name": "Ping",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-12.ogg",
+   "duration": 1.32,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-13",
+   "name": "Rebote",
+   "category": "alerta",
+   "kind": "call",
+   "file": "tones/alerta-13.ogg",
+   "duration": 7.66,
+   "author": "Zentones",
+   "license": "CC0"
+  },
+  {
+   "id": "alerta-14",
+   "name": "Doble ping",
+   "category": "alerta",
+   "kind": "message",
+   "file": "tones/alerta-14.ogg",
+   "duration": 2.16,
+   "author": "Zentones",
+   "license": "CC0"
+  }
+ ]
+}
