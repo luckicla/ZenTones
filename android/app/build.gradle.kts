@@ -25,7 +25,12 @@ android {
         buildConfigField("String", "FREESOUND_KEY", "\"$freesoundKey\"")
         // Momento de la compilación: el actualizador lo compara con la fecha del APK publicado
         buildConfigField("long", "BUILD_TIME", "${System.currentTimeMillis()}L")
+        // yt-dlp trae Python nativo: solo móviles ARM para que el APK no se dispare
+        ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
     }
+
+    // youtubedl-android necesita las librerías nativas extraídas
+    packaging { jniLibs { useLegacyPackaging = true } }
 
     signingConfigs {
         create("release") {
@@ -39,7 +44,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
     }
@@ -73,4 +80,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
     // Cristal / blur real detrás de barras y menús
     implementation("dev.chrisbanes.haze:haze:1.6.0")
+    // yt-dlp en Android (Python 3.11 + yt-dlp incluidos)
+    implementation("io.github.junkfood02.youtubedl-android:library:0.17.2")
 }

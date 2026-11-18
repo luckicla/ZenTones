@@ -24,6 +24,7 @@ import androidx.compose.material.icons.rounded.ContentCut
 import androidx.compose.material.icons.rounded.GraphicEq
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.NotificationsActive
+import androidx.compose.material.icons.rounded.SmartDisplay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -85,7 +86,12 @@ fun TonesScreen(ls: LazyListState, pad: PaddingValues, onImport: () -> Unit) {
 
         item { skin.SectionTitle("Crear") }
         item {
-            skin.Item("Crear tono desde un audio", "Recorta cualquier canción o sonido de tu móvil", { skin.Leading(Icons.Rounded.ContentCut, Tints.Pink) }, { skin.Chevron() }, Pos.SINGLE, onImport)
+            skin.Item("Desde YouTube", "Busca una canción, baja el audio y córtalo", { skin.Leading(Icons.Rounded.SmartDisplay, Tints.Red) }, { skin.Chevron() }, Pos.FIRST) {
+                sheets.show("YouTube") { YoutubeSheet() }
+            }
+        }
+        item {
+            skin.Item("Desde un audio del móvil", "Recorta cualquier canción o sonido que tengas", { skin.Leading(Icons.Rounded.ContentCut, Tints.Pink) }, { skin.Chevron() }, Pos.LAST, onImport)
         }
 
         if (lib.isNotEmpty()) {

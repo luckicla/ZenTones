@@ -19,6 +19,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CloudDownload
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material.icons.rounded.SmartDisplay
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -135,7 +136,7 @@ fun StoreScreen(ls: LazyListState, pad: PaddingValues) {
     }
 
     LazyColumn(state = ls, contentPadding = pad, modifier = Modifier.fillMaxSize()) {
-        item { skin.Header("Tienda", "${tones.size} tonos en el catálogo · miles más en Freesound") }
+        item { skin.Header("Tienda", "${tones.size} tonos en el catálogo · Freesound · YouTube") }
         item { skin.Field(q, { q = it }, "Busca: terror, retro, radio, láser…", Icons.Rounded.Search) }
         item {
             Row(
@@ -158,6 +159,13 @@ fun StoreScreen(ls: LazyListState, pad: PaddingValues) {
         }
 
         if (q.length >= 2) {
+            item { skin.SectionTitle("YouTube") }
+            item {
+                skin.Item("Buscar «$q» en YouTube", "Baja el audio y córtalo como quieras", { skin.Leading(Icons.Rounded.SmartDisplay, com.zentones.app.ui.Tints.Red) }, { skin.Chevron() }, com.zentones.app.ui.Pos.SINGLE) {
+                    val query = q
+                    sheets.show("YouTube") { YoutubeSheet(query) }
+                }
+            }
             item { skin.SectionTitle("Freesound") }
             when {
                 fsKey.isBlank() -> item {

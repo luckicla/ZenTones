@@ -31,10 +31,10 @@ class Pcm(val data: ShortArray, val sampleRate: Int) {
 /** Decodifica MP3, AAC, OGG, OPUS, FLAC, WAV… con los códecs del propio Android. */
 object AudioDecoder {
 
-    fun decode(ctx: Context, uri: Uri, maxSeconds: Int = 180): Pcm =
+    fun decode(ctx: Context, uri: Uri, maxSeconds: Int = 600): Pcm =
         MediaExtractor().run { setDataSource(ctx, uri, null); decodeFrom(this, maxSeconds) }
 
-    fun decode(file: File, maxSeconds: Int = 180): Pcm =
+    fun decode(file: File, maxSeconds: Int = 600): Pcm =
         MediaExtractor().run { setDataSource(file.absolutePath); decodeFrom(this, maxSeconds) }
 
     private fun decodeFrom(ex: MediaExtractor, maxSeconds: Int): Pcm {

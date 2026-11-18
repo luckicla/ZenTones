@@ -1,0 +1,12 @@
+# youtubedl-android (yt-dlp) y sus dependencias usan reflexión
+-keep class com.yausername.** { *; }
+-keep class org.apache.commons.compress.archivers.zip.** { *; }
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
+-dontwarn org.apache.commons.compress.**
+-dontwarn org.apache.commons.io.**
+-dontwarn org.brotli.dec.**
+-dontwarn org.tukaani.xz.**
+-dontwarn com.github.luben.zstd.**
+-dontwarn org.objectweb.asm.**
+-dontwarn javax.annotation.**

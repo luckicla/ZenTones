@@ -141,6 +141,11 @@ fun EditorSheet() {
         }
     }
     SheetNote("Arrastra cerca de un borde para moverlo, o toca para colocarlo.")
+    Row(Modifier.padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        skin.Chip("Usar entero", start == 0f && end == 1f) { start = 0f; end = 1f }
+        skin.Chip("Primeros 30 s", false) { start = 0f; end = (30.0 / total).toFloat().coerceAtMost(1f) }
+        skin.Chip("Primeros 3 s", false) { start = 0f; end = (3.0 / total).toFloat().coerceAtMost(1f) }
+    }
 
     skin.Field(name, { name = it }, "Nombre del tono", null)
 
@@ -164,6 +169,15 @@ fun EditorSheet() {
     ChoiceItem("Tono de mensaje", "Mejor si dura menos de 3 s", kind == ToneKind.MESSAGE, Pos.LAST) { kind = ToneKind.MESSAGE }
 
     SheetButtons {
+        job.source?.let { src ->
+            skin.Btn("Guardar audio original en Descargas", false, Modifier.fillMaxWidth()) {
+                scope.launch {
+                    runCatching { com.zentones.app.store.YouTube.saveToDownloads(ctx, src, name) }
+                        .onSuccess { toast(ctx, "Guardado en $it") }
+                        .onFailure { toast(ctx, "No se pudo guardar: ${it.message}") }
+                }
+            }
+        }
         skin.Btn(if (playing == "editor") "Parar" else "Escuchar recorte", false, Modifier.fillMaxWidth()) {
             if (playing == "editor") { Previewer.stop(); return@Btn }
             scope.launch {

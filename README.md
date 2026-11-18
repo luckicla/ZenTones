@@ -12,6 +12,8 @@ Tonos de llamada y de mensaje, generales y **por app**, con tienda, editor y 4 i
 | **Apps** | Eliges un tono para cada app (WhatsApp, Telegram, Instagram…) y una guía paso a paso te lleva a donde se selecciona |
 | **Ajustes** | Estilo de interfaz, claro/oscuro, permisos, API key de Freesound, actualizaciones desde GitHub |
 
+**YouTube (yt-dlp)**: busca una canción o pega un enlace, baja solo el audio y ábrelo en el editor para cortarlo, usarlo entero o guardarlo en *Descargas/Zentones*. yt-dlp se actualiza solo una vez al día.
+
 **Editor**: forma de onda con tiradores, fundido de entrada/salida, normalizar, ganancia ±12 dB, escuchar el recorte y guardar como llamada o mensaje. También se abre con *Compartir → Zentones* desde cualquier app de música o archivos.
 
 ### Cómo funcionan los tonos por app

@@ -4,7 +4,7 @@ import com.zentones.app.tones.ToneKind
 import kotlin.math.abs
 
 /** Lo que abre el editor: audio decodificado + sugerencias. */
-data class EditJob(val pcm: Pcm, val name: String, val kind: ToneKind, val origin: String)
+data class EditJob(val pcm: Pcm, val name: String, val kind: ToneKind, val origin: String, val source: java.io.File? = null)
 
 /** Ajustes del recorte. start/end en segundos. */
 data class EditParams(
