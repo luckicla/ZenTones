@@ -1,0 +1,206 @@
+/* Zentones · estilo One UI · movimiento
+   Curvas suaves y largas, sin rebotes: así se mueve One UI.
+   Se usan las propiedades sueltas translate/scale para no pisar los transform del diseño. */
+:root {
+  --oui-ease: cubic-bezier(.22, .25, 0, 1);      /* salida suave, muy amortiguada */
+  --oui-ease-io: cubic-bezier(.33, 0, .2, 1);    /* sinusoidal de entrada y salida */
+  --oui-fast: 160ms;
+  --oui-mid: 340ms;
+  --oui-slow: 620ms;
+  --oui-accent: #387AFF;
+}
+
+/* ---------- Aparición al entrar en pantalla ---------- */
+html.oui-js [data-anim="enter"] {
+  transition:
+    opacity var(--oui-slow) var(--oui-ease) var(--oui-delay, 0ms),
+    translate var(--oui-slow) var(--oui-ease) var(--oui-delay, 0ms),
+    scale var(--oui-slow) var(--oui-ease) var(--oui-delay, 0ms);
+}
+html.oui-js [data-anim="enter"]:not(.is-in) {
+  opacity: 0;
+  translate: 0 28px;
+  scale: .985;
+}
+
+/* ---------- Pulsación: atenuado + escala ligera ---------- */
+[data-anim="press"],
+.phone [data-tab],
+[data-play] {
+  transition:
+    scale var(--oui-mid) var(--oui-ease),
+    filter var(--oui-mid) var(--oui-ease),
+    background-color var(--oui-mid) var(--oui-ease),
+    color var(--oui-mid) var(--oui-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+[data-anim="press"]:active,
+[data-anim="press"].is-pressed,
+[data-play].is-pressed {
+  scale: .98;
+  filter: brightness(.93);
+  transition-duration: var(--oui-fast);
+}
+.phone [data-tab].is-pressed,
+.phone [data-tab]:active {
+  scale: .96;
+  filter: brightness(.9);
+  transition-duration: var(--oui-fast);
+}
+
+/* ---------- Cambio de pantalla: fundido y desplazamiento corto ---------- */
+.phone [data-screen].oui-screen-in {
+  animation: oui-screen-in 420ms var(--oui-ease) both;
+}
+@keyframes oui-screen-in {
+  from { opacity: 0; translate: calc(var(--oui-dir, 1) * 22px) 6px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+/* ---------- Cabecera alta que se encoge con el scroll ---------- */
+.oui-bighead {
+  transform-origin: 50% 70%;
+  scale: calc(1 - var(--oui-collapse, 0) * .18);
+  translate: 0 calc(var(--oui-collapse, 0) * 18px);
+  opacity: calc(1 - var(--oui-collapse, 0) * 1.15);
+  will-change: scale, opacity;
+}
+.oui-minibar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.oui-minibar > span {
+  display: flex;
+  align-items: center;
+  font-size: 1.25em;             /* 20 sp */
+  height: 4.48em;                /* barra de estado + 56 dp */
+  padding: 1.68em 1.2em 0;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--text, inherit);
+  background: color-mix(in srgb, var(--bg, #F2F2F2) 74%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(22px);
+  backdrop-filter: saturate(1.4) blur(22px);
+  opacity: clamp(0, calc((var(--oui-collapse, 0) - .55) * 2.4), 1);
+}
+
+/* ---------- Barra inferior flotante que aparece ---------- */
+.oui-navbar {
+  transition:
+    translate 700ms var(--oui-ease),
+    opacity 500ms var(--oui-ease);
+}
+.oui-navbar.oui-nav-wait:not(.is-shown) {
+  translate: 0 calc(100% + 28px);
+  opacity: 0;
+}
+.oui-navbar [data-tab] {
+  transition:
+    background-color var(--oui-mid) var(--oui-ease),
+    color var(--oui-mid) var(--oui-ease),
+    scale var(--oui-mid) var(--oui-ease),
+    filter var(--oui-mid) var(--oui-ease),
+    font-weight var(--oui-mid) var(--oui-ease);
+}
+
+/* ---------- Interruptores con deslizamiento suave ---------- */
+[role="switch"],
+[role="switch"] *,
+[role="switch"]::before,
+[role="switch"]::after,
+[role="switch"] *::before,
+[role="switch"] *::after {
+  transition:
+    background-color 300ms var(--oui-ease-io),
+    border-color 300ms var(--oui-ease-io),
+    color 300ms var(--oui-ease-io),
+    transform 380ms var(--oui-ease),
+    translate 380ms var(--oui-ease),
+    left 380ms var(--oui-ease),
+    right 380ms var(--oui-ease),
+    inset 380ms var(--oui-ease),
+    margin 380ms var(--oui-ease),
+    width 300ms var(--oui-ease),
+    box-shadow 300ms var(--oui-ease-io);
+}
+[role="switch"].oui-sw-on,
+[role="switch"].oui-sw-off {
+  animation: oui-sw 380ms var(--oui-ease);
+}
+@keyframes oui-sw {
+  40% { scale: 1.04 .96; }
+  to  { scale: 1; }
+}
+
+/* ---------- Tono sonando ---------- */
+[data-play].is-playing {
+  animation: oui-playing 1.6s var(--oui-ease-io) infinite;
+}
+@keyframes oui-playing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 122, 255, .32); }
+  60%      { box-shadow: 0 0 0 10px rgba(56, 122, 255, 0); }
+}
+.oui-row-playing {
+  transition: background-color var(--oui-mid) var(--oui-ease);
+}
+
+/* ---------- Onda del editor ---------- */
+.oui-wave-bars > * {
+  transform-origin: 50% 50%;
+  transition: scale 700ms var(--oui-ease) calc(var(--i, 0) * 12ms), opacity 500ms var(--oui-ease) calc(var(--i, 0) * 12ms);
+}
+html.oui-js .oui-wave:not(.is-in) .oui-wave-bars > * {
+  scale: 1 .15;
+  opacity: .3;
+}
+.oui-wave.is-playing .oui-wave-bars > * {
+  animation: oui-bar 1.1s var(--oui-ease-io) infinite alternate;
+  animation-delay: calc(var(--i, 0) * -97ms);
+}
+.oui-wave.is-dragging .handle::after { scale: 1.35; }
+.oui-wave .handle::after { transition: scale var(--oui-mid) var(--oui-ease); }
+.oui-wave { cursor: ew-resize; }
+@keyframes oui-bar {
+  from { scale: 1 1; }
+  50%  { scale: 1 .62; }
+  to   { scale: 1 1.12; }
+}
+
+/* ---------- Móvil "sonando" en el hero: pulso suave ---------- */
+.oui-ring.is-visible {
+  animation: oui-ring 3.2s var(--oui-ease-io) infinite;
+}
+html.oui-playing .oui-ring.is-visible {
+  animation-duration: 1.6s;
+}
+@keyframes oui-ring {
+  0%, 100% { scale: 1;     filter: drop-shadow(0 0 0 rgba(56, 122, 255, 0)); }
+  8%       { rotate: -.6deg; }
+  14%      { rotate: .6deg; }
+  20%      { rotate: -.4deg; }
+  26%      { rotate: 0deg; }
+  40%      { scale: 1.012; filter: drop-shadow(0 0 26px rgba(56, 122, 255, .38)); }
+  70%      { scale: 1;     filter: drop-shadow(0 0 8px rgba(56, 122, 255, .08)); }
+}
+
+/* ---------- Sin animaciones si el sistema lo pide ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html.oui-js [data-anim="enter"],
+  html.oui-js [data-anim="enter"]:not(.is-in),
+  html.oui-js .oui-wave:not(.is-in) .oui-wave-bars > *,
+  .oui-navbar.oui-nav-wait:not(.is-shown) {
+    opacity: 1;
+    translate: none;
+    scale: none;
+  }
+  [data-anim="enter"], [data-anim="press"], [data-play], .phone [data-tab], .phone [data-screen],
+  .oui-navbar, .oui-wave-bars > *, .oui-ring, .oui-bighead,
+  [role="switch"], [role="switch"] *, [role="switch"]::before, [role="switch"]::after,
+  [role="switch"] *::before, [role="switch"] *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .oui-bighead { scale: none; translate: none; }
+}

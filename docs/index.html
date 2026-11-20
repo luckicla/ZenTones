@@ -148,25 +148,20 @@ input[type="range"]:focus-visible { outline-offset: 2px; border-radius: var(--ra
 .head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
 .head .lead { font-size: var(--text-lead); line-height: 1.45; color: var(--color-muted); max-width: 46ch; }
 
-/* Styles: a switcher, one interface at a time */
-.styles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: start; }
-.styles .head { grid-column: 1 / span 5; margin: 0; align-self: center; }
-.switch-row { display: inline-flex; flex-wrap: wrap; gap: var(--space-2xs); padding: var(--space-2xs); border-radius: var(--radius-pill); background: var(--color-paper); box-shadow: var(--shadow-track); margin-top: var(--space-md); justify-self: start; }
-.switch-row button { min-height: 44px; padding: 0 var(--space-md); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-muted); cursor: pointer; font-size: var(--text-sm); font-weight: 500; transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
-.switch-row button:hover { color: var(--color-ink); }
-.switch-row button[aria-selected="true"] { background: linear-gradient(var(--metal-hi), var(--metal-lo)); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-part); }
-.style-stage { grid-column: 7 / span 6; }
-.style-state { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: var(--space-xl); align-items: end; }
-.style-state[hidden] { display: none; }
-.style-state h3 { margin-bottom: var(--space-sm); }
-.style-state p { color: var(--color-muted); max-width: 32ch; }
-.shot { aspect-ratio: 9 / 19.5; border-radius: min(1vw, var(--radius-card)); background: var(--color-slot); border: 1px dashed var(--color-rule); display: grid; place-items: center; padding: var(--space-lg); text-align: center; color: var(--color-muted); font-size: var(--text-sm); }
-.shot img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
-@media (max-width: 960px) {
-  .styles { grid-template-columns: minmax(0, 1fr); }
-  .styles .head, .style-stage { grid-column: 1; }
-}
-@media (max-width: 560px) { .style-state { grid-template-columns: minmax(0, 1fr); } .shot { max-width: 240px; } }
+/* Styles: four phones side by side, each opens its own site */
+.looks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); }
+.look { display: grid; align-content: start; gap: var(--space-xs); }
+.look h3 { margin-top: var(--space-md); }
+.look p { color: var(--color-muted); max-width: 32ch; }
+.look .look-brand { font-size: var(--text-sm); color: var(--color-ink-2); }
+.look-shot { display: block; border-radius: var(--radius-card); padding: var(--space-md) var(--space-md) 0; background: radial-gradient(120% 80% at 50% 100%, var(--color-accent-soft), var(--color-paper-2) 70%); border: var(--rule-hair) solid var(--color-rule); overflow: hidden; aspect-ratio: 4 / 5; transition: border-color var(--dur-short) var(--ease-out); }
+.look-shot img { display: block; width: 88%; height: auto; margin-inline: auto; filter: drop-shadow(var(--shadow-drop)); transition: translate var(--dur-long) var(--ease-out); }
+.look-shot:hover { border-color: var(--color-muted); }
+.look-shot:hover img { translate: 0 -10px; }
+.more { display: inline-block; margin-top: var(--space-xs); color: var(--color-accent); font-weight: 500; text-decoration: none; }
+.more:hover { text-decoration: underline; }
+@media (max-width: 1080px) { .looks { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-2xl); } }
+@media (max-width: 560px) { .looks { grid-template-columns: minmax(0, 1fr); } }
 
 /* What it does: rows of levels on hairlines */
 .rows { list-style: none; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
@@ -306,35 +301,41 @@ input[type="range"]:focus-visible { outline-offset: 2px; border-radius: var(--ra
 
 <main>
   <section class="section" id="estilos">
-    <div class="container styles">
+    <div class="container">
       <div class="head">
         <h2>Cuatro interfaces, no cuatro colores.</h2>
-        <p class="lead">Se pone sola según tu marca y se cambia en Ajustes.</p>
-        <div class="switch-row" role="tablist" aria-label="Interfaz">
-          <button type="button" role="tab" id="t-px" aria-controls="s-px" aria-selected="true">Pixel</button>
-          <button type="button" role="tab" id="t-hy" aria-controls="s-hy" aria-selected="false" tabindex="-1">HyperOS</button>
-          <button type="button" role="tab" id="t-ou" aria-controls="s-ou" aria-selected="false" tabindex="-1">One UI</button>
-          <button type="button" role="tab" id="t-so" aria-controls="s-so" aria-selected="false" tabindex="-1">Sony</button>
-        </div>
+        <p class="lead">Se pone sola según tu marca y se cambia en Ajustes. Cada una tiene su propia web.</p>
       </div>
-      <div class="style-stage">
-        <div class="style-state" role="tabpanel" id="s-px" aria-labelledby="t-px">
-          <div class="shot" data-slot="pixel">Captura de Zentones con estilo Pixel</div>
-          <div><h3>Pixel</h3><p>Material You con los colores de tu fondo, listas por bloques y formas onduladas. Es la de serie en el resto de marcas.</p></div>
-        </div>
-        <div class="style-state" role="tabpanel" id="s-hy" aria-labelledby="t-hy">
-          <div class="shot" data-slot="hyperos">Captura de Zentones con estilo HyperOS</div>
-          <div><h3>HyperOS</h3><p>Títulos grandes, tarjetas blancas, iconos de color y un rebote al pulsar. La de serie en Xiaomi, Redmi y POCO.</p></div>
-        </div>
-        <div class="style-state" role="tabpanel" id="s-ou" aria-labelledby="t-ou">
-          <div class="shot" data-slot="oneui">Captura de Zentones con estilo One UI</div>
-          <div><h3>One UI</h3><p>Cabecera alta para leer arriba y todo lo que tocas abajo, al alcance del pulgar. La de serie en Samsung.</p></div>
-        </div>
-        <div class="style-state" role="tabpanel" id="s-so" aria-labelledby="t-so">
-          <div class="shot" data-slot="sony">Captura de Zentones con estilo Sony</div>
-          <div><h3>Sony</h3><p>Sobria y plana: pestañas arriba, líneas finas y un azul acero apagado. La de serie en Xperia.</p></div>
-        </div>
-      </div>
+      <ul class="looks">
+        <li class="look">
+          <a class="look-shot" href="estilos/pixel/" aria-label="Ver la web en estilo Pixel"><img src="estilos/pixel/preview.webp" width="760" height="1600" alt="Pantalla Tonos de Zentones con la interfaz Pixel" loading="lazy"></a>
+          <h3>Pixel</h3>
+          <p>Material You con los colores de tu fondo, formas onduladas y listas por bloques.</p>
+          <p class="look-brand">Se pone sola en el resto de marcas</p>
+          <a class="more" href="estilos/pixel/">Ver la web en estilo Pixel</a>
+        </li>
+        <li class="look">
+          <a class="look-shot" href="estilos/hyperos/" aria-label="Ver la web en estilo HyperOS"><img src="estilos/hyperos/preview.webp" width="760" height="1600" alt="Pantalla Tonos de Zentones con la interfaz HyperOS" loading="lazy"></a>
+          <h3>HyperOS</h3>
+          <p>Títulos grandes, tarjetas blancas, iconos de color y un rebote al pulsar.</p>
+          <p class="look-brand">Se pone sola en Xiaomi, Redmi y POCO</p>
+          <a class="more" href="estilos/hyperos/">Ver la web en estilo HyperOS</a>
+        </li>
+        <li class="look">
+          <a class="look-shot" href="estilos/oneui/" aria-label="Ver la web en estilo One UI"><img src="estilos/oneui/preview.webp" width="760" height="1600" alt="Pantalla Tonos de Zentones con la interfaz One UI" loading="lazy"></a>
+          <h3>One UI</h3>
+          <p>Cabecera alta para leer y todo lo que tocas abajo, al alcance del pulgar.</p>
+          <p class="look-brand">Se pone sola en Samsung</p>
+          <a class="more" href="estilos/oneui/">Ver la web en estilo One UI</a>
+        </li>
+        <li class="look">
+          <a class="look-shot" href="estilos/sony/" aria-label="Ver la web en estilo Sony"><img src="estilos/sony/preview.webp" width="760" height="1600" alt="Pantalla Tonos de Zentones con la interfaz Sony" loading="lazy"></a>
+          <h3>Sony</h3>
+          <p>Sobria y plana: pestañas arriba, líneas finas y un azul acero apagado.</p>
+          <p class="look-brand">Se pone sola en Xperia</p>
+          <a class="more" href="estilos/sony/">Ver la web en estilo Sony</a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -456,25 +457,6 @@ input[type="range"]:focus-visible { outline-offset: 2px; border-radius: var(--ra
     if (playing && playing.src === "panel" && playing.id === b.dataset.file) stop();
     else play(b.dataset.file, { src: "panel", id: b.dataset.file });
   }));
-
-  // Estilos: pestañas
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
-  function select(t, focus) {
-    tabs.forEach(x => {
-      const on = x === t;
-      x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1;
-      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
-    });
-    if (focus) t.focus();
-  }
-  tabs.forEach((t, i) => {
-    t.addEventListener("click", () => select(t));
-    t.addEventListener("keydown", e => {
-      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
-    });
-  });
-  select(tabs[0]);
 
   // Última APK (release "android-latest") + novedades de changelog.json
   const fecha = d => new Date(d).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });

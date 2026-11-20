@@ -28,6 +28,7 @@
   --shadow-track: inset 0 1px 3px oklch(0% 0 0 / 0.55);
   --color-glass: oklch(16.4% 0.022 258 / 0.72);
   --color-bloom: oklch(82% 0.095 68 / 0.10);
+  --shadow-drop: 0 24px 30px oklch(0% 0 0 / 0.45);
   --shadow-panel: 0 1px 0 oklch(0% 0 0 / 0.35), 0 24px 48px -16px oklch(0% 0 0 / 0.6);
 
   /* Type */

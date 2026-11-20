@@ -1,0 +1,207 @@
+/* Zentones · estilo Sony — movimiento.
+   Curva única, precisa y sin rebote; duraciones cortas. Solo opacidad y desplazamientos lineales. */
+:root {
+  --m-acc: #7FB2CF;
+  --m-ease: cubic-bezier(.2, 0, 0, 1);
+  --m-fast: 120ms;
+  --m-mid: 200ms;
+  --m-slow: 360ms;
+}
+
+/* ---------- Aparición de secciones: fundido corto + 8 px. Solo con JS (sin JS todo visible) */
+.m-js .m-enter {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--m-slow) var(--m-ease), transform var(--m-slow) var(--m-ease);
+}
+.m-js .m-enter.is-in { opacity: 1; transform: none; }
+
+/* Líneas que se dibujan al aparecer */
+.m-js .m-enter hr,
+.m-js .m-enter [data-line] {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  transition: transform 600ms var(--m-ease) 80ms;
+}
+.m-js .m-enter.is-in hr,
+.m-js .m-enter.is-in [data-line] { transform: scaleX(1); }
+
+.m-js .m-enter .m-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 700ms var(--m-ease) 120ms;
+}
+.m-js .m-enter.is-in .m-draw { stroke-dashoffset: 0; }
+
+/* Ilustraciones: barrido limpio de izquierda a derecha, como una línea de nivel que avanza */
+.m-js .m-enter img[src*="illus-"] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 700ms var(--m-ease) 100ms;
+}
+.m-js .m-enter.is-in img[src*="illus-"] { clip-path: inset(0 0 0 0); }
+
+/* ---------- Pulsación: sin adornos, solo atenuado */
+[data-anim="press"] {
+  transition: opacity var(--m-fast) linear;
+  -webkit-tap-highlight-color: transparent;
+}
+[data-anim="press"]:active,
+[data-anim="press"].is-pressed { opacity: .55; }
+
+/* ---------- Pestañas: subrayado que se desliza */
+.m-tabbar { position: relative; }
+.m-tab-ind {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--m-acc);
+  pointer-events: none;
+  transition: transform var(--m-mid) var(--m-ease), width var(--m-mid) var(--m-ease);
+  will-change: transform;
+}
+.m-tab-ind.m-noanim { transition: none; }
+.m-tabbar [data-tab] { transition: color var(--m-mid) linear; }
+/* el subrayado lo pone el indicador deslizante */
+.m-tabbar [data-tab]::after,
+.m-tabbar [data-tab][aria-selected="true"]::after { opacity: 0 !important; }
+
+/* ---------- Cambio de pantalla: fundido corto */
+.m-screen-in { animation: m-fade var(--m-mid) var(--m-ease) both; }
+@keyframes m-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Interruptores: deslizamiento lineal */
+.m-switch,
+.m-switch *,
+.m-switch::before,
+.m-switch::after {
+  transition-property: transform, background-color, border-color, color, left, right, margin, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
+}
+
+/* ---------- Botones de escuchar */
+[data-play] { transition: opacity var(--m-fast) linear, color var(--m-fast) linear, border-color var(--m-fast) linear; }
+
+/* ---------- Medidor de nivel en el móvil "sonando" */
+.m-ring { position: relative; }
+.m-meter {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  top: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  pointer-events: none;
+  opacity: .7;
+  transition: opacity var(--m-mid) linear;
+}
+.m-meter--inline { position: static; margin-right: 12px; }
+.m-meter.is-live { opacity: 1; }
+.m-meter i {
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: var(--m-acc);
+  transform-origin: 50% 100%;
+  transform: scaleY(.15);
+}
+.m-meter i:nth-child(n+9) { background: #E8E8E8; opacity: .55; }
+
+/* Contorno fino que respira: el otro único gesto de "está sonando" */
+.m-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--m-acc);
+  opacity: 0;
+  pointer-events: none;
+  animation: m-ring 2.4s linear infinite;
+}
+@keyframes m-ring {
+  0%, 100% { opacity: 0; }
+  10% { opacity: .45; }
+  36% { opacity: 0; }
+}
+
+/* ---------- Editor: la onda se dibuja de izquierda a derecha y el cabezal recorre el recorte al escuchar */
+.m-js .m-enter .m-wave i {
+  transform: scaleY(.03);
+  transition: transform 320ms var(--m-ease);
+  transition-delay: calc(var(--k, 0) * 5ms + 150ms);
+}
+.m-js .m-enter.is-in .m-wave i { transform: none; }
+.m-wave { position: relative; }
+.m-playhead {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: #E8E8E8;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--m-fast) linear;
+}
+.m-wave--play .m-playhead { opacity: .9; }
+
+/* ---------- Línea fina que se dibuja tras el antetítulo de cada sección */
+.m-rule {
+  display: block;
+  flex: 0 1 96px;
+  height: 1px;
+  background: var(--m-acc);
+  opacity: .7;
+  transform-origin: 0 50%;
+  transform: scaleX(1);
+}
+.m-js .m-enter .m-rule { transform: scaleX(0); transition: transform 600ms var(--m-ease) 160ms; }
+.m-js .m-enter.is-in .m-rule { transform: scaleX(1); }
+
+/* La línea superior de las figuras se recorre en acento */
+.m-js .m-enter .figure { position: relative; }
+.m-js .m-enter .figure::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: var(--m-acc);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  opacity: 0;
+  pointer-events: none;
+}
+.m-js .m-enter.is-in .figure::before { animation: m-sweep 900ms var(--m-ease) 120ms both; }
+@keyframes m-sweep {
+  0% { transform: scaleX(0); opacity: .9; }
+  70% { transform: scaleX(1); opacity: .9; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+/* ---------- Movimiento reducido: sin animaciones, todo visible */
+@media (prefers-reduced-motion: reduce) {
+  .m-js .m-enter,
+  .m-js .m-enter hr,
+  .m-js .m-enter [data-line],
+  .m-js .m-enter img[src*="illus-"] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  .m-js .m-enter .m-draw { stroke-dashoffset: 0 !important; transition: none !important; }
+  .m-screen-in { animation: none !important; }
+  .m-tab-ind, .m-switch, .m-switch *, .m-switch::before, .m-switch::after, [data-anim="press"], [data-play] { transition: none !important; }
+  .m-ring::after { animation: none !important; opacity: 0; }
+  .m-meter i { transform: scaleY(.35) !important; }
+  .m-js .m-enter .m-wave i, .m-js .m-enter .m-rule { transform: none !important; transition: none !important; }
+  .m-js .m-enter .figure::before { animation: none !important; opacity: 0; }
+  .m-playhead { transition: none !important; }
+}
