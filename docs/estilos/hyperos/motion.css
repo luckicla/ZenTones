@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Zentones · estilo HyperOS · motion.css
+   Movimiento con física de muelle: rebote y escala al pulsar, tarjetas que
+   aparecen desde 0.96, pantallas que se deslizan con profundidad, interruptores
+   elásticos, cristal que se desenfoca al aparecer y el móvil del hero sonando.
+   Usa propiedades individuales (scale, translate, rotate) para no pisar los
+   transform de style.css. Todo se desactiva con prefers-reduced-motion.
+   ========================================================================== */
+
+:root {
+  /* Muelles (Compose: DampingRatioMediumBouncy ≈ 0.5) convertidos a linear() */
+  --hm-spring-bouncy: cubic-bezier(.34, 1.56, .64, 1);
+  --hm-spring: cubic-bezier(.25, 1.25, .5, 1);
+  --hm-spring-soft: cubic-bezier(.22, 1, .36, 1);
+  --hm-out: cubic-bezier(.4, 0, .6, 1);
+  --hm-dur-press: 90ms;
+  --hm-dur-release: 560ms;
+  --hm-dur-enter: 820ms;
+  --hm-accent: #0D84FF;
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --hm-spring-bouncy: linear(0, 0.033, 0.121, 0.246, 0.392, 0.546, 0.696, 0.833, 0.951, 1.047, 1.119, 1.168, 1.196, 1.205, 1.2, 1.182, 1.157, 1.127, 1.096, 1.065, 1.037, 1.012, 0.992, 0.977, 0.966, 0.96, 0.958, 0.959, 0.962, 0.967, 0.973, 0.98, 0.986, 0.992, 0.997, 1.001, 1.005, 1.007, 1.008, 1.009, 1.008, 1.008, 1.007, 1.006, 1.004, 1.003, 1.002, 1.001, 1);
+    --hm-spring: linear(0, 0.018, 0.064, 0.133, 0.216, 0.307, 0.403, 0.498, 0.589, 0.675, 0.753, 0.823, 0.883, 0.935, 0.978, 1.012, 1.038, 1.058, 1.071, 1.079, 1.083, 1.083, 1.08, 1.076, 1.069, 1.062, 1.054, 1.046, 1.038, 1.031, 1.024, 1.018, 1.012, 1.008, 1.004, 1, 0.998, 0.996, 0.995, 0.994, 0.993, 0.993, 0.993, 0.993, 0.994, 0.995, 0.995, 0.996, 1);
+    --hm-spring-soft: linear(0, 0.011, 0.039, 0.081, 0.132, 0.19, 0.252, 0.316, 0.38, 0.443, 0.503, 0.561, 0.615, 0.665, 0.712, 0.754, 0.792, 0.826, 0.856, 0.883, 0.907, 0.927, 0.944, 0.959, 0.971, 0.982, 0.99, 0.997, 1.002, 1.007, 1.01, 1.012, 1.014, 1.015, 1.015, 1.015, 1.015, 1.014, 1.014, 1.013, 1.012, 1.011, 1.01, 1.009, 1.008, 1.007, 1.006, 1.006, 1);
+  }
+}
+
+/* ---------- Aparecer al entrar en pantalla (solo con JS activo) ---------- */
+.hm-js [data-anim="enter"] {
+  transition:
+    opacity calc(var(--hm-dur-enter) * .55) var(--hm-spring-soft),
+    scale var(--hm-dur-enter) var(--hm-spring),
+    translate var(--hm-dur-enter) var(--hm-spring),
+    filter calc(var(--hm-dur-enter) * .6) var(--hm-spring-soft);
+  transition-delay: var(--hm-delay, 0ms);
+}
+.hm-js [data-anim="enter"]:not(.hm-in) {
+  opacity: 0;
+  scale: .96;
+  translate: 0 28px;
+  filter: blur(6px);
+}
+.hm-js [data-anim="enter"].hm-in {
+  opacity: 1;
+  scale: 1;
+  translate: 0 0;
+}
+/* Tras la entrada se limpia el filtro para que no cree contexto de apilado */
+.hm-js [data-anim="enter"].hm-done { filter: none; transition-delay: 0ms; }
+
+/* ---------- Pulsar: se encoge y vuelve con muelle ---------- */
+[data-anim="press"],
+.phone [data-tab],
+[data-play] {
+  transition: scale var(--hm-dur-release) var(--hm-spring-bouncy);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+[data-anim="press"].hm-pressed,
+.phone [data-tab].hm-pressed,
+[data-play].hm-pressed {
+  scale: .94;
+  transition: scale var(--hm-dur-press) var(--hm-out);
+}
+/* Tarjetas grandes se encogen menos, como en HyperOS */
+[data-anim="press"].hm-large.hm-pressed { scale: .975; }
+
+/* Icono de la pestaña: pequeño salto al seleccionarse (lo lanza motion.js) */
+.phone [data-tab] > * { transform-origin: 50% 60%; }
+
+/* ---------- Pantallas del móvil ---------- */
+.phone [data-screen] { transform-origin: 50% 40%; }
+.phone [data-screen].hm-leaving { pointer-events: none; }
+
+/* ---------- Interruptores elásticos ---------- */
+[role="switch"],
+[role="switch"]::before,
+[role="switch"]::after,
+[role="switch"] > *,
+[role="switch"] > * > * {
+  transition-timing-function: var(--hm-spring-bouncy) !important;
+  transition-duration: 520ms !important;
+}
+[role="switch"] {
+  -webkit-tap-highlight-color: transparent;
+  transition-property: background-color, background, box-shadow, color, transform, scale !important;
+  transition-duration: 280ms !important;
+  transition-timing-function: ease !important;
+}
+[role="switch"].hm-pressed { scale: .94; }
+/* Estiramiento del pulgar mientras se desliza */
+[role="switch"].hm-flip::before,
+[role="switch"].hm-flip::after,
+[role="switch"].hm-flip > * {
+  animation: hm-squish 420ms var(--hm-spring-soft);
+}
+@keyframes hm-squish {
+  0% { scale: 1 1; }
+  30% { scale: 1.28 .86; }
+  100% { scale: 1 1; }
+}
+
+/* ---------- Botones de escuchar ---------- */
+[data-play][aria-pressed="true"] { position: relative; }
+[data-play][aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid var(--hm-accent);
+  opacity: 0;
+  pointer-events: none;
+  animation: hm-halo 1.6s var(--hm-spring-soft) infinite;
+}
+@keyframes hm-halo {
+  0% { opacity: .55; scale: .92; }
+  100% { opacity: 0; scale: 1.35; }
+}
+[data-play].hm-error { animation: hm-shake 420ms var(--hm-out); }
+@keyframes hm-shake {
+  0%, 100% { translate: 0 0; }
+  20% { translate: -5px 0; }
+  40% { translate: 5px 0; }
+  60% { translate: -3px 0; }
+  80% { translate: 2px 0; }
+}
+
+/* ---------- Onda del editor ---------- */
+.wave .wave__bars > *, .wave > i { transform-origin: 50% 50%; }
+.wave.hm-playing .wave__bars > *, .wave.hm-playing > i { animation: hm-bar 900ms var(--hm-spring-soft) infinite alternate; }
+.wave.hm-playing .wave__bars > *:nth-child(3n+1), .wave.hm-playing > i:nth-child(3n+1) { animation-delay: -120ms; animation-duration: 760ms; }
+.wave.hm-playing .wave__bars > *:nth-child(3n+2), .wave.hm-playing > i:nth-child(3n+2) { animation-delay: -420ms; animation-duration: 980ms; }
+.wave.hm-playing .wave__bars > *:nth-child(5n), .wave.hm-playing > i:nth-child(5n) { animation-delay: -640ms; animation-duration: 840ms; }
+@keyframes hm-bar {
+  0% { scale: 1 1; }
+  100% { scale: 1 .55; }
+}
+.hm-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: var(--hm-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--hm-accent) 18%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  translate: var(--hm-x, 0px) 0;
+  z-index: 2;
+}
+.wave.hm-playing .hm-playhead { opacity: 1; }
+
+
+/* Atajos del editor: los bordes saltan con muelle a su sitio */
+.wave.hm-snap .wave__handle,
+.wave.hm-snap .wave__mask {
+  transition: left 600ms var(--hm-spring), width 600ms var(--hm-spring);
+}
+.wave.hm-snap .wave__bars > * { transition: background-color 300ms ease; }
+.wave .wave__handle { transform-origin: 50% 50%; }
+
+/* ---------- Móvil del hero sonando ---------- */
+[data-ring].hm-ringing {
+  animation: hm-buzz 1.25s linear;
+}
+@keyframes hm-buzz {
+  0%, 100% { rotate: 0deg; translate: 0 0; }
+  4% { rotate: -1.1deg; translate: -2px 0; }
+  8% { rotate: 1.1deg; translate: 2px 0; }
+  12% { rotate: -1deg; translate: -2px 0; }
+  16% { rotate: 1deg; translate: 2px 0; }
+  20% { rotate: -.8deg; translate: -1px 0; }
+  24% { rotate: .6deg; translate: 1px 0; }
+  28%, 44% { rotate: 0deg; translate: 0 0; }
+  48% { rotate: -1.1deg; translate: -2px 0; }
+  52% { rotate: 1.1deg; translate: 2px 0; }
+  56% { rotate: -1deg; translate: -2px 0; }
+  60% { rotate: 1deg; translate: 2px 0; }
+  64% { rotate: -.6deg; translate: -1px 0; }
+  68% { rotate: .4deg; translate: 1px 0; }
+  72% { rotate: 0deg; translate: 0 0; }
+}
+.hm-ring-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+.hm-ring-pulse i {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--hm-accent);
+  opacity: 0;
+}
+[data-ring].hm-ringing .hm-ring-pulse i { animation: hm-ripple 1.25s var(--hm-spring-soft); }
+[data-ring].hm-ringing .hm-ring-pulse i:nth-child(2) { animation-delay: .35s; }
+@keyframes hm-ripple {
+  0% { opacity: .5; scale: 1; }
+  100% { opacity: 0; scale: 1.12 1.07; }
+}
+/* Campana o insignia dentro del móvil que late mientras suena */
+[data-ring].hm-ringing [data-ring-icon] { animation: hm-bell 1.25s var(--hm-spring-bouncy); }
+@keyframes hm-bell {
+  0%, 100% { rotate: 0deg; }
+  10% { rotate: 14deg; } 20% { rotate: -12deg; } 30% { rotate: 8deg; } 40% { rotate: -4deg; } 50% { rotate: 0deg; }
+}
+
+/* ---------- Cristal que aparece ---------- */
+.hm-js .hm-glass-in { animation: hm-glass 900ms var(--hm-spring-soft) both; }
+@keyframes hm-glass {
+  from { -webkit-backdrop-filter: blur(0px) saturate(1); backdrop-filter: blur(0px) saturate(1); }
+}
+
+/* ---------- Foco visible coherente con el azul de HyperOS ---------- */
+[data-tab]:focus-visible,
+[data-play]:focus-visible,
+[role="switch"]:focus-visible,
+[data-anim="press"]:focus-visible {
+  outline: 3px solid var(--hm-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Sin movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hm-js [data-anim="enter"],
+  .hm-js [data-anim="enter"]:not(.hm-in) {
+    opacity: 1 !important;
+    scale: none !important;
+    translate: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  [data-anim="press"], .phone [data-tab], [data-play],
+  [data-anim="press"].hm-pressed, .phone [data-tab].hm-pressed, [data-play].hm-pressed,
+  [role="switch"].hm-pressed { scale: none !important; transition: none !important; }
+  [role="switch"], [role="switch"]::before, [role="switch"]::after,
+  [role="switch"] > *, [role="switch"] > * > * { transition-duration: 0s !important; animation: none !important; }
+  [data-ring].hm-ringing, [data-ring].hm-ringing *, .wave.hm-playing .wave__bars > *, .wave.hm-playing > i,
+  [data-play][aria-pressed="true"]::after, .hm-glass-in, [data-play].hm-error { animation: none !important; }
+  .wave.hm-snap .wave__handle, .wave.hm-snap .wave__mask { transition: none !important; }
+  .hm-ring-pulse { display: none; }
+}

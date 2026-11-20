@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zentones en estilo Sony · sobrio, plano, preciso</title>
+<meta name="description" content="Zentones con la interfaz de estilo Sony: pestañas arriba, listas planas con líneas finas y un único acento azul acero. Tonos de llamada y de mensaje para todo el móvil o para cada app.">
+<meta name="theme-color" content="#101112">
+<meta property="og:title" content="Zentones en estilo Sony">
+<meta property="og:description" content="Sobrio, plano, preciso. Tonos de llamada y de mensaje, generales y por app.">
+<meta property="og:image" content="img/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-call" viewBox="0 0 24 24"><path d="M5.2 3.8h3.1l1.9 4.8-2.4 1.5a11 11 0 0 0 6.1 6.1l1.5-2.4 4.8 1.9v3.1a1.9 1.9 0 0 1-2 1.9A16.6 16.6 0 0 1 3.3 5.8a1.9 1.9 0 0 1 1.9-2z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.2 16.5v-5.3a5.8 5.8 0 0 1 11.6 0v5.3l1.6 2H4.6z"/><path d="M10 20.5a2.1 2.1 0 0 0 4 0"/></symbol>
+  <symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 9.3V13l2.6 1.8M3.8 6.2l3-2.4M20.2 6.2l-3-2.4"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M10 9.4v5.2l4.4-2.6z"/></symbol>
+  <symbol id="i-cut" viewBox="0 0 24 24"><circle cx="6.3" cy="7" r="2.6"/><circle cx="6.3" cy="17" r="2.6"/><path d="M8.5 8.4 20 17M8.5 15.6 20 7"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 17.5V5.2l10-2v12.3"/><circle cx="6.6" cy="17.6" r="2.4"/><circle cx="16.6" cy="15.6" r="2.4"/></symbol>
+  <symbol id="i-eq" viewBox="0 0 24 24"><path d="M4 10v4M8 6.5v11M12 9v6M16 4v16M20 10v4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path class="fill" d="M8.5 5.8v12.4l9.8-6.2z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.2 18.2a4.4 4.4 0 0 1-.5-8.8 5.8 5.8 0 0 1 11.1 1 3.9 3.9 0 0 1-.4 7.8"/><path d="M12 11.5v8m-3-3 3 3 3-3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6"/><path d="m20 20-4.8-4.8"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.2M12 7.8v.1"/></symbol>
+  <symbol id="i-tune" viewBox="0 0 24 24"><path d="M4 7h9.5M18.5 7H20M4 17h3.5M12.5 17H20"/><circle cx="16" cy="7" r="2.3"/><circle cx="10" cy="17" r="2.3"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.6 12a7.6 7.6 0 1 1-2.2-5.4M19.6 4v4.8h-4.8"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8.8 7.5-4.5 4.5 4.5 4.5M15.2 7.5l4.5 4.5-4.5 4.5"/></symbol>
+  <symbol id="i-update" viewBox="0 0 24 24"><rect x="6.5" y="2.8" width="11" height="18.4" rx="1.6"/><path d="M12 7.5v7.2m-3-3 3 3 3-3"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11.5m-4.6-4.6 4.6 4.6 4.6-4.6M5 20h14"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L4 20z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12.5" rx="1"/><path d="m3.5 7 8.5 6.2L20.5 7"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3.5 9.5 12 4.5l8.5 5M5.5 10v7.5M10 10v7.5M14 10v7.5M18.5 10v7.5M3.5 20h17"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3.5 8h3.6l1.8-2.5h6.2L16.9 8h3.6v11h-17z"/><circle cx="12" cy="13.3" r="3.4"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M20.5 3.5 3.5 10.6l6.8 2.6 2.6 6.8z"/><path d="m20.5 3.5-10.2 9.7"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.6"/><path d="M11.6 12H20.5M17.5 12v3M20 12v2.4"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4.5h13L20 9.5M4.8 10v9.5h14.4V10M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M9.5 19.5V14h5v5.5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="bar">
+  <div class="bar__row wrap">
+    <a class="bar__brand" href="../../index.html" data-anim="press">Zentones</a>
+    <span class="bar__label">Estilo de interfaz</span>
+  </div>
+  <nav class="bar__tabs wrap" aria-label="Estilos de interfaz">
+    <a href="../pixel/" data-anim="press">Pixel</a>
+    <a href="../hyperos/" data-anim="press">HyperOS</a>
+    <a href="../oneui/" data-anim="press">One UI</a>
+    <a href="../sony/" aria-current="page" data-anim="press">Sony</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img class="hero__wall" src="img/wallpaper.svg" width="1440" height="900" alt="" fetchpriority="high">
+  <div class="hero__grid wrap">
+    <div class="hero__text" data-anim="enter">
+      <p class="eyebrow"><span class="mono">04 / 04</span> Estilo Sony</p>
+      <h1>Sobrio, plano,<br>preciso.</h1>
+      <p class="lead">Así se ve Zentones con la interfaz de estilo Sony: pestañas arriba con subrayado, listas a ancho completo separadas por líneas finas y un único acento azul acero. Tonos de llamada y de mensaje para todo el móvil o para cada app.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="https://github.com/luckicla/ZenTones/releases/download/android-latest/Zentones.apk" data-anim="press">
+          <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg>Descargar APK
+        </a>
+        <a class="btn btn--line" href="#tienda" data-anim="press">Escuchar el catálogo</a>
+      </div>
+      <p class="fine">Android 10 o superior. En móviles Sony se aplica sola; se cambia en Ajustes.</p>
+
+      <dl class="readout" aria-label="Datos de la app">
+        <div><dt>Catálogo</dt><dd><span class="mono">140</span> tonos</dd></div>
+        <div><dt>Categorías</dt><dd><span class="mono">10</span></dd></div>
+        <div><dt>De serie</dt><dd><span class="mono">18</span> tonos</dd></div>
+        <div><dt>Ganancia</dt><dd><span class="mono">±12</span> dB</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__device" data-anim="enter">
+      <div class="phone" data-ring>
+        <span class="phone__key phone__key--vol" aria-hidden="true"></span>
+        <span class="phone__key phone__key--pwr" aria-hidden="true"></span>
+        <span class="phone__key phone__key--shut" aria-hidden="true"></span>
+        <div class="phone__bezel" aria-hidden="true"><span class="phone__cam"></span><span class="phone__spk"></span></div>
+        <div class="screen">
+          <div class="sb" aria-hidden="true">
+            <span class="mono">12:00</span>
+            <span class="sb__ico">
+              <svg viewBox="0 0 16 12"><path d="M1 11h2V8H1zM5 11h2V6H5zM9 11h2V3.5H9zM13 11h2V1h-2z"/></svg>
+              <svg viewBox="0 0 16 12"><path d="M8 11 1 4a10 10 0 0 1 14 0z"/></svg>
+              <svg viewBox="0 0 22 12"><rect x=".5" y="1.5" width="18" height="9" rx="1.5" fill="none" stroke="currentColor"/><rect x="2.3" y="3.3" width="12" height="5.4" rx=".6"/><rect x="19.5" y="4.3" width="1.6" height="3.4" rx=".5"/></svg>
+            </span>
+          </div>
+          <div class="ap">
+            <div class="ap__head">
+              <span class="ap__title">Zentones</span>
+              <span class="ap__where" aria-hidden="true"></span>
+            </div>
+            <div class="ap__tabs" role="tablist" aria-label="Pestañas de la app">
+              <button type="button" role="tab" id="t-tonos" data-tab="tonos" aria-selected="true" aria-controls="s-tonos">Tonos</button>
+              <button type="button" role="tab" id="t-tienda" data-tab="tienda" aria-selected="false" aria-controls="s-tienda" tabindex="-1">Tienda</button>
+              <button type="button" role="tab" id="t-apps" data-tab="apps" aria-selected="false" aria-controls="s-apps" tabindex="-1">Apps</button>
+              <button type="button" role="tab" id="t-ajustes" data-tab="ajustes" aria-selected="false" aria-controls="s-ajustes" tabindex="-1">Ajustes</button>
+            </div>
+
+            <div class="ap__body">
+              <!-- TONOS -->
+              <div class="scr" id="s-tonos" data-screen="tonos" role="tabpanel" aria-labelledby="t-tonos">
+                <p class="sub">Llamadas, mensajes y alarmas</p>
+                <div class="tiles">
+                  <div class="tile"><span class="tile__bar"></span><span><b>Llamadas</b>Bambú</span></div>
+                  <div class="tile tile--alt"><span class="tile__bar"></span><span><b>Mensajes</b>Ding</span></div>
+                </div>
+                <p class="st">Sistema</p>
+                <ul class="li">
+                  <li><svg class="lead-i"><use href="#i-call"/></svg><span><b>Tono de llamada</b><small>Bambú</small></span></li>
+                  <li><svg class="lead-i"><use href="#i-bell"/></svg><span><b>Notificaciones</b><small>Ding</small></span></li>
+                  <li><svg class="lead-i"><use href="#i-alarm"/></svg><span><b>Alarma</b><small>Cumbre</small></span></li>
+                </ul>
+                <p class="st">Crear</p>
+                <ul class="li">
+                  <li><svg class="lead-i"><use href="#i-video"/></svg><span><b>Desde YouTube</b><small>Busca una canción, baja el audio y córtalo</small></span></li>
+                  <li><svg class="lead-i"><use href="#i-cut"/></svg><span><b>Desde un audio del móvil</b><small>Recorta cualquier canción o sonido que tengas</small></span></li>
+                </ul>
+                <p class="st">De serie · Llamada</p>
+                <ul class="li">
+                  <li><svg class="lead-i"><use href="#i-note"/></svg><span><b>Bambú</b><small>Marimba de madera, alegre y saltarina</small></span><span class="pb" aria-hidden="true"><svg><use href="#i-play"/></svg></span></li>
+                  <li><svg class="lead-i"><use href="#i-note"/></svg><span><b>Reflejo</b><small>Arpegio de kalimba sobre acordes suaves</small></span><span class="pb" aria-hidden="true"><svg><use href="#i-play"/></svg></span></li>
+                  <li><svg class="lead-i"><use href="#i-note"/></svg><span><b>Apertura</b><small>Escalas de marimba que se abren hacia arriba</small></span><span class="pb" aria-hidden="true"><svg><use href="#i-play"/></svg></span></li>
+                </ul>
+              </div>
+
+              <!-- TIENDA -->
+              <div class="scr" id="s-tienda" data-screen="tienda" role="tabpanel" aria-labelledby="t-tienda" hidden>
+                <p class="sub">140 tonos en el catálogo · Freesound · YouTube</p>
+                <div class="fld"><svg><use href="#i-search"/></svg><span>Busca: terror, retro, radio, láser…</span></div>
+                <div class="chips"><span class="on">Todo</span><span>Llamadas</span><span>Mensajes</span></div>
+                <div class="chips chips--scroll"><span class="on">Todas</span><span>Retro 8-bit</span><span>Terror nocturno</span><span>Radio antigua</span><span>Ciencia ficción</span><span>Lo-fi</span></div>
+                <p class="st">Catálogo Zentones</p>
+                <ul class="li li--store">
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/retro-01.ogg" aria-label="Escuchar Píxel"><svg><use href="#i-play"/></svg></button><span><b>Píxel</b><small>Llamada · 7.2 s · Retro 8-bit</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/retro-02.ogg" aria-label="Escuchar Cartucho"><svg><use href="#i-play"/></svg></button><span><b>Cartucho</b><small>Mensaje · 2.2 s · Retro 8-bit</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/terror-01.ogg" aria-label="Escuchar Medianoche"><svg><use href="#i-play"/></svg></button><span><b>Medianoche</b><small>Llamada · 7.2 s · Terror nocturno</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/radio-01.ogg" aria-label="Escuchar Onda media"><svg><use href="#i-play"/></svg></button><span><b>Onda media</b><small>Llamada · 7.9 s · Radio antigua</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/scifi-04.ogg" aria-label="Escuchar Teletransporte"><svg><use href="#i-play"/></svg></button><span><b>Teletransporte</b><small>Mensaje · 2.3 s · Ciencia ficción</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                  <li><button type="button" class="pb" data-play="../../catalog/tones/lofi-01.ogg" aria-label="Escuchar Café"><svg><use href="#i-play"/></svg></button><span><b>Café</b><small>Llamada · 6.6 s · Lo-fi</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+                </ul>
+              </div>
+
+              <!-- APPS -->
+              <div class="scr" id="s-apps" data-screen="apps" role="tabpanel" aria-labelledby="t-apps" hidden>
+                <p class="sub">Elige un tono y te guiamos para ponerlo en cada app</p>
+                <div class="fld"><svg><use href="#i-search"/></svg><span>Buscar apps</span></div>
+                <p class="st">Ya configuradas</p>
+                <ul class="li li--apps">
+                  <li><img class="aico" src="img/apps.svg#chat" width="32" height="32" alt=""><span><b>Chat</b><small>Llamada: Bambú · Mensaje: Ding</small></span></li>
+                  <li><img class="aico" src="img/apps.svg#correo" width="32" height="32" alt=""><span><b>Correo</b><small>Mensaje: Tri-tono</small></span></li>
+                </ul>
+                <p class="st">Todas las apps</p>
+                <ul class="li li--apps">
+                  <li><img class="aico" src="img/apps.svg#avion" width="32" height="32" alt=""><span><b>Avión de papel</b></span></li>
+                  <li><img class="aico" src="img/apps.svg#banco" width="32" height="32" alt=""><span><b>Banco</b></span></li>
+                  <li><img class="aico" src="img/apps.svg#camara" width="32" height="32" alt=""><span><b>Cámara</b></span></li>
+                  <li><img class="aico" src="img/apps.svg#chat" width="32" height="32" alt=""><span><b>Chat</b><small>Llamada: Bambú · Mensaje: Ding</small></span></li>
+                  <li><img class="aico" src="img/apps.svg#correo" width="32" height="32" alt=""><span><b>Correo</b><small>Mensaje: Tri-tono</small></span></li>
+                  <li><img class="aico" src="img/apps.svg#musica" width="32" height="32" alt=""><span><b>Música</b></span></li>
+                </ul>
+              </div>
+
+              <!-- AJUSTES -->
+              <div class="scr" id="s-ajustes" data-screen="ajustes" role="tabpanel" aria-labelledby="t-ajustes" hidden>
+                <p class="st st--first">Estilo de interfaz</p>
+                <ul class="li">
+                  <li><span><b>Según mi móvil</b><small>Sony → Sony</small></span><span class="rd" aria-hidden="true"></span></li>
+                </ul>
+                <div class="skins">
+                  <div class="sk sk--pixel"><span class="mini" aria-hidden="true"><i></i><i></i><i></i></span><b>Pixel</b><small>Material You expresivo</small></div>
+                  <div class="sk sk--hyper"><span class="mini" aria-hidden="true"><i></i><i></i><i></i></span><b>HyperOS</b><small>Aireado, rebote y azul</small></div>
+                  <div class="sk sk--oneui"><span class="mini" aria-hidden="true"><i></i><i></i><i></i></span><b>One UI</b><small>Cabecera alta, todo al alcance</small></div>
+                  <div class="sk sk--sony"><span class="mini" aria-hidden="true"><i></i><i></i><i></i></span><b>Sony</b><small>Sobrio, plano, preciso</small></div>
+                </div>
+                <p class="st">Apariencia</p>
+                <ul class="li">
+                  <li><span><b>Automático</b><small>Sigue al sistema</small></span><span class="rd" aria-hidden="true"></span></li>
+                  <li><span><b>Claro</b></span><span class="rd" aria-hidden="true"></span></li>
+                  <li><span><b>Oscuro</b></span><span class="rd rd--on" aria-hidden="true"></span></li>
+                </ul>
+                <p class="st">Permisos</p>
+                <ul class="li">
+                  <li><svg class="lead-i"><use href="#i-tune"/></svg><span><b>Cambiar tonos del sistema</b><small>Para los tonos generales</small></span><em class="state">Activo</em></li>
+                  <li><svg class="lead-i"><use href="#i-down"/></svg><span><b>Instalar actualizaciones</b><small>Para actualizar desde GitHub</small></span><em class="state">Activo</em></li>
+                </ul>
+                <p class="st">Actualizaciones</p>
+                <ul class="li">
+                  <li><svg class="lead-i"><use href="#i-update"/></svg><span><b>Buscar actualizaciones</b><small>Toca para comprobar</small></span></li>
+                  <li><svg class="lead-i"><use href="#i-refresh"/></svg><span><b>Buscar al abrir</b><small>Mira GitHub cada vez que abres la app</small></span><button type="button" class="sw" role="switch" aria-checked="true" aria-label="Buscar al abrir"><span></span></button></li>
+                  <li><svg class="lead-i"><use href="#i-code"/></svg><span><b>Repositorio</b><small>luckicla/ZenTones</small></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="navbar" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+      <p class="device-cap"><span class="mono">01</span> Toca las pestañas: la app es HTML, no una captura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 TONOS ============ -->
+<section class="sec" id="tonos" aria-labelledby="h-tonos">
+  <div class="wrap">
+    <header class="sec__head" data-anim="enter">
+      <p class="eyebrow"><span class="mono">01</span> Tonos</p>
+      <h2 id="h-tonos">Todo el sistema, en una sola lista.</h2>
+      <p class="sec__lead">Tono de llamada, notificaciones y alarma, cada uno en su fila. Debajo, 18 tonos de serie sintetizados dentro de la app, tus recortes en «Mis tonos» y dos maneras de crear uno nuevo: desde YouTube o desde cualquier audio del móvil.</p>
+    </header>
+
+    <div class="tonos" data-anim="enter">
+      <div class="tonos__sys">
+        <div class="tiles tiles--big">
+          <div class="tile"><span class="tile__bar"></span><span><b>Llamadas</b>Bambú</span></div>
+          <div class="tile tile--alt"><span class="tile__bar"></span><span><b>Mensajes</b>Ding</span></div>
+        </div>
+        <p class="st">Sistema</p>
+        <ul class="li li--big">
+          <li><svg class="lead-i"><use href="#i-call"/></svg><span><b>Tono de llamada</b><small>Bambú</small></span></li>
+          <li><svg class="lead-i"><use href="#i-bell"/></svg><span><b>Notificaciones</b><small>Ding</small></span></li>
+          <li><svg class="lead-i"><use href="#i-alarm"/></svg><span><b>Alarma</b><small>Cumbre</small></span></li>
+        </ul>
+        <p class="st">Crear</p>
+        <ul class="li li--big">
+          <li><svg class="lead-i"><use href="#i-video"/></svg><span><b>Desde YouTube</b><small>Busca una canción, baja el audio y córtalo</small></span></li>
+          <li><svg class="lead-i"><use href="#i-cut"/></svg><span><b>Desde un audio del móvil</b><small>Recorta cualquier canción o sonido que tengas</small></span></li>
+        </ul>
+        <figure class="figure">
+          <img src="img/illus-tonos.svg" width="1200" height="800" alt="" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="album">
+        <div class="album__side">
+          <p class="album__h"><span>De serie · Llamada</span><span class="mono">08</span></p>
+          <ol class="trk">
+            <li><span class="mono n">01</span><span><b>Bambú</b><small>Marimba de madera, alegre y saltarina</small></span><span class="mono d">6.4 s</span></li>
+            <li><span class="mono n">02</span><span><b>Reflejo</b><small>Arpegio de kalimba sobre acordes suaves</small></span><span class="mono d">6.4 s</span></li>
+            <li><span class="mono n">03</span><span><b>Apertura</b><small>Escalas de marimba que se abren hacia arriba</small></span><span class="mono d">6.0 s</span></li>
+            <li><span class="mono n">04</span><span><b>Faro</b><small>Pulsos de radar, imposible no oírlo</small></span><span class="mono d">2.4 s</span></li>
+            <li><span class="mono n">05</span><span><b>Brisa</b><small>Pad cálido con melodía de kalimba</small></span><span class="mono d">8.0 s</span></li>
+            <li><span class="mono n">06</span><span><b>Clásico</b><small>Campanilla de teléfono de toda la vida</small></span><span class="mono d">4.0 s</span></li>
+            <li><span class="mono n">07</span><span><b>Cumbre</b><small>Melodía brillante de kalimba en Re</small></span><span class="mono d">6.4 s</span></li>
+            <li><span class="mono n">08</span><span><b>Pulso</b><small>Bajo pulsado con marimba a contratiempo</small></span><span class="mono d">6.4 s</span></li>
+          </ol>
+        </div>
+        <div class="album__side">
+          <p class="album__h"><span>De serie · Mensaje</span><span class="mono">10</span></p>
+          <ol class="trk">
+            <li><span class="mono n">01</span><span><b>Ding</b><small>El ding de siempre</small></span><span class="mono d">2.6 s</span></li>
+            <li><span class="mono n">02</span><span><b>Tri-tono</b><small>Tres notas de cristal hacia arriba</small></span><span class="mono d">1.6 s</span></li>
+            <li><span class="mono n">03</span><span><b>Nota</b><small>Golpe corto de marimba</small></span><span class="mono d">1.2 s</span></li>
+            <li><span class="mono n">04</span><span><b>Cristal</b><small>Copa de cristal, finito</small></span><span class="mono d">1.5 s</span></li>
+            <li><span class="mono n">05</span><span><b>Burbuja</b><small>Pop rápido y redondo</small></span><span class="mono d">1.0 s</span></li>
+            <li><span class="mono n">06</span><span><b>Acorde</b><small>Campanas en acorde mayor</small></span><span class="mono d">3.0 s</span></li>
+            <li><span class="mono n">07</span><span><b>Campanilla</b><small>Tres campanitas que bajan</small></span><span class="mono d">2.5 s</span></li>
+            <li><span class="mono n">08</span><span><b>Aviso</b><small>Dos pitidos limpios</small></span><span class="mono d">1.0 s</span></li>
+            <li><span class="mono n">09</span><span><b>Gota</b><small>Kalimba que cae como una gota</small></span><span class="mono d">1.4 s</span></li>
+            <li><span class="mono n">10</span><span><b>Bambú corto</b><small>Dos golpes de marimba</small></span><span class="mono d">1.3 s</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 TIENDA ============ -->
+<section class="sec sec--panel" id="tienda" aria-labelledby="h-tienda">
+  <div class="wrap">
+    <header class="sec__head" data-anim="enter">
+      <p class="eyebrow"><span class="mono">02</span> Tienda</p>
+      <h2 id="h-tienda">140 tonos, diez emisoras.</h2>
+      <p class="sec__lead">El catálogo propio se ordena en 10 categorías. Sintoniza una y escucha: en la app, cada tono se abre en el editor antes de guardarlo. Además, búsqueda en Freesound y audio de YouTube con yt-dlp.</p>
+    </header>
+
+    <div class="tuner" data-anim="enter">
+      <div class="tuner__top"><span class="mono">Catálogo Zentones</span><span class="mono">140 tonos · 10 categorías</span></div>
+      <fieldset class="tuner__dial"><legend class="vh">Categoría</legend>
+        <div class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="tuner__cats">
+          <input type="radio" name="cat" id="cat-retro" value="retro" checked><label for="cat-retro"><span class="mono">01</span>Retro 8-bit</label>
+          <input type="radio" name="cat" id="cat-terror" value="terror"><label for="cat-terror"><span class="mono">02</span>Terror nocturno</label>
+          <input type="radio" name="cat" id="cat-radio" value="radio"><label for="cat-radio"><span class="mono">03</span>Radio antigua</label>
+          <input type="radio" name="cat" id="cat-scifi" value="scifi"><label for="cat-scifi"><span class="mono">04</span>Ciencia ficción</label>
+          <input type="radio" name="cat" id="cat-lofi" value="lofi"><label for="cat-lofi"><span class="mono">05</span>Lo-fi</label>
+          <input type="radio" name="cat" id="cat-marimba" value="marimba"><label for="cat-marimba"><span class="mono">06</span>Marimba y madera</label>
+          <input type="radio" name="cat" id="cat-electro" value="electro"><label for="cat-electro"><span class="mono">07</span>Electrónica</label>
+          <input type="radio" name="cat" id="cat-zen" value="zen"><label for="cat-zen"><span class="mono">08</span>Zen</label>
+          <input type="radio" name="cat" id="cat-gaming" value="gaming"><label for="cat-gaming"><span class="mono">09</span>Gaming</label>
+          <input type="radio" name="cat" id="cat-alerta" value="alerta"><label for="cat-alerta"><span class="mono">10</span>Alertas</label>
+        </div>
+        <span class="needle" aria-hidden="true"></span>
+      </fieldset>
+      <div class="tuner__lists">
+        <div class="tl" data-list="retro">
+          <p class="tl__h"><span class="mono">01 / 10</span><b>Retro 8-bit</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/retro-01.ogg" aria-label="Escuchar Píxel"><svg><use href="#i-play"/></svg></button><span><b>Píxel</b><small>Llamada · Retro 8-bit</small></span><span class="mono d">7.2 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/retro-03.ogg" aria-label="Escuchar Nivel 1"><svg><use href="#i-play"/></svg></button><span><b>Nivel 1</b><small>Llamada · Retro 8-bit</small></span><span class="mono d">7.3 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/retro-05.ogg" aria-label="Escuchar Joystick"><svg><use href="#i-play"/></svg></button><span><b>Joystick</b><small>Llamada · Retro 8-bit</small></span><span class="mono d">7.7 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/retro-02.ogg" aria-label="Escuchar Cartucho"><svg><use href="#i-play"/></svg></button><span><b>Cartucho</b><small>Mensaje · Retro 8-bit</small></span><span class="mono d">2.2 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/retro-04.ogg" aria-label="Escuchar Arcade"><svg><use href="#i-play"/></svg></button><span><b>Arcade</b><small>Mensaje · Retro 8-bit</small></span><span class="mono d">1.8 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/retro-06.ogg" aria-label="Escuchar Insert Coin"><svg><use href="#i-play"/></svg></button><span><b>Insert Coin</b><small>Mensaje · Retro 8-bit</small></span><span class="mono d">1.4 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="terror">
+          <p class="tl__h"><span class="mono">02 / 10</span><b>Terror nocturno</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/terror-01.ogg" aria-label="Escuchar Medianoche"><svg><use href="#i-play"/></svg></button><span><b>Medianoche</b><small>Llamada · Terror nocturno</small></span><span class="mono d">7.2 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/terror-03.ogg" aria-label="Escuchar Cámara 3"><svg><use href="#i-play"/></svg></button><span><b>Cámara 3</b><small>Llamada · Terror nocturno</small></span><span class="mono d">7.1 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/terror-05.ogg" aria-label="Escuchar Caja de música"><svg><use href="#i-play"/></svg></button><span><b>Caja de música</b><small>Llamada · Terror nocturno</small></span><span class="mono d">7.5 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/terror-02.ogg" aria-label="Escuchar Pasillo"><svg><use href="#i-play"/></svg></button><span><b>Pasillo</b><small>Mensaje · Terror nocturno</small></span><span class="mono d">1.8 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/terror-04.ogg" aria-label="Escuchar Sótano"><svg><use href="#i-play"/></svg></button><span><b>Sótano</b><small>Mensaje · Terror nocturno</small></span><span class="mono d">1.6 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/terror-06.ogg" aria-label="Escuchar Turno de noche"><svg><use href="#i-play"/></svg></button><span><b>Turno de noche</b><small>Mensaje · Terror nocturno</small></span><span class="mono d">2.6 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="radio">
+          <p class="tl__h"><span class="mono">03 / 10</span><b>Radio antigua</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/radio-01.ogg" aria-label="Escuchar Onda media"><svg><use href="#i-play"/></svg></button><span><b>Onda media</b><small>Llamada · Radio antigua</small></span><span class="mono d">7.9 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/radio-03.ogg" aria-label="Escuchar Transistor"><svg><use href="#i-play"/></svg></button><span><b>Transistor</b><small>Llamada · Radio antigua</small></span><span class="mono d">7.4 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/radio-05.ogg" aria-label="Escuchar Frecuencia"><svg><use href="#i-play"/></svg></button><span><b>Frecuencia</b><small>Llamada · Radio antigua</small></span><span class="mono d">7.3 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/radio-02.ogg" aria-label="Escuchar Dial"><svg><use href="#i-play"/></svg></button><span><b>Dial</b><small>Mensaje · Radio antigua</small></span><span class="mono d">1.9 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/radio-04.ogg" aria-label="Escuchar Emisora fantasma"><svg><use href="#i-play"/></svg></button><span><b>Emisora fantasma</b><small>Mensaje · Radio antigua</small></span><span class="mono d">1.6 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/radio-06.ogg" aria-label="Escuchar Sintonía"><svg><use href="#i-play"/></svg></button><span><b>Sintonía</b><small>Mensaje · Radio antigua</small></span><span class="mono d">1.2 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="scifi">
+          <p class="tl__h"><span class="mono">04 / 10</span><b>Ciencia ficción</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-01.ogg" aria-label="Escuchar Órbita"><svg><use href="#i-play"/></svg></button><span><b>Órbita</b><small>Llamada · Ciencia ficción</small></span><span class="mono d">6.8 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-03.ogg" aria-label="Escuchar Nave"><svg><use href="#i-play"/></svg></button><span><b>Nave</b><small>Llamada · Ciencia ficción</small></span><span class="mono d">7.5 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-05.ogg" aria-label="Escuchar Androide"><svg><use href="#i-play"/></svg></button><span><b>Androide</b><small>Llamada · Ciencia ficción</small></span><span class="mono d">6.5 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-02.ogg" aria-label="Escuchar Holograma"><svg><use href="#i-play"/></svg></button><span><b>Holograma</b><small>Mensaje · Ciencia ficción</small></span><span class="mono d">2.6 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-04.ogg" aria-label="Escuchar Teletransporte"><svg><use href="#i-play"/></svg></button><span><b>Teletransporte</b><small>Mensaje · Ciencia ficción</small></span><span class="mono d">2.3 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/scifi-06.ogg" aria-label="Escuchar Nebulosa"><svg><use href="#i-play"/></svg></button><span><b>Nebulosa</b><small>Mensaje · Ciencia ficción</small></span><span class="mono d">1.2 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="lofi">
+          <p class="tl__h"><span class="mono">05 / 10</span><b>Lo-fi</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-01.ogg" aria-label="Escuchar Café"><svg><use href="#i-play"/></svg></button><span><b>Café</b><small>Llamada · Lo-fi</small></span><span class="mono d">6.6 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-03.ogg" aria-label="Escuchar Domingo"><svg><use href="#i-play"/></svg></button><span><b>Domingo</b><small>Llamada · Lo-fi</small></span><span class="mono d">6.7 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-05.ogg" aria-label="Escuchar Vinilo"><svg><use href="#i-play"/></svg></button><span><b>Vinilo</b><small>Llamada · Lo-fi</small></span><span class="mono d">7.2 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-02.ogg" aria-label="Escuchar Lluvia"><svg><use href="#i-play"/></svg></button><span><b>Lluvia</b><small>Mensaje · Lo-fi</small></span><span class="mono d">2.0 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-04.ogg" aria-label="Escuchar Ventana"><svg><use href="#i-play"/></svg></button><span><b>Ventana</b><small>Mensaje · Lo-fi</small></span><span class="mono d">1.5 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/lofi-06.ogg" aria-label="Escuchar Atardecer"><svg><use href="#i-play"/></svg></button><span><b>Atardecer</b><small>Mensaje · Lo-fi</small></span><span class="mono d">2.5 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="marimba">
+          <p class="tl__h"><span class="mono">06 / 10</span><b>Marimba y madera</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-01.ogg" aria-label="Escuchar Caña"><svg><use href="#i-play"/></svg></button><span><b>Caña</b><small>Llamada · Marimba y madera</small></span><span class="mono d">7.0 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-03.ogg" aria-label="Escuchar Coco"><svg><use href="#i-play"/></svg></button><span><b>Coco</b><small>Llamada · Marimba y madera</small></span><span class="mono d">6.7 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-05.ogg" aria-label="Escuchar Laguna"><svg><use href="#i-play"/></svg></button><span><b>Laguna</b><small>Llamada · Marimba y madera</small></span><span class="mono d">7.7 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-02.ogg" aria-label="Escuchar Isla"><svg><use href="#i-play"/></svg></button><span><b>Isla</b><small>Mensaje · Marimba y madera</small></span><span class="mono d">1.4 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-04.ogg" aria-label="Escuchar Brisa marina"><svg><use href="#i-play"/></svg></button><span><b>Brisa marina</b><small>Mensaje · Marimba y madera</small></span><span class="mono d">1.9 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/marimba-06.ogg" aria-label="Escuchar Palmera"><svg><use href="#i-play"/></svg></button><span><b>Palmera</b><small>Mensaje · Marimba y madera</small></span><span class="mono d">1.4 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="electro">
+          <p class="tl__h"><span class="mono">07 / 10</span><b>Electrónica</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/electro-01.ogg" aria-label="Escuchar Neón"><svg><use href="#i-play"/></svg></button><span><b>Neón</b><small>Llamada · Electrónica</small></span><span class="mono d">6.4 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/electro-03.ogg" aria-label="Escuchar Club"><svg><use href="#i-play"/></svg></button><span><b>Club</b><small>Llamada · Electrónica</small></span><span class="mono d">7.2 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/electro-05.ogg" aria-label="Escuchar Bassline"><svg><use href="#i-play"/></svg></button><span><b>Bassline</b><small>Llamada · Electrónica</small></span><span class="mono d">6.3 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/electro-02.ogg" aria-label="Escuchar Pulso"><svg><use href="#i-play"/></svg></button><span><b>Pulso</b><small>Mensaje · Electrónica</small></span><span class="mono d">1.4 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/electro-04.ogg" aria-label="Escuchar Strobe"><svg><use href="#i-play"/></svg></button><span><b>Strobe</b><small>Mensaje · Electrónica</small></span><span class="mono d">2.2 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/electro-06.ogg" aria-label="Escuchar Sintetizador"><svg><use href="#i-play"/></svg></button><span><b>Sintetizador</b><small>Mensaje · Electrónica</small></span><span class="mono d">1.2 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="zen">
+          <p class="tl__h"><span class="mono">08 / 10</span><b>Zen</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/zen-01.ogg" aria-label="Escuchar Loto"><svg><use href="#i-play"/></svg></button><span><b>Loto</b><small>Llamada · Zen</small></span><span class="mono d">8.7 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/zen-03.ogg" aria-label="Escuchar Templo"><svg><use href="#i-play"/></svg></button><span><b>Templo</b><small>Llamada · Zen</small></span><span class="mono d">8.1 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/zen-05.ogg" aria-label="Escuchar Cuenco"><svg><use href="#i-play"/></svg></button><span><b>Cuenco</b><small>Llamada · Zen</small></span><span class="mono d">8.0 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/zen-02.ogg" aria-label="Escuchar Bambú zen"><svg><use href="#i-play"/></svg></button><span><b>Bambú zen</b><small>Mensaje · Zen</small></span><span class="mono d">1.9 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/zen-04.ogg" aria-label="Escuchar Respira"><svg><use href="#i-play"/></svg></button><span><b>Respira</b><small>Mensaje · Zen</small></span><span class="mono d">2.8 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/zen-06.ogg" aria-label="Escuchar Jardín"><svg><use href="#i-play"/></svg></button><span><b>Jardín</b><small>Mensaje · Zen</small></span><span class="mono d">2.7 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="gaming">
+          <p class="tl__h"><span class="mono">09 / 10</span><b>Gaming</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-01.ogg" aria-label="Escuchar Logro"><svg><use href="#i-play"/></svg></button><span><b>Logro</b><small>Llamada · Gaming</small></span><span class="mono d">7.1 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-03.ogg" aria-label="Escuchar Nivel arriba"><svg><use href="#i-play"/></svg></button><span><b>Nivel arriba</b><small>Llamada · Gaming</small></span><span class="mono d">7.9 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-05.ogg" aria-label="Escuchar Misión"><svg><use href="#i-play"/></svg></button><span><b>Misión</b><small>Llamada · Gaming</small></span><span class="mono d">8.1 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-02.ogg" aria-label="Escuchar Victoria"><svg><use href="#i-play"/></svg></button><span><b>Victoria</b><small>Mensaje · Gaming</small></span><span class="mono d">2.1 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-04.ogg" aria-label="Escuchar Cofre"><svg><use href="#i-play"/></svg></button><span><b>Cofre</b><small>Mensaje · Gaming</small></span><span class="mono d">1.9 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/gaming-06.ogg" aria-label="Escuchar Power-up"><svg><use href="#i-play"/></svg></button><span><b>Power-up</b><small>Mensaje · Gaming</small></span><span class="mono d">1.5 s</span></li>
+          </ol>
+        </div>
+        <div class="tl" data-list="alerta">
+          <p class="tl__h"><span class="mono">10 / 10</span><b>Alertas</b><span class="mono">14 tonos</span></p>
+          <ol class="trk trk--play">
+            <li><span class="mono n">01</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-01.ogg" aria-label="Escuchar Urgente"><svg><use href="#i-play"/></svg></button><span><b>Urgente</b><small>Llamada · Alertas</small></span><span class="mono d">7.0 s</span></li>
+            <li><span class="mono n">02</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-03.ogg" aria-label="Escuchar Sirena suave"><svg><use href="#i-play"/></svg></button><span><b>Sirena suave</b><small>Llamada · Alertas</small></span><span class="mono d">7.1 s</span></li>
+            <li><span class="mono n">03</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-05.ogg" aria-label="Escuchar Prioridad"><svg><use href="#i-play"/></svg></button><span><b>Prioridad</b><small>Llamada · Alertas</small></span><span class="mono d">6.5 s</span></li>
+            <li><span class="mono n">04</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-02.ogg" aria-label="Escuchar Atención"><svg><use href="#i-play"/></svg></button><span><b>Atención</b><small>Mensaje · Alertas</small></span><span class="mono d">1.8 s</span></li>
+            <li><span class="mono n">05</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-04.ogg" aria-label="Escuchar Alarma"><svg><use href="#i-play"/></svg></button><span><b>Alarma</b><small>Mensaje · Alertas</small></span><span class="mono d">1.4 s</span></li>
+            <li><span class="mono n">06</span><button type="button" class="pb" data-play="../../catalog/tones/alerta-06.ogg" aria-label="Escuchar Faro"><svg><use href="#i-play"/></svg></button><span><b>Faro</b><small>Mensaje · Alertas</small></span><span class="mono d">2.1 s</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="tuner__foot">Seis de cada categoría, para escucharlos aquí. El resto está en la pestaña Tienda de la app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 EDITOR ============ -->
+<section class="sec" id="editor" aria-labelledby="h-editor">
+  <div class="wrap">
+    <header class="sec__head" data-anim="enter">
+      <p class="eyebrow"><span class="mono">03</span> Editor</p>
+      <h2 id="h-editor">Corta al décimo de segundo.</h2>
+      <p class="sec__lead">Forma de onda con tiradores, fundido de entrada y de salida, normalizar y ganancia de −12 a +12 dB. Escucha el recorte y guárdalo como llamada o como mensaje.</p>
+    </header>
+
+    <div class="editor">
+      <div class="dialog" role="group" aria-label="Editor de la app, estilo Sony" data-anim="enter">
+        <p class="dialog__t">Editar y guardar</p>
+        <div class="dialog__body">
+          <p class="ed-time mono">0:00.0&nbsp; → &nbsp;0:05.6 &nbsp;&nbsp;·&nbsp;&nbsp; 5.6 s</p>
+          <div class="wave" style="--a:0;--b:.8" aria-label="Forma de onda de Caña con el recorte de 0:00.0 a 0:05.6" role="img">
+            <span class="wave__bars"><i style="--h:0.95"></i><i style="--h:0.64"></i><i style="--h:0.77"></i><i style="--h:0.83"></i><i style="--h:0.63"></i><i style="--h:0.45"></i><i style="--h:0.34"></i><i style="--h:0.27"></i><i style="--h:0.22"></i><i style="--h:0.19"></i><i style="--h:0.87"></i><i style="--h:0.66"></i><i style="--h:0.44"></i><i style="--h:0.38"></i><i style="--h:0.31"></i><i style="--h:0.76"></i><i style="--h:0.66"></i><i style="--h:0.51"></i><i style="--h:0.82"></i><i style="--h:0.53"></i><i style="--h:0.84"></i><i style="--h:0.86"></i><i style="--h:0.70"></i><i style="--h:0.97"></i><i style="--h:0.75"></i><i style="--h:0.53"></i><i style="--h:0.38"></i><i style="--h:0.31"></i><i style="--h:0.24"></i><i style="--h:0.20"></i><i style="--h:0.61"></i><i style="--h:0.85"></i><i style="--h:0.58"></i><i style="--h:0.45"></i><i style="--h:0.34"></i><i style="--h:0.57"></i><i style="--h:0.86"></i><i style="--h:0.67"></i><i style="--h:0.84"></i><i style="--h:0.77"></i><i style="--h:0.75"></i><i style="--h:1.00"></i><i style="--h:0.67"></i><i style="--h:0.87"></i><i style="--h:0.83"></i><i style="--h:0.62"></i><i style="--h:0.44"></i><i style="--h:0.33"></i><i style="--h:0.26"></i><i style="--h:0.21"></i><i style="--h:0.19"></i><i style="--h:0.92"></i><i style="--h:0.62"></i><i style="--h:0.43"></i><i style="--h:0.37"></i><i style="--h:0.32"></i><i style="--h:0.79"></i><i style="--h:0.64"></i><i style="--h:0.57"></i><i style="--h:0.80"></i><i style="--h:0.50"></i><i style="--h:0.90"></i><i style="--h:0.81"></i><i style="--h:0.70"></i><i style="--h:0.92"></i><i style="--h:0.72"></i><i style="--h:0.50"></i><i style="--h:0.38"></i><i style="--h:0.30"></i><i style="--h:0.24"></i><i style="--h:0.20"></i><i style="--h:0.69"></i><i style="--h:0.81"></i><i style="--h:0.52"></i><i style="--h:0.43"></i><i style="--h:0.33"></i><i style="--h:0.66"></i><i style="--h:0.85"></i><i style="--h:0.66"></i><i style="--h:0.87"></i><i style="--h:0.74"></i><i style="--h:0.81"></i><i style="--h:0.97"></i><i style="--h:0.65"></i><i style="--h:0.91"></i><i style="--h:0.79"></i><i style="--h:0.60"></i><i style="--h:0.43"></i><i style="--h:0.32"></i><i style="--h:0.25"></i><i style="--h:0.21" class=o></i><i style="--h:0.31" class=o></i><i style="--h:0.93" class=o></i><i style="--h:0.58" class=o></i><i style="--h:0.42" class=o></i><i style="--h:0.35" class=o></i><i style="--h:0.32" class=o></i><i style="--h:0.82" class=o></i><i style="--h:0.61" class=o></i><i style="--h:0.61" class=o></i><i style="--h:0.77" class=o></i><i style="--h:0.48" class=o></i><i style="--h:0.86" class=o></i><i style="--h:0.72" class=o></i><i style="--h:0.59" class=o></i><i style="--h:0.55" class=o></i><i style="--h:0.42" class=o></i><i style="--h:0.32" class=o></i><i style="--h:0.19" class=o></i><i style="--h:0.12" class=o></i><i style="--h:0.09" class=o></i><i style="--h:0.05" class=o></i></span>
+            <span class="wave__h wave__h--a"></span><span class="wave__h wave__h--b"></span>
+          </div>
+          <div class="ruler mono" aria-hidden="true"><span>0:00</span><span>0:01</span><span>0:02</span><span>0:03</span><span>0:04</span><span>0:05</span><span>0:06</span><span>0:07</span></div>
+          <p class="note">Arrastra cerca de un borde para moverlo, o toca para colocarlo.</p>
+          <div class="chips chips--ed"><span>Usar entero</span><span>Primeros 30 s</span><span>Primeros 3 s</span></div>
+          <div class="fld fld--on"><span class="val">Caña</span></div>
+          <p class="st">Ajustes</p>
+          <ul class="li">
+            <li><span><b>Fundido de entrada</b></span><button type="button" class="sw" role="switch" aria-checked="false" aria-label="Fundido de entrada"><span></span></button></li>
+            <li><span><b>Fundido de salida</b></span><button type="button" class="sw" role="switch" aria-checked="true" aria-label="Fundido de salida"><span></span></button></li>
+            <li><span><b>Normalizar volumen</b><small>Lo deja al máximo sin distorsionar</small></span><button type="button" class="sw" role="switch" aria-checked="true" aria-label="Normalizar volumen"><span></span></button></li>
+          </ul>
+          <div class="gain">
+            <p><span>Ganancia</span><span class="mono">+0 dB</span></p>
+            <div class="slider" aria-hidden="true"><span class="slider__fill"></span><span class="slider__thumb"></span></div>
+          </div>
+          <p class="st">Usar como</p>
+          <ul class="li">
+            <li><span><b>Tono de llamada</b><small>Suena en bucle</small></span><span class="rd rd--on" aria-hidden="true"></span></li>
+            <li><span><b>Tono de mensaje</b><small>Mejor si dura menos de 3 s</small></span><span class="rd" aria-hidden="true"></span></li>
+          </ul>
+          <div class="dialog__btns">
+            <button type="button" class="btn btn--line btn--block" data-play="../../catalog/tones/marimba-01.ogg" data-anim="press">Escuchar recorte</button>
+            <span class="btn btn--primary btn--block" aria-hidden="true">Guardar en mis tonos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="editor__side" data-anim="enter">
+        <div class="deck" aria-hidden="true">
+          <div class="knob" style="--v:.5"><span class="knob__cap"></span><span class="knob__lab"><b>Ganancia</b><span class="mono">−12 · +12 dB</span></span></div>
+          <div class="knob" style="--v:.0"><span class="knob__cap"></span><span class="knob__lab"><b>Inicio</b><span class="mono">0:00.0</span></span></div>
+          <div class="knob" style="--v:.8"><span class="knob__cap"></span><span class="knob__lab"><b>Fin</b><span class="mono">0:05.6</span></span></div>
+        </div>
+        <dl class="spec">
+          <div><dt>Recorte</dt><dd>Tiradores en los dos bordes; atajos para usarlo entero, los primeros 30 s o los primeros 3 s.</dd></div>
+          <div><dt>Fundidos</dt><dd>De entrada y de salida, cada uno con su interruptor.</dd></div>
+          <div><dt>Normalizar</dt><dd>Lo deja al máximo sin distorsionar.</dd></div>
+          <div><dt>Ganancia</dt><dd>De −12 a +12 dB.</dd></div>
+          <div><dt>Usar como</dt><dd>Llamada, que suena en bucle, o mensaje, mejor si dura menos de 3 s.</dd></div>
+          <div><dt>Abrir</dt><dd>Desde la tienda, desde YouTube o con <em>Compartir → Zentones</em> en cualquier app de música o archivos.</dd></div>
+        </dl>
+        <figure class="figure">
+          <img src="img/illus-editor.svg" width="1200" height="800" alt="" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 APPS ============ -->
+<section class="sec sec--panel" id="apps" aria-labelledby="h-apps">
+  <div class="wrap">
+    <header class="sec__head" data-anim="enter">
+      <p class="eyebrow"><span class="mono">04</span> Apps</p>
+      <h2 id="h-apps">Un tono para cada app.</h2>
+      <p class="sec__lead">Eliges la app y el tono. Zentones copia el tono a las carpetas de <em>Tonos</em> o <em>Notificaciones</em> del móvil y te guía paso a paso hasta donde se selecciona. No se queda escuchando ni suena por encima de otras apps.</p>
+    </header>
+
+    <div class="flow">
+      <div class="flow__step" data-anim="enter">
+        <p class="flow__n"><span class="mono">A</span> Elige el tono</p>
+        <div class="dialog">
+          <p class="dialog__t">Chat</p>
+          <div class="dialog__body">
+            <p class="note">Elige qué tono quieres para Chat. Zentones lo deja listo en tu móvil y te dice dónde seleccionarlo.</p>
+            <ul class="li">
+              <li><svg class="lead-i"><use href="#i-call"/></svg><span><b>Tono de llamada</b><small>Bambú</small></span></li>
+              <li><svg class="lead-i"><use href="#i-chat"/></svg><span><b>Tono de mensaje</b><small>Sin elegir</small></span></li>
+            </ul>
+            <div class="dialog__btns">
+              <span class="btn btn--line btn--block" aria-hidden="true">Olvidar esta app</span>
+              <span class="btn btn--primary btn--block" aria-hidden="true">Cerrar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow__step" data-anim="enter">
+        <p class="flow__n"><span class="mono">B</span> Escucha y sigue</p>
+        <div class="dialog">
+          <p class="dialog__t">Tono de mensaje</p>
+          <div class="dialog__body">
+            <p class="st st--first">De serie</p>
+            <ul class="li">
+              <li><span><b>Ding</b><small>El ding de siempre</small></span><span class="rd rd--on" aria-hidden="true"></span></li>
+              <li><span><b>Tri-tono</b><small>Tres notas de cristal hacia arriba</small></span><span class="rd" aria-hidden="true"></span></li>
+              <li><span><b>Cristal</b><small>Copa de cristal, finito</small></span><span class="rd" aria-hidden="true"></span></li>
+              <li><span><b>Gota</b><small>Kalimba que cae como una gota</small></span><span class="rd" aria-hidden="true"></span></li>
+            </ul>
+            <div class="dialog__btns">
+              <span class="btn btn--primary btn--block" aria-hidden="true">Siguiente</span>
+              <span class="btn btn--line btn--block" aria-hidden="true">Atrás</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow__step" data-anim="enter">
+        <p class="flow__n"><span class="mono">C</span> Selecciónalo</p>
+        <div class="dialog">
+          <p class="dialog__t">Chat</p>
+          <div class="dialog__body">
+            <p class="note">Listo, el tono ya está en tu móvil. Ahora selecciónalo en Chat:</p>
+            <ol class="steps">
+              <li>Toca «Abrir ajustes de notificaciones» aquí abajo</li>
+              <li>Entra en la categoría que quieras (por ejemplo «Mensajes» o «Chats»)</li>
+              <li>Toca «Sonido»</li>
+              <li>Elige «Zentones · Ding» en la lista</li>
+            </ol>
+            <p class="note">Los nombres pueden cambiar un poco según la app y tu versión de Android.</p>
+            <div class="dialog__btns">
+              <span class="btn btn--primary btn--block" aria-hidden="true">Abrir ajustes de notificaciones</span>
+              <span class="btn btn--line btn--block" aria-hidden="true">Hecho</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="apps-foot" data-anim="enter">
+      <figure class="figure figure--wide">
+        <img src="img/illus-apps.svg" width="1200" height="800" alt="" loading="lazy">
+      </figure>
+      <dl class="spec spec--2">
+        <div><dt>Apps con sus propios ajustes</dt><dd>Algunas apps de mensajería eligen el tono dentro de su menú. La guía te dice dónde está y abre la app.</dd></div>
+        <div><dt>El resto de apps</dt><dd>Usan las categorías de notificación de Android: la guía abre los ajustes de esa app y solo tienes que tocar <em>Sonido</em> y elegir «Zentones · …».</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 COMPONENTES ============ -->
+<section class="sec" id="piezas" aria-labelledby="h-piezas">
+  <div class="wrap">
+    <header class="sec__head" data-anim="enter">
+      <p class="eyebrow"><span class="mono">05</span> Componentes</p>
+      <h2 id="h-piezas">Las piezas, de cerca.</h2>
+      <p class="sec__lead">Esquinas de 4 px, líneas de medio punto, textos en mayúsculas espaciadas y un acento que solo aparece donde importa. Son las mismas piezas que dibuja la app.</p>
+    </header>
+
+    <div class="parts" data-anim="enter">
+      <div class="part part--wide">
+        <p class="part__lab"><span class="mono">05.1</span> Pestañas</p>
+        <div class="demo-tabs" aria-hidden="true"><span class="on">Tonos</span><span>Tienda</span><span>Apps</span><span>Ajustes</span></div>
+      </div>
+      <div class="part">
+        <p class="part__lab"><span class="mono">05.2</span> Botones</p>
+        <div class="demo-col">
+          <a class="btn btn--primary btn--block" href="https://github.com/luckicla/ZenTones/releases/download/android-latest/Zentones.apk" data-anim="press">Descargar</a>
+          <button type="button" class="btn btn--line btn--block" data-play="../../catalog/tones/zen-01.ogg" data-anim="press">Escuchar</button>
+        </div>
+      </div>
+      <div class="part">
+        <p class="part__lab"><span class="mono">05.3</span> Interruptor y selección</p>
+        <ul class="li li--demo">
+          <li><span><b>Buscar al abrir</b></span><button type="button" class="sw" role="switch" aria-checked="true" aria-label="Interruptor de ejemplo, activado"><span></span></button></li>
+          <li><span><b>Fundido de entrada</b></span><button type="button" class="sw" role="switch" aria-checked="false" aria-label="Interruptor de ejemplo, desactivado"><span></span></button></li>
+          <li><span><b>Oscuro</b></span><span class="rd rd--on" aria-hidden="true"></span></li>
+        </ul>
+      </div>
+      <div class="part">
+        <p class="part__lab"><span class="mono">05.4</span> Filtros</p>
+        <div class="chips chips--demo" aria-hidden="true"><span class="on">Todo</span><span>Llamadas</span><span>Mensajes</span></div>
+        <div class="fld fld--demo"><svg><use href="#i-search"/></svg><span>Busca: terror, retro, radio, láser…</span></div>
+      </div>
+      <div class="part">
+        <p class="part__lab"><span class="mono">05.5</span> Resumen</p>
+        <div class="tiles tiles--demo">
+          <div class="tile"><span class="tile__bar"></span><span><b>Llamadas</b>Bambú</span></div>
+          <div class="tile tile--alt"><span class="tile__bar"></span><span><b>Mensajes</b>Ding</span></div>
+        </div>
+      </div>
+      <div class="part part--two">
+        <p class="part__lab"><span class="mono">05.6</span> Aviso</p>
+        <div class="banner">
+          <svg class="ico"><use href="#i-info"/></svg>
+          <span>Para buscar entre miles de sonidos de Freesound añade tu API key gratuita en Ajustes.</span>
+          <b>Ir a Ajustes</b>
+        </div>
+      </div>
+      <div class="part part--wide part--glass">
+        <p class="part__lab"><span class="mono">05.7</span> Barra de cristal</p>
+        <div class="glass-demo" aria-hidden="true">
+          <div class="glass-demo__under">
+            <span>Bambú</span><span>Reflejo</span><span>Apertura</span><span>Faro</span><span>Brisa</span><span>Clásico</span><span>Cumbre</span><span>Pulso</span>
+          </div>
+          <div class="glass-demo__bar">
+            <p><span>Zentones</span><small>Tonos</small></p>
+            <div class="demo-tabs demo-tabs--flat"><span class="on">Tonos</span><span>Tienda</span><span>Apps</span><span>Ajustes</span></div>
+          </div>
+        </div>
+        <p class="part__note">La barra superior y la franja inferior son de cristal con desenfoque real en Android 12 o superior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESCARGA ============ -->
+<section class="get" id="descargar" aria-labelledby="h-get">
+  <div class="wrap get__in" data-anim="enter">
+    <img class="get__icon" src="img/icon.svg" width="96" height="96" alt="">
+    <div class="get__text">
+      <p class="eyebrow"><span class="mono">APK</span> Última versión</p>
+      <h2 id="h-get">Zentones para Android.</h2>
+      <p class="sec__lead">Android 10 o superior. La app se actualiza sola desde GitHub cuando hay una versión nueva.</p>
+    </div>
+    <a class="btn btn--primary btn--xl" href="https://github.com/luckicla/ZenTones/releases/download/android-latest/Zentones.apk" data-anim="press">
+      <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg>Descargar Zentones.apk
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="foot__home" href="../../index.html" data-anim="press">← Volver a la portada</a>
+    <nav class="foot__nav" aria-label="Otros estilos">
+      <a href="../pixel/">Pixel</a><a href="../hyperos/">HyperOS</a><a href="../oneui/">One UI</a><a href="../sony/" aria-current="page">Sony</a>
+    </nav>
+    <p class="foot__note">Zentones no está afiliada a Sony. «Estilo Sony» solo describe el aspecto de la interfaz.</p>
+  </div>
+</footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>

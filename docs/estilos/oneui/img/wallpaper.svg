@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 2340" width="1080" height="2340" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Fondo abstracto de formas suaves en tonos pastel">
+<defs>
+  <linearGradient id="b" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="#E9F0FF"/><stop offset=".45" stop-color="#F3EEFF"/><stop offset="1" stop-color="#FFF1EA"/></linearGradient>
+  <radialGradient id="o1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#8FB4FF"/><stop offset="1" stop-color="#8FB4FF" stop-opacity="0"/></radialGradient>
+  <radialGradient id="o2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFB8C8"/><stop offset="1" stop-color="#FFB8C8" stop-opacity="0"/></radialGradient>
+  <radialGradient id="o3" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#B9F0DA"/><stop offset="1" stop-color="#B9F0DA" stop-opacity="0"/></radialGradient>
+  <radialGradient id="o4" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#CDB8FF"/><stop offset="1" stop-color="#CDB8FF" stop-opacity="0"/></radialGradient>
+  <linearGradient id="w1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#DCE6FF" stop-opacity=".55"/></linearGradient>
+  <linearGradient id="w2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9C3FF" stop-opacity=".75"/><stop offset="1" stop-color="#D9C9FF" stop-opacity=".55"/></linearGradient>
+  <linearGradient id="w3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFD3C2" stop-opacity=".8"/><stop offset="1" stop-color="#FFC1D6" stop-opacity=".6"/></linearGradient>
+  <radialGradient id="s1" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#C8D8FF"/><stop offset="1" stop-color="#7E9EF5"/></radialGradient>
+  <radialGradient id="s2" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#FFD6DF"/><stop offset="1" stop-color="#F59AB0"/></radialGradient>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="40"/></filter>
+  <filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="30" stdDeviation="34" flood-color="#5a6fb0" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1080" height="2340" fill="url(#b)"/>
+<circle cx="180" cy="380" r="560" fill="url(#o1)" opacity=".85"/>
+<circle cx="980" cy="1020" r="620" fill="url(#o2)" opacity=".75"/>
+<circle cx="140" cy="1700" r="560" fill="url(#o3)" opacity=".85"/>
+<circle cx="900" cy="2200" r="520" fill="url(#o4)" opacity=".8"/>
+<path d="M-60 1180C180 1010 420 1130 600 1040S960 820 1160 900V1500C930 1420 760 1620 520 1580S120 1470-60 1560Z" fill="url(#w2)" filter="url(#sh)"/>
+<path d="M-60 1420C200 1300 400 1440 620 1380S980 1220 1160 1300V2400H-60Z" fill="url(#w1)" filter="url(#sh)"/>
+<path d="M-60 1880C220 1760 420 1900 640 1840S990 1720 1160 1780V2400H-60Z" fill="url(#w3)" filter="url(#sh)"/>
+<circle cx="820" cy="560" r="170" fill="url(#s1)" filter="url(#sh)"/>
+<circle cx="250" cy="1180" r="92" fill="url(#s2)" filter="url(#sh)"/>
+<circle cx="900" cy="1660" r="56" fill="url(#s1)" filter="url(#sh)" opacity=".95"/>
+<path d="M-60 1420C200 1300 400 1440 620 1380S980 1220 1160 1300" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="3"/>
+<path d="M-60 1880C220 1760 420 1900 640 1840S990 1720 1160 1780" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+</svg>

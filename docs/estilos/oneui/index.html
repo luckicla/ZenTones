@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zentones en estilo One UI</title>
+<meta name="description" content="Zentones con la interfaz estilo One UI: cabecera alta, tarjetas muy redondeadas y todo al alcance del pulgar. Tonos de llamada y de mensaje para cada app.">
+<meta name="theme-color" content="#F2F2F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Zentones en estilo One UI">
+<meta property="og:description" content="Cabecera alta, todo al alcance. Tonos para cada app, tienda con 140 tonos originales y editor de recortes.">
+<meta property="og:image" content="img/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+
+<!-- Iconos propios, trazos redondeados -->
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-call" viewBox="0 0 24 24"><path d="M19.6 15.4c-1.2 0-2.3-.2-3.4-.6a1 1 0 0 0-1 .3l-1.5 1.9a14.8 14.8 0 0 1-6.7-6.7l1.9-1.6c.3-.3.4-.7.3-1-.4-1.1-.6-2.2-.6-3.4 0-.6-.4-1-1-1H4.4C3.8 3.3 3 3.6 3 4.3 3 13.6 10.4 21 19.7 21c.7 0 1-.6 1-1.2v-3.4c0-.6-.5-1-1.1-1z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.4 9 7.8s-4 7.8-9 7.8c-.9 0-1.8-.1-2.6-.3L5.2 20.6c-.5.3-1.1-.1-1-.7l.6-3.3C3.7 15 3 13 3 10.8 3 6.4 7 3 12 3z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.2H9.7A2.3 2.3 0 0 0 12 22zm6.6-6.4V11c0-3.1-1.7-5.7-4.6-6.4v-.5a2 2 0 0 0-4 0v.5C7.1 5.3 5.4 7.9 5.4 11v4.6l-1.6 1.7c-.5.5-.1 1.3.6 1.3h15.2c.7 0 1.1-.8.6-1.3l-1.6-1.7z"/></symbol>
+  <symbol id="i-alarm" viewBox="0 0 24 24"><path d="M12 4.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zm3.4 11.6a1 1 0 0 1-1.4.2l-2.6-2A1 1 0 0 1 11 13.5V9a1 1 0 0 1 2 0v4l2.2 1.7c.5.3.5 1 .2 1.4zM4.3 2.9a1 1 0 0 1 1.4 1.4L3.5 6.5A1 1 0 0 1 2.1 5.1l2.2-2.2zm15.4 0 2.2 2.2a1 1 0 1 1-1.4 1.4l-2.2-2.2a1 1 0 1 1 1.4-1.4z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.9v12.2c0 .9 1 1.4 1.7.9l9-6.1c.6-.4.6-1.4 0-1.8l-9-6.1C9 4.5 8 5 8 5.9z"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M12 4.2v9.4a4 4 0 1 0 2 3.4V8h3.5a1.5 1.5 0 0 0 1.5-1.5v-1A1.5 1.5 0 0 0 17.5 4H13a1 1 0 0 0-1 .2z"/></symbol>
+  <symbol id="i-eq" viewBox="0 0 24 24"><path d="M8 6a1 1 0 0 1 2 0v12a1 1 0 0 1-2 0V6zm4-3a1 1 0 0 1 1 1v16a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1zm-8 7a1 1 0 0 1 2 0v4a1 1 0 0 1-2 0v-4zm11-3a1 1 0 0 1 2 0v10a1 1 0 0 1-2 0V7zm4 3a1 1 0 0 1 2 0v4a1 1 0 0 1-2 0v-4z"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M5.3 3h13.4c.5 0 .9.3 1 .8l1.2 4.5a3 3 0 0 1-5.3 2.5 3.4 3.4 0 0 1-5.3 0 3 3 0 0 1-5.3-2.5l1.2-4.5c.1-.5.5-.8 1-.8zM4.5 12.8c1.2.4 2.5.3 3.6-.3a5 5 0 0 0 3.9 1.3 5 5 0 0 0 3.9-1.3c1.1.6 2.4.7 3.6.3V19a2 2 0 0 1-2 2h-3v-4h-5v4h-3a2 2 0 0 1-2-2v-6.2z"/></symbol>
+  <symbol id="i-apps" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="3"/><rect x="13" y="3" width="8" height="8" rx="4"/><rect x="3" y="13" width="8" height="8" rx="4"/><rect x="13" y="13" width="8" height="8" rx="3"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="M13.6 2.5c.5 0 .9.3 1 .8l.3 1.7c.6.3 1.2.6 1.7 1l1.6-.6c.5-.2 1 0 1.3.4l1.6 2.8c.3.4.2 1-.2 1.3l-1.3 1.1a7.3 7.3 0 0 1 0 2l1.3 1.1c.4.3.5.9.2 1.3l-1.6 2.8c-.3.4-.8.6-1.3.4l-1.6-.6c-.5.4-1.1.7-1.7 1l-.3 1.7c-.1.5-.5.8-1 .8h-3.2c-.5 0-.9-.3-1-.8l-.3-1.7c-.6-.3-1.2-.6-1.7-1l-1.6.6c-.5.2-1 0-1.3-.4l-1.6-2.8c-.3-.4-.2-1 .2-1.3L4.8 13a7.3 7.3 0 0 1 0-2L3.5 9.9c-.4-.3-.5-.9-.2-1.3L4.9 5.8c.3-.4.8-.6 1.3-.4l1.6.6c.5-.4 1.1-.7 1.7-1l.3-1.7c.1-.5.5-.8 1-.8h2.8zM12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 6 12l4.2 4.2a1 1 0 0 1-1.4 1.4L15 16.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M12 4.5a6.5 6.5 0 0 1 6.4 5.4 4.8 4.8 0 0 1-.9 9.6H6.5a5.5 5.5 0 0 1-.6-11 6.5 6.5 0 0 1 6.1-4zm0 5.2a1 1 0 0 0-1 1v3.6l-1.3-1.3a1 1 0 1 0-1.4 1.4l3 3c.4.4 1 .4 1.4 0l3-3a1 1 0 1 0-1.4-1.4L13 14.3v-3.6a1 1 0 0 0-1-1z"/></symbol>
+  <symbol id="i-cut" viewBox="0 0 24 24"><path d="M6.5 3a3.5 3.5 0 0 1 3.2 4.9L12 10.2l6.4-6.4a1.6 1.6 0 0 1 2.3 2.3L9.7 17.1A3.5 3.5 0 1 1 6.9 14l2.6-2.6-1.8-1.8A3.5 3.5 0 1 1 6.5 3zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm0 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7.8-2.4 6.4 6.3a1.6 1.6 0 0 1-2.3 2.3L12 17.8l2.3-4.2z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="M6 4.5h12a3.5 3.5 0 0 1 3.5 3.5v8a3.5 3.5 0 0 1-3.5 3.5H6A3.5 3.5 0 0 1 2.5 16V8A3.5 3.5 0 0 1 6 4.5zm4 4.4v6.2c0 .6.6.9 1.1.6l4.8-3.1c.4-.3.4-.9 0-1.2L11.1 8.3c-.5-.3-1.1 0-1.1.6z"/></symbol>
+  <symbol id="i-tune" viewBox="0 0 24 24"><path d="M4 6h9.2a2.8 2.8 0 0 1 5.6 0H20a1 1 0 0 1 0 2h-1.2a2.8 2.8 0 0 1-5.6 0H4a1 1 0 0 1 0-2zm0 10h1.2a2.8 2.8 0 0 1 5.6 0H20a1 1 0 0 1 0 2h-9.2a2.8 2.8 0 0 1-5.6 0H4a1 1 0 0 1 0-2z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1zM5 19h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><path d="M7.5 7a5 5 0 0 1 4.8 3.5H21a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-1h-1.5v2a1 1 0 0 1-2 0v-2h-4.2A5 5 0 1 1 7.5 7zm0 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 1 1 0 19 9.5 9.5 0 0 1 0-19zm0 8a1 1 0 0 0-1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0-1-1zm0-3.5a1.2 1.2 0 1 0 0 2.4A1.2 1.2 0 0 0 12 7z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 1 6 2.7V5a1 1 0 0 1 2 0v4.5a1 1 0 0 1-1 1h-4.5a1 1 0 0 1 0-2h2.3A6 6 0 1 0 18 13a1 1 0 0 1 2 .1A8 8 0 1 1 12 4z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 6.3a1 1 0 0 1 0 1.4L4.4 12l4.3 4.3a1 1 0 1 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 0zm6.6 0a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 1 1-1.4-1.4l4.3-4.3-4.3-4.3a1 1 0 0 1 0-1.4z"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2.1A4.4 4.4 0 0 0 21 10.8C21 6.5 17 3 12 3zM6.5 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12.4 3.1a7.5 7.5 0 0 0 8.5 8.5A9 9 0 1 1 12.4 3.1z"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4.5 9H7l4.3-3.6c.7-.5 1.7 0 1.7.8v11.6c0 .8-1 1.3-1.7.8L7 15H4.5A1.5 1.5 0 0 1 3 13.5v-3A1.5 1.5 0 0 1 4.5 9zm11.4-1.4a1 1 0 0 1 1.4 0 6.3 6.3 0 0 1 0 8.8 1 1 0 1 1-1.4-1.4 4.3 4.3 0 0 0 0-6 1 1 0 0 1 0-1.4z"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="18.5" r="1.9"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M15.7 4.3a2.5 2.5 0 0 1 3.5 0l.5.5a2.5 2.5 0 0 1 0 3.5L9 19H5v-4L15.7 4.3z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M9.5 3h5a1 1 0 0 1 1 1V5H19a1 1 0 0 1 0 2h-.6l-.8 12a2.3 2.3 0 0 1-2.3 2H8.7a2.3 2.3 0 0 1-2.3-2L5.6 7H5a1 1 0 0 1 0-2h3.5V4a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M17.5 2.5a3.5 3.5 0 1 1-2.6 5.8l-5.3 2.9a3.5 3.5 0 0 1 0 1.6l5.3 2.9a3.5 3.5 0 1 1-1 1.8l-5.3-2.9a3.5 3.5 0 1 1 0-5.2l5.3-2.9a3.5 3.5 0 0 1 3.6-4z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M19.7 6.3a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l4.3 4.3 9.3-9.3a1 1 0 0 1 1.4 0z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M14.7 5.3a1 1 0 0 1 0 1.4L9.4 12l5.3 5.3a1 1 0 1 1-1.4 1.4l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 0 1 1.4 0z"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 5c3.7 0 7 1.4 9.6 3.8.4.4.4 1 0 1.4L12.7 19.6a1 1 0 0 1-1.4 0L2.4 10.2a1 1 0 0 1 0-1.4C5 6.4 8.3 5 12 5z"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M20 3.5c.6 0 1 .4 1 1V20a1 1 0 0 1-1 1H4.6c-.9 0-1.3-1-.7-1.6L19.3 3.8c.2-.2.4-.3.7-.3z"/></symbol>
+  <!-- iconos genéricos de apps para el móvil -->
+  <symbol id="a-chat" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#2FB863"/><path fill="#fff" d="M20 10.5c5.8 0 10 3.8 10 8.6s-4.2 8.6-10 8.6c-1 0-2-.1-2.9-.4l-4.6 2.4c-.5.3-1.1-.2-.9-.7l.9-3.5c-1.6-1.6-2.5-3.6-2.5-6.4 0-4.8 4.2-8.6 10-8.6z"/></symbol>
+  <symbol id="a-plane" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#3D7BFF"/><path fill="#fff" d="M29.4 11.1 10.9 18.4c-.9.4-.9 1.6 0 1.9l4.6 1.6 1.7 5.4c.2.7 1.1.9 1.6.4l2.6-2.4 4.6 3.4c.6.4 1.5.1 1.6-.6l3.1-14.9c.2-.9-.6-1.5-1.3-1.1zm-3.3 4-8.8 7.8-.4 3-1.2-4.2 10.4-6.6z"/></symbol>
+  <symbol id="a-mail" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#F0453A"/><rect x="10" y="13" width="20" height="14" rx="3.5" fill="#fff"/><path d="m11.5 15.5 8.5 6 8.5-6" fill="none" stroke="#F0453A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-bank" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#14B5B0"/><path fill="#fff" d="M19.4 9.7c.4-.2.8-.2 1.2 0l8.6 4.6c.6.3.4 1.3-.3 1.3H11.1c-.7 0-.9-1-.3-1.3l8.6-4.6zM12.5 17h3v8h-3zm6 0h3v8h-3zm6 0h3v8h-3zM11 26.5h18a1.3 1.3 0 0 1 0 2.6H11a1.3 1.3 0 0 1 0-2.6z"/></symbol>
+  <symbol id="a-camera" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#8E5CFF"/><path fill="#fff" d="M16.8 11h6.4c.6 0 1.1.3 1.4.8l1 1.7H28a3 3 0 0 1 3 3V26a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3v-9.5a3 3 0 0 1 3-3h2.4l1-1.7c.3-.5.8-.8 1.4-.8zM20 16.5a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6z"/><circle cx="20" cy="21.3" r="2.6" fill="#8E5CFF"/></symbol>
+  <symbol id="a-music" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#FF8A2A"/><path fill="#fff" d="M27 10.6v12.6a3.6 3.6 0 1 1-2-3.2v-6l-8 1.7v8.9a3.6 3.6 0 1 1-2-3.2v-8.4c0-.6.4-1 .9-1.1l9.9-2.1c.6-.1 1.2.3 1.2.8z"/></symbol>
+</svg>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../index.html" data-anim="press">
+      <img src="img/icon.svg" width="32" height="32" alt="">
+      <span>Zentones</span>
+    </a>
+    <nav class="seg" aria-label="Otros estilos">
+      <a href="../pixel/" data-anim="press">Pixel</a>
+      <a href="../hyperos/" data-anim="press">HyperOS</a>
+      <a href="../oneui/" aria-current="page" data-anim="press">One UI</a>
+      <a href="../sony/" data-anim="press">Sony</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-t">
+  <div class="viewing">
+    <p class="kicker" data-anim="enter">Estilo One UI</p>
+    <h1 id="hero-t" data-anim="enter">Un tono para cada app</h1>
+    <p class="lead" data-anim="enter">Cabecera alta para leer, todo lo demás abajo, al alcance del pulgar. Zentones se viste de One UI cuando lo abres en un Samsung.</p>
+  </div>
+
+  <div class="stage">
+    <div class="stage-side stage-left" data-anim="enter">
+      <p class="group-label">En la app</p>
+      <ul class="card list">
+        <li class="row">
+          <span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-call"/></svg></span>
+          <span class="row-txt"><b>Llamadas y mensajes</b><small>Un tono distinto para cada app</small></span>
+        </li>
+        <li class="row">
+          <span class="lead-ic" style="--t:#3D7BFF"><svg><use href="#i-store"/></svg></span>
+          <span class="row-txt"><b>Tienda</b><small>140 tonos originales en 10 categorías</small></span>
+        </li>
+        <li class="row">
+          <span class="lead-ic" style="--t:#FF4F8B"><svg><use href="#i-cut"/></svg></span>
+          <span class="row-txt"><b>Editor de recortes</b><small>Fundidos, normalizar y ±12 dB</small></span>
+        </li>
+        <li class="row">
+          <span class="lead-ic" style="--t:#F0453A"><svg><use href="#i-video"/></svg></span>
+          <span class="row-txt"><b>Desde YouTube</b><small>Busca una canción, baja el audio y córtalo</small></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="stage-phone">
+      <div class="wall" aria-hidden="true">
+        <img src="img/wallpaper.svg" width="1200" height="1600" alt="" loading="eager">
+      </div>
+
+      <!-- ===== MÓVIL CON LA APP ===== -->
+      <div class="phone" data-ring role="group" aria-label="Zentones funcionando en estilo One UI">
+        <div class="phone-screen">
+          <div class="sbar" aria-hidden="true">
+            <span>12:45</span>
+            <span class="sbar-ic"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><i class="batt"></i></span>
+          </div>
+
+          <!-- Tonos -->
+          <div class="scr" data-screen="tonos" id="scr-tonos" role="tabpanel" aria-labelledby="tab-tonos">
+            <div class="app-head"><h2>Tonos</h2><p>Llamadas, mensajes y alarmas</p></div>
+            <div class="tiles">
+              <div class="tile" data-anim="press"><svg class="tile-ic"><use href="#i-call"/></svg><small>Llamadas</small><b>Bambú</b></div>
+              <div class="tile" data-anim="press"><svg class="tile-ic alt"><use href="#i-chat"/></svg><small>Mensajes</small><b>Gota</b></div>
+            </div>
+            <p class="stitle">Sistema</p>
+            <ul class="card list">
+              <li class="row" data-anim="press"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-call"/></svg></span><span class="row-txt"><b>Tono de llamada</b><small>Bambú</small></span></li>
+              <li class="row" data-anim="press"><span class="lead-ic" style="--t:#3D7BFF"><svg><use href="#i-bell"/></svg></span><span class="row-txt"><b>Notificaciones</b><small>Gota</small></span></li>
+              <li class="row" data-anim="press"><span class="lead-ic" style="--t:#FF8A2A"><svg><use href="#i-alarm"/></svg></span><span class="row-txt"><b>Alarma</b><small>Apertura</small></span></li>
+            </ul>
+            <p class="stitle">Crear</p>
+            <ul class="card list">
+              <li class="row" data-anim="press"><span class="lead-ic" style="--t:#F0453A"><svg><use href="#i-video"/></svg></span><span class="row-txt"><b>Desde YouTube</b><small>Busca una canción, baja el audio y córtalo</small></span></li>
+              <li class="row" data-anim="press"><span class="lead-ic" style="--t:#FF4F8B"><svg><use href="#i-cut"/></svg></span><span class="row-txt"><b>Desde un audio del móvil</b><small>Recorta cualquier canción o sonido que tengas</small></span></li>
+            </ul>
+            <p class="stitle">De serie · Llamada</p>
+            <ul class="card list">
+              <li class="row"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-note"/></svg></span><span class="row-txt"><b>Bambú</b><small>Marimba de madera, alegre y saltarina</small></span></li>
+              <li class="row"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-note"/></svg></span><span class="row-txt"><b>Reflejo</b><small>Arpegio de kalimba sobre acordes suaves</small></span></li>
+              <li class="row"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-note"/></svg></span><span class="row-txt"><b>Apertura</b><small>Escalas de marimba que se abren hacia arriba</small></span></li>
+            </ul>
+          </div>
+
+          <!-- Tienda -->
+          <div class="scr" data-screen="tienda" id="scr-tienda" role="tabpanel" aria-labelledby="tab-tienda" hidden>
+            <div class="app-head"><h2>Tienda</h2><p>140 tonos en el catálogo · Freesound · YouTube</p></div>
+            <div class="field"><svg><use href="#i-search"/></svg><span>Busca: terror, retro, radio, láser…</span></div>
+            <div class="chips">
+              <span class="chip on">Todo</span><span class="chip">Llamadas</span><span class="chip">Mensajes</span>
+            </div>
+            <div class="chips">
+              <span class="chip on">Todas</span><span class="chip">Retro 8-bit</span><span class="chip">Terror nocturno</span><span class="chip">Radio antigua</span><span class="chip">Ciencia ficción</span>
+            </div>
+            <p class="stitle">Catálogo Zentones</p>
+            <ul class="card list">
+              <li class="row"><button class="play" type="button" data-play="../../catalog/tones/retro-01.ogg" aria-pressed="false" aria-label="Escuchar Píxel"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Píxel</b><small>Llamada · 7,2 s · Retro 8-bit</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+              <li class="row"><button class="play" type="button" data-play="../../catalog/tones/retro-02.ogg" aria-pressed="false" aria-label="Escuchar Cartucho"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Cartucho</b><small>Mensaje · 2,2 s · Retro 8-bit</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+              <li class="row"><button class="play" type="button" data-play="../../catalog/tones/terror-01.ogg" aria-pressed="false" aria-label="Escuchar Medianoche"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Medianoche</b><small>Llamada · 7,2 s · Terror nocturno</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+              <li class="row"><button class="play" type="button" data-play="../../catalog/tones/radio-01.ogg" aria-pressed="false" aria-label="Escuchar Onda media"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Onda media</b><small>Llamada · 7,9 s · Radio antigua</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+              <li class="row"><button class="play" type="button" data-play="../../catalog/tones/scifi-02.ogg" aria-pressed="false" aria-label="Escuchar Holograma"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Holograma</b><small>Mensaje · 2,6 s · Ciencia ficción</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+            </ul>
+          </div>
+
+          <!-- Apps -->
+          <div class="scr" data-screen="apps" id="scr-apps" role="tabpanel" aria-labelledby="tab-apps" hidden>
+            <div class="app-head"><h2>Apps</h2><p>Elige un tono y te guiamos para ponerlo en cada app</p></div>
+            <div class="field"><svg><use href="#i-search"/></svg><span>Buscar apps</span></div>
+            <p class="stitle">Ya configuradas</p>
+            <ul class="card list apps">
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-chat"/></svg><span class="row-txt"><b>Chat</b><small>Llamada: Bambú · Mensaje: Gota</small></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-plane"/></svg><span class="row-txt"><b>Mensajería</b><small>Mensaje: Tri-tono</small></span></li>
+            </ul>
+            <p class="stitle">Todas las apps</p>
+            <ul class="card list apps">
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-bank"/></svg><span class="row-txt"><b>Banco</b></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-camera"/></svg><span class="row-txt"><b>Cámara</b></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-chat"/></svg><span class="row-txt"><b>Chat</b><small>Llamada: Bambú · Mensaje: Gota</small></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-mail"/></svg><span class="row-txt"><b>Correo</b></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-plane"/></svg><span class="row-txt"><b>Mensajería</b><small>Mensaje: Tri-tono</small></span></li>
+              <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-music"/></svg><span class="row-txt"><b>Música</b></span></li>
+            </ul>
+          </div>
+
+          <!-- Ajustes -->
+          <div class="scr" data-screen="ajustes" id="scr-ajustes" role="tabpanel" aria-labelledby="tab-ajustes" hidden>
+            <div class="app-head"><h2>Ajustes</h2></div>
+            <p class="stitle">Estilo de interfaz</p>
+            <ul class="card list">
+              <li class="row"><span class="radio"></span><span class="row-txt"><b>Según mi móvil</b><small>Samsung → One UI</small></span></li>
+            </ul>
+            <div class="skins">
+              <div class="skin sk-pixel"><div class="mini" aria-hidden="true"><i class="mh"></i><i class="mc"></i><i class="mc"></i><i class="mn"></i></div><b>Pixel</b><small>Material You expresivo</small></div>
+              <div class="skin sk-hyper"><div class="mini" aria-hidden="true"><i class="mh"></i><i class="mc"></i><i class="mc"></i><i class="mn"></i></div><b>HyperOS</b><small>Aireado, rebote y azul</small></div>
+              <div class="skin sk-oneui sel"><div class="mini" aria-hidden="true"><i class="mh"></i><i class="mc"></i><i class="mc"></i><i class="mn"></i></div><b>One UI <i class="dot"></i></b><small>Cabecera alta, todo al alcance</small></div>
+              <div class="skin sk-sony"><div class="mini" aria-hidden="true"><i class="mh"></i><i class="mc"></i><i class="mc"></i><i class="mn"></i></div><b>Sony</b><small>Sobrio, plano, preciso</small></div>
+            </div>
+            <p class="stitle">Apariencia</p>
+            <ul class="card list">
+              <li class="row"><span class="radio on"></span><span class="row-txt"><b>Automático</b><small>Sigue al sistema</small></span></li>
+              <li class="row"><span class="radio"></span><span class="row-txt"><b>Claro</b></span></li>
+              <li class="row"><span class="radio"></span><span class="row-txt"><b>Oscuro</b></span></li>
+            </ul>
+            <p class="stitle">Actualizaciones</p>
+            <ul class="card list">
+              <li class="row"><span class="lead-ic" style="--t:#14B5B0"><svg><use href="#i-refresh"/></svg></span><span class="row-txt"><b>Buscar al abrir</b><small>Mira GitHub cada vez que abres la app</small></span><span class="sw" role="switch" aria-checked="true" aria-label="Buscar al abrir" tabindex="0"></span></li>
+            </ul>
+          </div>
+
+          <!-- Barra flotante de cristal -->
+          <div class="pnav" role="tablist" aria-label="Secciones de la app">
+            <button type="button" role="tab" id="tab-tonos" data-tab="tonos" aria-selected="true" aria-controls="scr-tonos"><svg><use href="#i-note"/></svg><span>Tonos</span></button>
+            <button type="button" role="tab" id="tab-tienda" data-tab="tienda" aria-selected="false" aria-controls="scr-tienda"><svg><use href="#i-store"/></svg><span>Tienda</span></button>
+            <button type="button" role="tab" id="tab-apps" data-tab="apps" aria-selected="false" aria-controls="scr-apps"><svg><use href="#i-apps"/></svg><span>Apps</span></button>
+            <button type="button" role="tab" id="tab-ajustes" data-tab="ajustes" aria-selected="false" aria-controls="scr-ajustes"><svg><use href="#i-gear"/></svg><span>Ajustes</span></button>
+          </div>
+          <span class="gesture" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-side stage-right" data-anim="enter">
+      <div class="card dl-card">
+        <img src="img/icon.svg" width="64" height="64" alt="">
+        <h2>Zentones</h2>
+        <p>Android 10 o superior · APK desde GitHub</p>
+        <a class="btn primary" href="https://github.com/luckicla/ZenTones/releases/download/android-latest/Zentones.apk" data-anim="press"><svg><use href="#i-download"/></svg>Descargar APK</a>
+      </div>
+      <p class="group-label">Prueba aquí</p>
+      <ul class="card list">
+        <li class="row"><span class="row-txt"><b>Fundido de salida</b><small>Activado</small></span><span class="sw" role="switch" aria-checked="true" aria-label="Fundido de salida" tabindex="0"></span></li>
+        <li class="row"><span class="row-txt"><b>Normalizar volumen</b><small>Lo deja al máximo sin distorsionar</small></span><span class="sw" role="switch" aria-checked="false" aria-label="Normalizar volumen" tabindex="0"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TONOS ============ -->
+<section class="sec" id="tonos" aria-labelledby="tonos-t">
+  <header class="sec-head" data-anim="enter">
+    <p class="kicker">Tonos</p>
+    <h2 id="tonos-t">Llamadas, mensajes y alarmas</h2>
+    <p>Elige el tono general del sistema entre los 18 de serie o los tuyos. Arriba lo lees; abajo, con el pulgar, eliges.</p>
+  </header>
+  <div class="duo">
+    <figure class="illus" data-anim="enter">
+      <img src="img/illus-tonos.svg" width="1200" height="800" alt="Ilustración de tonos sonando" loading="lazy">
+    </figure>
+    <div class="sheet" data-anim="enter">
+      <h3 class="sheet-t">Tono de llamada</h3>
+      <p class="stitle">De serie</p>
+      <ul class="card list inset">
+        <li class="row" data-anim="press"><span class="radio on"></span><span class="row-txt"><b>Bambú</b><small>Marimba de madera, alegre y saltarina</small></span></li>
+        <li class="row" data-anim="press"><span class="radio"></span><span class="row-txt"><b>Reflejo</b><small>Arpegio de kalimba sobre acordes suaves</small></span></li>
+        <li class="row" data-anim="press"><span class="radio"></span><span class="row-txt"><b>Apertura</b><small>Escalas de marimba que se abren hacia arriba</small></span></li>
+        <li class="row" data-anim="press"><span class="radio"></span><span class="row-txt"><b>Faro</b><small>Pulsos de radar, imposible no oírlo</small></span></li>
+        <li class="row" data-anim="press"><span class="radio"></span><span class="row-txt"><b>Brisa</b><small>Pad cálido con melodía de kalimba</small></span></li>
+        <li class="row" data-anim="press"><span class="radio"></span><span class="row-txt"><b>Clásico</b><small>Campanilla de teléfono de toda la vida</small></span></li>
+      </ul>
+      <div class="btns">
+        <span class="btn primary" data-anim="press">Aplicar</span>
+        <span class="btn" data-anim="press">Cancelar</span>
+      </div>
+    </div>
+  </div>
+  <div class="msg-strip" data-anim="enter">
+    <p class="stitle">De serie · Mensaje</p>
+    <ul class="pills" aria-label="Tonos de mensaje de serie">
+      <li>Ding</li><li>Tri-tono</li><li>Nota</li><li>Cristal</li><li>Burbuja</li><li>Acorde</li><li>Campanilla</li><li>Aviso</li><li>Gota</li><li>Bambú corto</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TIENDA ============ -->
+<section class="sec" id="tienda" aria-labelledby="tienda-t">
+  <header class="sec-head" data-anim="enter">
+    <p class="kicker">Tienda</p>
+    <h2 id="tienda-t">140 tonos originales</h2>
+    <p>Diez categorías, de Retro 8-bit a Zen. Si no te basta, busca en Freesound o trae el audio de YouTube. Toca el botón azul para escucharlos aquí mismo.</p>
+  </header>
+  <div class="duo rev">
+    <div class="store" data-anim="enter">
+      <div class="field big"><svg><use href="#i-search"/></svg><span>Busca: terror, retro, radio, láser…</span></div>
+      <div class="chips wrap" aria-label="Categorías">
+        <span class="chip on">Todas</span><span class="chip">Retro 8-bit</span><span class="chip">Terror nocturno</span><span class="chip">Radio antigua</span><span class="chip">Ciencia ficción</span><span class="chip">Lo-fi</span><span class="chip">Marimba y madera</span><span class="chip">Electrónica</span><span class="chip">Zen</span><span class="chip">Gaming</span><span class="chip">Alertas</span>
+      </div>
+      <p class="stitle">Catálogo Zentones</p>
+      <ul class="card list">
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/terror-05.ogg" aria-pressed="false" aria-label="Escuchar Caja de música"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Caja de música</b><small>Llamada · 7,5 s · Terror nocturno</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/radio-04.ogg" aria-pressed="false" aria-label="Escuchar Emisora fantasma"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Emisora fantasma</b><small>Mensaje · 1,6 s · Radio antigua</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/scifi-04.ogg" aria-pressed="false" aria-label="Escuchar Teletransporte"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Teletransporte</b><small>Mensaje · 2,3 s · Ciencia ficción</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/lofi-01.ogg" aria-pressed="false" aria-label="Escuchar Café"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Café</b><small>Llamada · 6,6 s · Lo-fi</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/marimba-02.ogg" aria-pressed="false" aria-label="Escuchar Isla"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Isla</b><small>Mensaje · 1,4 s · Marimba y madera</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/zen-01.ogg" aria-pressed="false" aria-label="Escuchar Loto"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Loto</b><small>Llamada · 8,7 s · Zen</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+        <li class="row"><button class="play" type="button" data-play="../../catalog/tones/gaming-01.ogg" aria-pressed="false" aria-label="Escuchar Logro"><svg><use href="#i-play"/></svg></button><span class="row-txt"><b>Logro</b><small>Llamada · 7,1 s · Gaming</small></span><svg class="trail"><use href="#i-cloud"/></svg></li>
+      </ul>
+      <p class="foot-note">Al descargar un tono se abre el editor para recortarlo antes de guardarlo. Respeta la licencia de cada sonido.</p>
+    </div>
+    <div class="col">
+      <figure class="illus" data-anim="enter">
+        <img src="img/illus-tienda.svg" width="1200" height="800" alt="Ilustración de la tienda de tonos por categorías" loading="lazy">
+      </figure>
+      <p class="stitle" data-anim="enter">Más fuentes</p>
+      <ul class="card list" data-anim="enter">
+        <li class="row"><span class="lead-ic" style="--t:#F0453A"><svg><use href="#i-video"/></svg></span><span class="row-txt"><b>Buscar «radio» en YouTube</b><small>Baja el audio y córtalo como quieras</small></span></li>
+        <li class="row"><span class="lead-ic" style="--t:#8E5CFF"><svg><use href="#i-key"/></svg></span><span class="row-txt"><b>API key de Freesound</b><small>Sin configurar · gratis en freesound.org</small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDITOR ============ -->
+<section class="sec" id="editor" aria-labelledby="editor-t">
+  <header class="sec-head" data-anim="enter">
+    <p class="kicker">Editor</p>
+    <h2 id="editor-t">Recorta, funde y guarda</h2>
+    <p>Dos tiradores sobre la onda, fundidos de entrada y salida, normalizar y ganancia de −12 a +12 dB. Todo en una hoja que sube desde abajo.</p>
+  </header>
+  <div class="duo">
+    <figure class="illus" data-anim="enter">
+      <img src="img/illus-editor.svg" width="1200" height="800" alt="Ilustración del editor de recortes con forma de onda" loading="lazy">
+    </figure>
+    <div class="sheet editor" data-anim="enter">
+      <h3 class="sheet-t">Editar y guardar</h3>
+      <p class="time">0:00,0 &nbsp;→&nbsp; 0:07,2 &nbsp;&nbsp;·&nbsp;&nbsp; 7,2 s</p>
+      <div class="wave" style="--a:4%;--b:72%" aria-label="Forma de onda con el recorte seleccionado" role="img">
+        <div class="bars" aria-hidden="true"><i style="--h:8%"></i><i style="--h:10%"></i><i style="--h:13%"></i><i style="--h:25%"></i><i style="--h:22%"></i><i style="--h:29%"></i><i style="--h:24%"></i><i style="--h:31%"></i><i style="--h:53%"></i><i style="--h:55%"></i><i style="--h:40%"></i><i style="--h:33%"></i><i style="--h:64%"></i><i style="--h:43%"></i><i style="--h:37%"></i><i style="--h:53%"></i><i style="--h:89%"></i><i style="--h:52%"></i><i style="--h:51%"></i><i style="--h:69%"></i><i style="--h:53%"></i><i style="--h:49%"></i><i style="--h:53%"></i><i style="--h:83%"></i><i style="--h:53%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:81%"></i><i style="--h:49%"></i><i style="--h:77%"></i><i style="--h:75%"></i><i style="--h:60%"></i><i style="--h:68%"></i><i style="--h:45%"></i><i style="--h:65%"></i><i style="--h:51%"></i><i style="--h:59%"></i><i style="--h:57%"></i><i style="--h:75%"></i><i style="--h:47%"></i><i style="--h:46%"></i><i style="--h:65%"></i><i style="--h:57%"></i><i style="--h:78%"></i><i style="--h:55%"></i><i style="--h:47%"></i><i style="--h:41%"></i><i style="--h:51%"></i><i style="--h:36%"></i><i style="--h:42%"></i><i style="--h:44%"></i><i style="--h:72%"></i><i style="--h:33%"></i><i style="--h:29%"></i><i style="--h:48%"></i><i style="--h:29%"></i><i style="--h:33%"></i><i style="--h:28%"></i><i style="--h:39%"></i><i style="--h:26%"></i><i style="--h:14%"></i><i style="--h:12%"></i><i style="--h:8%"></i><i style="--h:8%"></i></div>
+        <span class="handle h-a"></span><span class="handle h-b"></span>
+      </div>
+      <p class="note">Arrastra cerca de un borde para moverlo, o toca para colocarlo.</p>
+      <div class="chips">
+        <span class="chip">Usar entero</span><span class="chip on">Primeros 30 s</span><span class="chip">Primeros 3 s</span>
+      </div>
+      <div class="field"><span class="val">Medianoche</span></div>
+      <p class="stitle">Ajustes</p>
+      <ul class="card list inset">
+        <li class="row"><span class="row-txt"><b>Fundido de entrada</b></span><span class="sw" role="switch" aria-checked="false" aria-label="Fundido de entrada" tabindex="0"></span></li>
+        <li class="row"><span class="row-txt"><b>Fundido de salida</b></span><span class="sw" role="switch" aria-checked="true" aria-label="Fundido de salida" tabindex="0"></span></li>
+        <li class="row"><span class="row-txt"><b>Normalizar volumen</b><small>Lo deja al máximo sin distorsionar</small></span><span class="sw" role="switch" aria-checked="true" aria-label="Normalizar volumen" tabindex="0"></span></li>
+      </ul>
+      <label class="gain"><span>Ganancia</span><output>+0 dB</output>
+        <input type="range" min="-12" max="12" step="1" value="0" aria-label="Ganancia en decibelios">
+      </label>
+      <p class="stitle">Usar como</p>
+      <ul class="card list inset">
+        <li class="row"><span class="radio on"></span><span class="row-txt"><b>Tono de llamada</b><small>Suena en bucle</small></span></li>
+        <li class="row"><span class="radio"></span><span class="row-txt"><b>Tono de mensaje</b><small>Mejor si dura menos de 3 s</small></span></li>
+      </ul>
+      <div class="btns">
+        <button class="btn" type="button" data-play="../../catalog/tones/terror-01.ogg" aria-pressed="false" data-anim="press">Escuchar recorte</button>
+        <span class="btn primary" data-anim="press">Guardar en mis tonos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPS ============ -->
+<section class="sec" id="apps" aria-labelledby="apps-t">
+  <header class="sec-head" data-anim="enter">
+    <p class="kicker">Apps</p>
+    <h2 id="apps-t">Cada app, su tono</h2>
+    <p>Eliges el tono, Zentones lo deja listo en tu móvil y te dice paso a paso dónde seleccionarlo dentro de cada app.</p>
+  </header>
+  <div class="trio">
+    <div class="sheet" data-anim="enter">
+      <div class="sheet-app"><svg class="app-ic"><use href="#a-chat"/></svg><h3 class="sheet-t">Chat</h3></div>
+      <p class="note">Elige qué tono quieres para Chat. Zentones lo deja listo en tu móvil y te dice dónde seleccionarlo.</p>
+      <ul class="card list inset">
+        <li class="row" data-anim="press"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-call"/></svg></span><span class="row-txt"><b>Tono de llamada</b><small>Bambú</small></span></li>
+        <li class="row" data-anim="press"><span class="lead-ic" style="--t:#3D7BFF"><svg><use href="#i-chat"/></svg></span><span class="row-txt"><b>Tono de mensaje</b><small>Gota</small></span></li>
+      </ul>
+      <div class="btns"><span class="btn primary" data-anim="press">Cerrar</span></div>
+    </div>
+    <div class="sheet" data-anim="enter">
+      <div class="sheet-app"><svg class="app-ic"><use href="#a-plane"/></svg><h3 class="sheet-t">Mensajería</h3></div>
+      <p class="note">Listo, el tono ya está en tu móvil. Ahora selecciónalo en Mensajería:</p>
+      <ol class="steps">
+        <li>Toca «Abrir ajustes de notificaciones» aquí abajo</li>
+        <li>Entra en la categoría que quieras (por ejemplo «Mensajes» o «Chats»)</li>
+        <li>Toca «Sonido»</li>
+        <li>Elige «Zentones · Tri-tono» en la lista</li>
+      </ol>
+      <p class="note">Los nombres pueden cambiar un poco según la app y tu versión de Android.</p>
+      <div class="btns">
+        <span class="btn primary" data-anim="press">Abrir ajustes de notificaciones</span>
+        <span class="btn" data-anim="press">Hecho</span>
+      </div>
+    </div>
+    <div class="col apps-col">
+      <figure class="illus" data-anim="enter">
+        <img src="img/illus-apps.svg" width="1200" height="800" alt="Ilustración de apps, cada una con su tono" loading="lazy">
+      </figure>
+      <p class="stitle" data-anim="enter">Ya configuradas</p>
+      <ul class="card list" data-anim="enter">
+        <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-chat"/></svg><span class="row-txt"><b>Chat</b><small>Llamada: Bambú · Mensaje: Gota</small></span></li>
+        <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-plane"/></svg><span class="row-txt"><b>Mensajería</b><small>Mensaje: Tri-tono</small></span></li>
+        <li class="row" data-anim="press"><svg class="app-ic"><use href="#a-bank"/></svg><span class="row-txt"><b>Banco</b><small>Mensaje: Aviso</small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIEZAS ============ -->
+<section class="sec" id="piezas" aria-labelledby="piezas-t">
+  <header class="sec-head" data-anim="enter">
+    <p class="kicker">Piezas</p>
+    <h2 id="piezas-t">Hecho con piezas de One UI</h2>
+    <p>Interruptores, botones en píldora, tarjetas con separadores sangrados, barra flotante de cristal y menús que difuminan lo que hay detrás.</p>
+  </header>
+  <div class="bento">
+    <div class="b-item" data-anim="enter">
+      <p class="stitle">Interruptores</p>
+      <ul class="card list">
+        <li class="row"><span class="lead-ic" style="--t:#3D7BFF"><svg><use href="#i-refresh"/></svg></span><span class="row-txt"><b>Buscar al abrir</b><small>Mira GitHub cada vez que abres la app</small></span><span class="sw" role="switch" aria-checked="true" aria-label="Buscar al abrir" tabindex="0"></span></li>
+        <li class="row"><span class="lead-ic" style="--t:#FF8A2A"><svg><use href="#i-volume"/></svg></span><span class="row-txt"><b>Fundido de entrada</b></span><span class="sw" role="switch" aria-checked="false" aria-label="Fundido de entrada" tabindex="0"></span></li>
+        <li class="row"><span class="lead-ic" style="--t:#8E5CFF"><svg><use href="#i-moon"/></svg></span><span class="row-txt"><b>Oscuro</b><small>Fondo negro puro</small></span><span class="sw" role="switch" aria-checked="false" aria-label="Oscuro" tabindex="0"></span></li>
+      </ul>
+    </div>
+
+    <div class="b-item" data-anim="enter">
+      <p class="stitle">Permisos</p>
+      <ul class="card list">
+        <li class="row"><span class="lead-ic" style="--t:#FF8A2A"><svg><use href="#i-tune"/></svg></span><span class="row-txt"><b>Cambiar tonos del sistema</b><small>Para los tonos generales</small></span><span class="state on">Activar</span></li>
+        <li class="row"><span class="lead-ic" style="--t:#2FB863"><svg><use href="#i-download"/></svg></span><span class="row-txt"><b>Instalar actualizaciones</b><small>Para actualizar desde GitHub</small></span><span class="state">Activo</span></li>
+        <li class="row"><span class="lead-ic" style="--t:#8A8F98"><svg><use href="#i-code"/></svg></span><span class="row-txt"><b>Repositorio</b><small>luckicla/ZenTones</small></span></li>
+      </ul>
+    </div>
+
+    <div class="b-item glass-demo" data-anim="enter">
+      <img src="img/wallpaper.svg" width="1200" height="1600" alt="" loading="lazy" class="glass-bg">
+      <div class="menu" role="menu" aria-label="Menú de un tono">
+        <span role="menuitem" data-anim="press"><svg><use href="#i-play"/></svg>Escuchar</span>
+        <span role="menuitem" data-anim="press"><svg><use href="#i-edit"/></svg>Renombrar</span>
+        <span role="menuitem" data-anim="press"><svg><use href="#i-bell"/></svg>Usar como tono de mensaje</span>
+        <span role="menuitem" data-anim="press" class="danger"><svg><use href="#i-trash"/></svg>Eliminar</span>
+      </div>
+      <p class="cap">Menú de cristal</p>
+    </div>
+
+    <div class="b-item" data-anim="enter">
+      <p class="stitle">Botones</p>
+      <div class="card pad">
+        <div class="btns">
+          <span class="btn primary" data-anim="press">Guardar</span>
+          <span class="btn" data-anim="press">Escuchar</span>
+          <span class="btn" data-anim="press">Eliminar</span>
+        </div>
+        <div class="chips wrap">
+          <span class="chip on">Todo</span><span class="chip">Llamadas</span><span class="chip">Mensajes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-item" data-anim="enter">
+      <p class="stitle">Barra flotante</p>
+      <div class="nav-demo">
+        <img src="img/wallpaper.svg" width="1200" height="1600" alt="" loading="lazy" class="glass-bg">
+        <div class="pnav static" aria-hidden="true">
+          <span class="on"><svg><use href="#i-note"/></svg><span>Tonos</span></span>
+          <span><svg><use href="#i-store"/></svg><span>Tienda</span></span>
+          <span><svg><use href="#i-apps"/></svg><span>Apps</span></span>
+          <span><svg><use href="#i-gear"/></svg><span>Ajustes</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-item b-wide" data-anim="enter">
+      <p class="stitle">Tarjetas</p>
+      <div class="tiles big">
+        <div class="tile" data-anim="press"><svg class="tile-ic"><use href="#i-call"/></svg><small>Llamadas</small><b>Bambú</b></div>
+        <div class="tile" data-anim="press"><svg class="tile-ic alt"><use href="#i-chat"/></svg><small>Mensajes</small><b>Gota</b></div>
+      </div>
+      <div class="card banner">
+        <p>Para buscar entre miles de sonidos de Freesound añade tu API key gratuita en Ajustes.</p>
+        <span class="link">Ir a Ajustes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESCARGA ============ -->
+<section class="sec cta" id="descargar" aria-labelledby="cta-t">
+  <div class="cta-card" data-anim="enter">
+    <img src="img/icon.svg" width="96" height="96" alt="">
+    <h2 id="cta-t">Llévate Zentones</h2>
+    <p>Gratis, para Android 10 o superior. Al abrirla en un Samsung se pone sola en estilo One UI; en Ajustes puedes elegir cualquiera de los cuatro.</p>
+    <a class="btn primary xl" href="https://github.com/luckicla/ZenTones/releases/download/android-latest/Zentones.apk" data-anim="press"><svg><use href="#i-download"/></svg>Descargar APK</a>
+    <p class="small">Se descarga desde las Releases de GitHub. Android te pedirá permiso para instalar apps de esta fuente.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <a class="brand" href="../../index.html"><img src="img/icon.svg" width="28" height="28" alt=""><span>Volver a la portada</span></a>
+  <nav aria-label="Estilos">
+    <a href="../pixel/">Pixel</a><a href="../hyperos/">HyperOS</a><a href="../oneui/" aria-current="page">One UI</a><a href="../sony/">Sony</a>
+  </nav>
+  <p>Zentones · Estilo inspirado en One UI. Samsung y One UI son marcas de sus dueños; esta página no está afiliada a ellos.</p>
+</footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>
